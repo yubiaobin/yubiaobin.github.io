@@ -1,4 +1,6 @@
-yubiaobin.github.com
+My bolg on Github 
 ====================
 
-It's my bolg on github
+the project name is yubiaobin.github.com
+
+the domain is www.yubiaobin.github.io  or  short for www.oc35.com
