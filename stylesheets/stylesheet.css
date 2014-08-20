@@ -402,6 +402,11 @@ footer a:hover {
 
 /*custom style*/
 
+img[src="http://eiv.baidu.com/hmt/icon/21.gif"]{
+  display:none;
+}
+
+
 .content{
     border-top: 1px solid #bdbdbd;
     padding-top:25px;
