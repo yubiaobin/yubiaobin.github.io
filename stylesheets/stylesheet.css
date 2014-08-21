@@ -400,20 +400,43 @@ footer a:hover {
 
 
 
-/*custom style*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------custom style----------------------------*/
+/*去除百度检测图片样式*/
 img[src="http://eiv.baidu.com/hmt/icon/21.gif"]{
   display:none;
 }
 
 
 .content{
-    border-top: 1px solid #bdbdbd;
+    background: transparent url('../images/hr.png') 0 0 no-repeat;
+    /*border-top: 1px solid #bdbdbd;*/
     padding-top:25px;
 }
 
+.index_list li{
+  list-style:none;
+  margin:20px 0;
+  padding:10px 0;
+  background:#ededed;
+}
 
-
+.index_list .index_list_date{
+  float:right;
+  padding-right:20px;
+}
 
 
 
