@@ -14,8 +14,10 @@ layout: default_index
 	<ul class="index_list">
 	    {% for post in site.posts %}
 	        <li>
-	        	<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-	        	<span class="index_list_date"><span> - - - - </span>{{ post.date | date_to_string }}</span>	
+	        	<a href="{{ site.url }}{{ post.url }}">
+	        		<span>{{ post.title }}</span>	
+	        		<span class="index_list_date"><span> - - - - </span>{{ post.date | date_to_string }}</span>
+	        	</a>	
 	        </li>
 	    {% endfor %}
 	</ul>
