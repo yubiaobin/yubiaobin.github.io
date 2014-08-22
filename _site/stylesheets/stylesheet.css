@@ -456,9 +456,18 @@ img[src="http://eiv.baidu.com/hmt/icon/21.gif"]{
     padding:10px 0 10px 20px; 
     text-shadow:none;
     border-radius:2px;
+    cursor:pointer;
 }
-.index_list li a {color: #d5000d; background:#ededed} 
-.index_list li a:hover {color: #c5000c; background: #d8d8d8}
+.index_list li a {
+  color: #d5000d; 
+  background:#ededed;
+  cursor:pointer;
+} 
+.index_list li a:hover {
+  color: #c5000c; 
+  background: #d8d8d8;
+  cursor:pointer;
+}
 
 
 
