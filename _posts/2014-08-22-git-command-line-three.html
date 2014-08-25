@@ -6,102 +6,73 @@ title : git 基础常用命令（三）
 
 
 
-<h3>git create（git 创建命令）</h3>
+<h3>Update & Publish（更新和发布）</h3>
 
-<h4>Clone an existing repository（克隆远程已存在的版本库）</h4>
+<h4>List all currently configured remotes（列出所有当前的远程配置）</h4>
 <p>
 	{% highlight ruby %}
-	$ git clone ssh://user@domail.com/repo.git
-	{% endhighlight %}
-</p>
-<p>
-	{% highlight ruby %}
-	$ git clone https://user@github.com/someone/repo.git
+	$ git remote -v
 	{% endhighlight %}
 </p>
 
-<h4>Create an new local repository（创建本地的本版库）</h4>
+<h4>Show information about a remote（显示远程版本库信息）</h4>
 <p>
 	{% highlight ruby %}
-	$ git init
+	$ git remote show
 	{% endhighlight %}
 </p>
 
 
-
-
-<h3>local changes（本地的更改命令）</h3>
-
-<h4>Changed files in your working directory（本地目录更改状态）</h4>
+<h4>Add mew remote repository , named <remote>（增加一个新的名为<remote>的远程版本）</h4>
 <p>
 	{% highlight ruby %}
-	$ git status
-	{% endhighlight %}
-</p>
-
-<h4>Changes to tracked files（本地目录追踪文件更改的比较）</h4>
-<p>
-	{% highlight ruby %}
-	$ git diff
+	$ git remote add <remote>
 	{% endhighlight %}
 </p>
 
 
-<h4>Add all current changes to the next commit（添加当前所有的更改去暂存区以备提交）</h4>
+<h4>Download all changes from <remote> , but don't integrate into HEAD（从远程下载所有更改，但是不和本地合并）</h4>
 <p>
 	{% highlight ruby %}
-	$ git add
+	$ git fetch <remote>
 	{% endhighlight %}
 </p>
 
 
-<h4>Add some changes in <file> to the next commit（添加当前file文件所有的更改去暂存区以备提交）</h4>
+<h4>Download changes and directly merge/integrate into HEAD （从远程下载所有更改，并且和本地合并）</h4>
 <p>
 	{% highlight ruby %}
-	$ git add -p <file>
-	{% endhighlight %}
-</p>
-
-
-<h4>Add all changes in all range to the next commit（添加当前目录所有文件所有的更改去暂存区以备提交）</h4>
-<p>
-	{% highlight ruby %}
-	$ git add --all
+	$ git pull <remote> <branch>
 	{% endhighlight %}
 </p>
 
 
 
-<h4>Commit previously staged changes（提交之前暂存区的更改）</h4>
+<h4>Publish local changes on a remote（发布本地的提交的更改去远程版本库）</h4>
 <p>
 	{% highlight ruby %}
-	$ git commit
+	$ git push <remote> <branch>
 	{% endhighlight %}
 </p>
 
 
-<h4>Commit all local changes in tracked files（提交之前所有本地追踪文件的更改）</h4>
+<h4>Delete a branch on the remote（删除远程的版本库的一个分支）</h4>
 <p>
 	{% highlight ruby %}
-	$ git commit -a <file>
+	$ git push <remote> : <branch>
 	{% endhighlight %}
 </p>
 
 
-<h4>Change the last commit（查看上次提交的更改的部分）</h4>
+
+<h4>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</h4>
 <p>
 	{% highlight ruby %}
-	$ git commit --amend
+	$ git push --tags
 	{% endhighlight %}
 </p>
 
 
-<h4>Add a message at this commit（添加这次提交更改的文字说明）</h4>
-<p>
-	{% highlight ruby %}
-	$ git commit -m
-	{% endhighlight %}
-</p>
 
 
 
