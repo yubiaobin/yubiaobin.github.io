@@ -9,42 +9,22 @@ title : git alias(别名设置命令)
 
 <h3>git alias(别名设置命令)</h3>
 
+
+
+<p>将git status 简化为git st</p>
 <p>
-	{% highlight ruby linenos %}
-	def show
-	  @widget = Widget(params[:id])
-	  respond_to do |format|
-	    format.html # show.html.erb
-	    format.json { render json: @widget }
-	  end
-	end
+	{% highlight ruby %}
+	$ git config --global alias.st status
 	{% endhighlight %}
 </p>
 
 
-<pre>
-	<code>
-		{% highlight ruby %}
-		def show
-		  @widget = Widget(params[:id])
-		  respond_to do |format|
-		    format.html # show.html.erb
-		    format.json { render json: @widget }
-		  end
-		end
-		{% endhighlight %}
-
-		
-		$ git config --global alias.st status
-	</code>
-</pre>
-<p>将git status 简化为git st</p>
-<pre>
-	<code>
-		$ git config --global alias.cm commit
-	</code>
-</pre>
 <p>将git commit 简化为git cm</p>
+<p>
+	{% highlight ruby %}
+	$ git config --global alias.cm commit
+	{% endhighlight %}
+</p>
 
 
 
