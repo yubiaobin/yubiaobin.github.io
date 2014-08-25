@@ -6,36 +6,35 @@ title : git 基础常用命令（四）
 
 
 
-<h3>git create（git 创建命令）</h3>
+<h3>Merge & Rebase（合并，重定义）</h3>
 
-<h4>Clone an existing repository（克隆远程已存在的版本库）</h4>
+<h4>Merge <branch> into your current HEAD（合并分支去当前版本）</h4>
 <p>
 	{% highlight ruby %}
-	$ git clone ssh://user@domail.com/repo.git
-	{% endhighlight %}
-</p>
-<p>
-	{% highlight ruby %}
-	$ git clone https://user@github.com/someone/repo.git
+	$ git merge <branch>
 	{% endhighlight %}
 </p>
 
-<h4>Create an new local repository（创建本地的本版库）</h4>
+<h4>Rebase your current HEAD onto <branch>（重定义当前的版本）</h4>
 <p>
 	{% highlight ruby %}
-	$ git init
+	$ git rebase <branch>
 	{% endhighlight %}
 </p>
 
 
 
-
-<h3>local changes（本地的更改命令）</h3>
-
-<h4>Changed files in your working directory（本地目录更改状态）</h4>
+<h4>Abort a rebase（中支重定义）</h4>
 <p>
 	{% highlight ruby %}
-	$ git status
+	$ git rebase --abort
+	{% endhighlight %}
+</p>
+
+<h4>Continue a rebase after resolving conflicts（解决冲突之后继续）</h4>
+<p>
+	{% highlight ruby %}
+	$ git rebase --continue
 	{% endhighlight %}
 </p>
 
@@ -47,61 +46,6 @@ title : git 基础常用命令（四）
 </p>
 
 
-<h4>Add all current changes to the next commit（添加当前所有的更改去暂存区以备提交）</h4>
-<p>
-	{% highlight ruby %}
-	$ git add
-	{% endhighlight %}
-</p>
-
-
-<h4>Add some changes in <file> to the next commit（添加当前file文件所有的更改去暂存区以备提交）</h4>
-<p>
-	{% highlight ruby %}
-	$ git add -p <file>
-	{% endhighlight %}
-</p>
-
-
-<h4>Add all changes in all range to the next commit（添加当前目录所有文件所有的更改去暂存区以备提交）</h4>
-<p>
-	{% highlight ruby %}
-	$ git add --all
-	{% endhighlight %}
-</p>
-
-
-
-<h4>Commit previously staged changes（提交之前暂存区的更改）</h4>
-<p>
-	{% highlight ruby %}
-	$ git commit
-	{% endhighlight %}
-</p>
-
-
-<h4>Commit all local changes in tracked files（提交之前所有本地追踪文件的更改）</h4>
-<p>
-	{% highlight ruby %}
-	$ git commit -a <file>
-	{% endhighlight %}
-</p>
-
-
-<h4>Change the last commit（查看上次提交的更改的部分）</h4>
-<p>
-	{% highlight ruby %}
-	$ git commit --amend
-	{% endhighlight %}
-</p>
-
-
-<h4>Add a message at this commit（添加这次提交更改的文字说明）</h4>
-<p>
-	{% highlight ruby %}
-	$ git commit -m
-	{% endhighlight %}
-</p>
 
 
 
