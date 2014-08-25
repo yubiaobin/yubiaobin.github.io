@@ -6,31 +6,33 @@ title : git 基础常用命令（二）
 
 
 
-<h3>git create（git 创建命令）</h3>
+<h3>Commit history（提交历史）</h3>
 
-<h4>Clone an existing repository（克隆远程已存在的版本库）</h4>
+<h4>Show all commits , staring with newest（从最近的提交开始显示所有的提交）</h4>
 <p>
 	{% highlight ruby %}
-	$ git clone ssh://user@domail.com/repo.git
-	{% endhighlight %}
-</p>
-<p>
-	{% highlight ruby %}
-	$ git clone https://user@github.com/someone/repo.git
+	$ git log
 	{% endhighlight %}
 </p>
 
-<h4>Create an new local repository（创建本地的本版库）</h4>
+<h4>Show changes over time for a specific file（特定文件的按时间显示提交历史）</h4>
 <p>
 	{% highlight ruby %}
-	$ git init
+	$ git log -p <file>
+	{% endhighlight %}
+</p>
+
+<h4>Who changed what and when in <file>（什么时候谁更改了文件）</h4>
+<p>
+	{% highlight ruby %}
+	$ git blame <file>
 	{% endhighlight %}
 </p>
 
 
 
 
-<h3>local changes（本地的更改命令）</h3>
+<h3>Branches & Tags（分支和标识）</h3>
 
 <h4>Changed files in your working directory（本地目录更改状态）</h4>
 <p>
