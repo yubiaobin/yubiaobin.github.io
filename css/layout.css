@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors maxyu (yubiaobin1986@gmail.com)
+ * @date    2014-08-26 16:34:52
+ * @version $Id$
+ */
+
+
+
+
+
+
+/*----------------------------custom style----------------------------*/
+/*去除百度检测图片样式*/
+img[src="http://eiv.baidu.com/hmt/icon/21.gif"]{
+  display:none;
+}
+
+.content{
+    position: relative;
+    background: transparent url('../images/hr.png') 0 0 no-repeat;
+    /*border-top: 1px solid #bdbdbd;*/
+    padding-top:25px;
+}
+
+
+
+
+/*文章模板页样式*/
+.author_date{margin-top:120px;}
+.copyright{font-size:12px; margin-bottom:60px;}
+.back_to_index{
+    position: absolute;
+    top:20px;
+    right:20px;
+}
+
+
+
+/*首页列表样式*/
+.index_list li{
+    list-style:none;
+    margin:10px 0;
+    padding-left:0;
+    /*padding:10px 0;*/
+    background:#ededed;
+
+}
+.index_list li a{
+    display:block; 
+    padding:10px 0 10px 20px; 
+    text-shadow:none;
+    border-radius:2px;
+    cursor:pointer;
+}
+.index_list li a {
+  color: #d5000d; 
+  background:#ededed;
+  cursor:pointer;
+} 
+.index_list li a:hover {
+  color: #c5000c; 
+  background: #d8d8d8;
+  cursor:pointer;
+}
+
+
+
+
+.index_list .index_list_date{
+    float:right;
+    padding-right:20px;
+}
+.index_list li .index_list_date{color: #6d6d6d; text-shadow:none} 
+.index_list li .index_list_date:hover{color: #6d6d6d; text-shadow:none}
+
+
+
+
