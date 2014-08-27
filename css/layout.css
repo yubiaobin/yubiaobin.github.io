@@ -78,15 +78,15 @@ header {
 header h1 {
     font-weight: 900;
     letter-spacing: -1px;
-    font-size: 48px;
+    font-size: 38px;
     color: #000;
     line-height: 1.2;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+/*    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
     color-stop(0%,rgba(0,0,0,.6)), 
     color-stop(30%,rgba(0,0,0,.2)),
     color-stop(50%,rgba(0,0,0,.3)), 
     color-stop(60%,rgba(0,0,0,.6)),
-    color-stop(100%,rgba(0,0,0,1)));
+    color-stop(100%,rgba(0,0,0,1)));*/
 }
 
 header h2 {
