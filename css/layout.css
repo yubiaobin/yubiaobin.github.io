@@ -61,6 +61,7 @@ body {
     font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
     color: #6d6d6d;
+    font-family: "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 a {
@@ -100,11 +101,11 @@ header h2 {
 
 
 #container {
-  min-height: 595px;
+  min-height: 600px;
 }
 
 .inner {
-  width: 620px;
+  width: 780px;
   margin: 0 auto;
 }
 
@@ -436,9 +437,11 @@ img[src="http://eiv.baidu.com/hmt/icon/21.gif"]{
     cursor:pointer;
 }
 .index_list li a {
-  color: #d5000d; 
-  background:#ededed;
+  color: #333; 
+  font-size:24px;
+  /*background:#ededed;*/
   cursor:pointer;
+  font-family: "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 } 
 .index_list li a:hover {
   color: #c5000c; 
