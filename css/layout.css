@@ -122,9 +122,9 @@ header h2 {
 }
 
 a.button {
-  -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;                     
-  border-radius: 30px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;                     
+  border-radius: 10px;
   border-top: solid 1px #cbcbcb;
   border-left: solid 1px #b7b7b7;
   border-right: solid 1px #b7b7b7;
@@ -403,6 +403,13 @@ footer a:hover {
 img[src="http://eiv.baidu.com/hmt/icon/21.gif"]{
   display:none;
 }
+
+
+
+.header_jekyll{color:#666;}
+.header_jekyll:hover{color:#333;}
+
+
 
 .content{
     position: relative;
