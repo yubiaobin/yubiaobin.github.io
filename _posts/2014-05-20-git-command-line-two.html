@@ -8,21 +8,21 @@ title : git 基础常用命令（二）
 
 <h3>Commit history（提交历史）</h3>
 
-<h4>Show all commits , staring with newest（从最近的提交开始显示所有的提交）</h4>
+<p>Show all commits , staring with newest（从最近的提交开始显示所有的提交）</p>
 <p>
 	{% highlight java %}
 	$ git log
 	{% endhighlight %}
 </p>
 
-<h4>Show changes over time for a specific file（特定文件的按时间显示提交历史）</h4>
+<p>Show changes over time for a specific file（特定文件的按时间显示提交历史）</p>
 <p>
 	{% highlight java %}
 	$ git log -p <file>
 	{% endhighlight %}
 </p>
 
-<h4>Who changed what and when in <file>（什么时候谁更改了文件）</h4>
+<p>Who changed what and when in <file>（什么时候谁更改了文件）</p>
 <p>
 	{% highlight java %}
 	$ git blame <file>
@@ -34,14 +34,14 @@ title : git 基础常用命令（二）
 
 <h3>Branches & Tags（分支和标识）</h3>
 
-<h4>List all existing branches（列出所有现有的分支）</h4>
+<p>List all existing branches（列出所有现有的分支）</p>
 <p>
 	{% highlight java %}
 	$ git branch
 	{% endhighlight %}
 </p>
 
-<h4>Switch HEAD branch（切换到这个分支）</h4>
+<p>Switch HEAD branch（切换到这个分支）</p>
 <p>
 	{% highlight java %}
 	$ git checkout <branch>
@@ -49,7 +49,7 @@ title : git 基础常用命令（二）
 </p>
 
 
-<h4>Create a new branch based on your current HEAD（在当前版本库创建一个新的分支）</h4>
+<p>Create a new branch based on your current HEAD（在当前版本库创建一个新的分支）</p>
 <p>
 	{% highlight java %}
 	$ git branch <new-branch>
@@ -57,7 +57,7 @@ title : git 基础常用命令（二）
 </p>
 
 
-<h4>Create a new tracking branch based on a remote branch（在远程版本库创建一个新的跟踪的分支）</h4>
+<p>Create a new tracking branch based on a remote branch（在远程版本库创建一个新的跟踪的分支）</p>
 <p>
 	{% highlight java %}
 	$ git branch --tracked <new-branch>  <remote-branch>	
@@ -65,7 +65,7 @@ title : git 基础常用命令（二）
 </p>
 
 
-<h4>Delete a local branch（删除一个本地的分支）</h4>
+<p>Delete a local branch（删除一个本地的分支）</p>
 <p>
 	{% highlight java %}
 	$ git branch -d <branch>
@@ -73,7 +73,7 @@ title : git 基础常用命令（二）
 </p>
 
 
-<h4>Mark the current commit with a tag（标记最新的提交）</h4>
+<p>Mark the current commit with a tag（标记最新的提交）</p>
 <p>
 	{% highlight java %}
 	$ git tag <tag-name>
@@ -82,7 +82,7 @@ title : git 基础常用命令（二）
 
 
 
-<h4>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</h4>
+<p>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</p>
 <p>
 	{% highlight java %}
 	$ git push --tags
