@@ -8,14 +8,14 @@ title : git 基础常用命令（三）
 
 <h3>Update & Publish（更新和发布）</h3>
 
-<h4>List all currently configured remotes（列出所有当前的远程配置）</h4>
+<p>List all currently configured remotes（列出所有当前的远程配置）</p>
 <p>
 	{% highlight java %}
 	$ git remote -v
 	{% endhighlight %}
 </p>
 
-<h4>Show information about a remote（显示远程版本库信息）</h4>
+<p>Show information about a remote（显示远程版本库信息）</p>
 <p>
 	{% highlight java %}
 	$ git remote show
@@ -23,7 +23,7 @@ title : git 基础常用命令（三）
 </p>
 
 
-<h4>Add mew remote repository , named <remote>（增加一个新的名为<remote>的远程版本）</h4>
+<p>Add mew remote repository , named <remote>（增加一个新的名为<remote>的远程版本）</p>
 <p>
 	{% highlight java %}
 	$ git remote add <remote>
@@ -31,7 +31,7 @@ title : git 基础常用命令（三）
 </p>
 
 
-<h4>Download all changes from <remote> , but don't integrate into HEAD（从远程下载所有更改，但是不和本地合并）</h4>
+<p>Download all changes from <remote> , but don't integrate into HEAD（从远程下载所有更改，但是不和本地合并）</p>
 <p>
 	{% highlight java %}
 	$ git fetch <remote>
@@ -39,7 +39,7 @@ title : git 基础常用命令（三）
 </p>
 
 
-<h4>Download changes and directly merge/integrate into HEAD （从远程下载所有更改，并且和本地合并）</h4>
+<p>Download changes and directly merge/integrate into HEAD （从远程下载所有更改，并且和本地合并）</p>
 <p>
 	{% highlight java %}
 	$ git pull <remote> <branch>
@@ -48,7 +48,7 @@ title : git 基础常用命令（三）
 
 
 
-<h4>Publish local changes on a remote（发布本地的提交的更改去远程版本库）</h4>
+<p>Publish local changes on a remote（发布本地的提交的更改去远程版本库）</p>
 <p>
 	{% highlight java %}
 	$ git push <remote> <branch>
@@ -56,7 +56,7 @@ title : git 基础常用命令（三）
 </p>
 
 
-<h4>Delete a branch on the remote（删除远程的版本库的一个分支）</h4>
+<p>Delete a branch on the remote（删除远程的版本库的一个分支）</p>
 <p>
 	{% highlight java %}
 	$ git push <remote> : <branch>
@@ -65,7 +65,7 @@ title : git 基础常用命令（三）
 
 
 
-<h4>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</h4>
+<p>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</p>
 <p>
 	{% highlight java %}
 	$ git push --tags
