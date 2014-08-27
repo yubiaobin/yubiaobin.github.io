@@ -211,6 +211,7 @@ pre {
   color: #f2f2f2;
   text-shadow: none;
   overflow: auto;
+  border-radius:5px;
 }
 pre code {
   color: #f2f2f2;
