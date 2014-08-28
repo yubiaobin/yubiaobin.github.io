@@ -181,6 +181,7 @@ a.button span {
 
 
 #view-on-github span {
+  color:#d5000d;
   background: transparent url(../img/octocat-icon.png) 12px 50% no-repeat;
 }
 
