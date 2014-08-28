@@ -58,7 +58,7 @@ body {
     line-height: 1.5; 
     background: #fff;
     /*font-family: 'Helvetica Neue', Helvetica, Arial, serif;*/
-    font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;
+    /*font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;*/
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
     color: #6d6d6d;
     font-family: "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
@@ -171,24 +171,17 @@ a.button span {
   height: 23px;
 }
 
-#download-zip span {
-  background: transparent url(../img/zip-icon.png) 12px 50% no-repeat;
-}
-#download-tar-gz span {
-  background: transparent url(../img/tar-gz-icon.png) 12px 50% no-repeat;
-}
+
 #view-on-github span {
   background: transparent url(../img/octocat-icon.png) 12px 50% no-repeat;
 }
-#view-on-github {
-  margin-right: 0;
-}
+
 #back-to-index span {
-  background: transparent url(../img/go-back-icon.png) 12px 50% no-repeat;
+  padding-left:6px;
 }
 #back-to-index {
   float:right;
-  width:100px;
+  width:72px;
   margin-right:6px;
 }
 
