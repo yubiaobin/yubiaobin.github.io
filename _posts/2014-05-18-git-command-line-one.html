@@ -8,6 +8,11 @@ title : git 基础常用命令（一）
 
 <h3>Git create（git 创建命令）</h3>
 
+
+
+
+
+
 <p>Clone an existing repository（克隆远程已存在的版本库）</p>
 <p>
 	{% highlight java %}
@@ -20,6 +25,9 @@ title : git 基础常用命令（一）
 	{% endhighlight %}
 </p>
 
+
+
+
 <p>Create an new local repository（创建本地的本版库）</p>
 <p>
 	{% highlight java %}
@@ -30,7 +38,15 @@ title : git 基础常用命令（一）
 
 
 
+
+
+
 <h3>Local changes（本地的更改命令）</h3>
+
+
+
+
+
 
 <p>Changed files in your working directory（本地目录更改状态）</p>
 <p>
@@ -39,12 +55,15 @@ title : git 基础常用命令（一）
 	{% endhighlight %}
 </p>
 
+
+
 <p>Changes to tracked files（本地目录追踪文件更改的比较）</p>
 <p>
 	{% highlight java %}
 	$ git diff
 	{% endhighlight %}
 </p>
+
 
 
 <p>Add all current changes to the next commit（添加当前所有的更改去暂存区以备提交）</p>
@@ -55,12 +74,14 @@ title : git 基础常用命令（一）
 </p>
 
 
+
 <p>Add some changes in <file> to the next commit（添加当前file文件所有的更改去暂存区以备提交）</p>
 <p>
 	{% highlight java %}
 	$ git add -p <file>
 	{% endhighlight %}
 </p>
+
 
 
 <p>Add all changes in all range to the next commit（添加当前目录所有文件所有的更改去暂存区以备提交）</p>
@@ -80,6 +101,7 @@ title : git 基础常用命令（一）
 </p>
 
 
+
 <p>Commit all local changes in tracked files（提交之前所有本地追踪文件的更改）</p>
 <p>
 	{% highlight java %}
@@ -88,12 +110,14 @@ title : git 基础常用命令（一）
 </p>
 
 
+
 <p>Change the last commit（查看上次提交的更改的部分）</p>
 <p>
 	{% highlight java %}
 	$ git commit --amend
 	{% endhighlight %}
 </p>
+
 
 
 <p>Add a message at this commit（添加这次提交更改的文字说明）</p>

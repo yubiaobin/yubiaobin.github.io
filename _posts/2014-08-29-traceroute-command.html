@@ -8,6 +8,9 @@ title : 利用Traceroute追踪路由情况
 
 <h3>利用Traceroute追踪路由情况</h3>
 
+
+
+
 <p>先来看看百度百科的定义：<strong>traceroute</strong>，现代Linux系统称为<strong>tracepath</strong>，Windows系统称为<strong>tracert</strong>，是一种电脑网络工具。它可显示数据包在IP网络经过的路由器的IP地址。</p>
 
 <p>互联网中，信息的传送是通过网中许多段的传输介质和设备（路由器，交换机，服务器，网关等等）从一端到达另一端。每一个连接在Internet上的设备，如主机、路由器、接入服务器等一般情况下都会有一个独立的IP地址。</p>
@@ -16,32 +19,36 @@ title : 利用Traceroute追踪路由情况
 
 <p>UNIX系统中，我们称之为Traceroute,微软的Windows中为Tracert。 Traceroute通过发送小的数据包到目的设备直到其返回，来测量其需要多长时间。一条路径上的每个设备Traceroute要测3次。输出结果中包括每次测试的时间(ms)和设备的名称（如有的话）及其IP地址。</p>
 
-<p>例如在Windows系统下，直接执行命令行：</p>
 
+
+<p>例如在Windows系统下，直接执行命令行：</p>
 <p>
 	{% highlight html %}
 	$ tracert www.baidu.com
 	{% endhighlight %}
 </p>
 
-<p>例如在Linux系统下，直接执行命令行：</p>
 
+
+<p>例如在Linux系统下，直接执行命令行：</p>
 <p>
 	{% highlight html %}
 	$ tracepath www.baidu.com
 	{% endhighlight %}
 </p>
 
-<p>例如在Mac OSX系统下，直接执行命令行：</p>
 
+
+<p>例如在Mac OSX系统下，直接执行命令行：</p>
 <p>
 	{% highlight html %}
 	$ traceroute www.baidu.com
 	{% endhighlight %}
 </p>
 
-<p>呈现的结果是：</p>
 
+
+<p>呈现的结果是：</p>
 <p>
 	{% highlight html  %}
 
@@ -74,14 +81,11 @@ traceroute to www.a.shifen.com (180.97.33.107), 64 hops max, 52 byte packets
 </p>
 
 
+
 <p>解释如下：</p>
-
 <p>第一行告诉我们： www.baidu.com 这个域名有多个物理地址  目前正在使用的是 180.97.33.107</p>
-
 <p>观察第一跳：首先连接的是本地的路由器的地址192.168.1.1</p>
-
 <p>观察第二跳：连接的是本地moden(调制解调器)的物理地址</p>
-
 <p>可以看到数据包是一步一步的通过这样的层级关系发送出去的。</p>
 
 
