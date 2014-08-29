@@ -7,10 +7,44 @@ title : jekyll工具使用
 
 
 <h3>介绍jekyll工具使用篇章</h3>
+
+
+<p>Mac电脑上首先要安装jekyll,命令如下：</p>
+
+<p>
+	{% highlight html %}
+	$ gem install jekyll
+	{% endhighlight %}
+</p>
+
+<p>如果提示没有执行权限的话，就在前面加上sodu</p>
+
+<p>
+	{% highlight html %}
+	$ sudo gem install jekyll
+	{% endhighlight %}
+</p>
+
+<p>安装完毕之后,用命令新建一个jekyll项目</p>
+
+<p>
+	{% highlight html %}
+	$ jekyll new mywebsite
+	{% endhighlight %}
+</p>
+
+<p>然后切换到这个目录下</p>
+
+<p>
+	{% highlight html %}
+	$ cd mywebsite
+	{% endhighlight %}
+</p>
+
 <p>本地环境测试开启命令</p>
 
 <p>
-	{% highlight java  %}
+	{% highlight html  %}
 	$ jekyll serve
 	{% endhighlight %}
 </p>
