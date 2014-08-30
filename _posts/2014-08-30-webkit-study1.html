@@ -1,0 +1,48 @@
+---
+layout: default_post
+title : WEBKIT引擎解析学习（一）
+---
+
+
+
+
+<h3>WEBKIT引擎解析学习（一）</h3>
+
+
+
+<p>参见维基百科的释义<a href="http://zh.wikipedia.org/wiki/WebKit" target="_blank">Webkit</a></p>
+
+<p>首先来看定义：</p>
+<p>WebKit是一个排版引擎，主要设计是用来让网页浏览器绘制网页。 WebKit目前作为Apple Safari及Google Chrome（直到版本27）等浏览器的主要引擎。</p>
+
+<p>根据StatCounter[3]的浏览器市场份额调查，于2012年11月，Webkit市占超过了40%，它已经成为拥有最大市场份额的排版引擎，超越了Internet Explorer所使用的Trident及Firefox所使用的Gecko引擎。</p>
+
+<p>Opera软件公司于2013年初宣布，他们将停止他们自行开发的Presto排版引擎，由Webkit专案取代，在未来将会以Webkit来取代，并贡献给Webkit专案[34]。</p>
+
+<p>看得出来Webkit内核正在越来越重要的成为最主要最常用的WEB浏览器的解析引擎，所以我们有必要进一步的认识和学习Webkit引擎。</p>
+
+
+<p>Webkit内核主要由两大部分组成：WebCore 以及 JavaScriptCore</p>
+
+
+<h4>WebCore</h4>
+<p>WebCore是WebKit中负责布局(Layout)、渲染(Rendering)及HTML和SVG的DOM函式库，完整的程式码皆由GNU宽通用公共许可证所授权，WebKit框架包装了WebCore及JavaScriptCore，并提供一个Objective-C应用程序接口来接介由C++所开发的WebCore渲染引擎及JavaScriptCore脚本引擎，透过Cocoa API就可以在应用程式中很简单的使用这些元件。之后的版本同时包含了一个跨平台的C++抽象平台，并且提供各种API使用。
+WebKit通过Acid2及Acid3的测试，包含完美像素的渲染(pixel-perfect rendering)以及没有任何时间及不顺的问题[65]。</p>
+
+
+
+<h4>JavaScriptCore</h4>
+
+<p>JavaScriptCore是在WebKit中提供JavaScript引擎（解析或者说解释Javascript代码）的框架。JavaScriptCore最初是为KDE的JavaScript引擎（KJS）函式库及PCRE正则表达式函式库，JavaScriptCore从KJS及PCRE复刻之后，已比原先进步了许多，有了新的特色以及极大的效能改进[67]。在2008年六月二日，WebKit专案宣布，将被重写为 "SquirrelFish"，它是一个字节码直译器[26][27]，这个专案演变成 SquirreFish Extreme（简称为SFX，市场称之为Nitro），首次公开于2008年九月十八日，它会将Javascript编译为原生的机器语言，不再需要字节码直译器，同时加速了JavaScript的执行效率[28]。</p>
+
+
+
+
+
+
+
+
+
+
+
+
