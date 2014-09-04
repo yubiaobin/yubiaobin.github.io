@@ -1,0 +1,50 @@
+---
+layout: default_post
+title : css3 transition的应用
+---
+
+
+
+
+<h3>css3 transition的应用</h3>
+
+
+
+<h4>一般来说，Display有下列几种状态值</h4>
+<p>
+	{% highlight css %}
+	transition-property : all;
+transition-duration : 2s;
+transition-timing-function : linear;
+transition-delay : 1s;
+
+	{% endhighlight %}
+</p>
+
+
+<p><strong>transition-property：</strong>变换延续的时间</p>
+<p><strong>transition-duration：</strong>在延续时间段</p>
+<p><strong>transition-timing-function：</strong>变换速度变化,它的值允许你根据时间的推进去改变属性值的变换速率，有6个可能值：</p>
+<p>
+	<ul>
+		<li>1、ease：（逐渐变慢）默认值，ease函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0)；</li>
+		<li>2、linear：（匀速），linear 函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0)；</li>
+		<li>3、ease-in：(加速)，ease-in 函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0)；</li>
+		<li>4、ease-out：（减速），ease-out 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0)；</li>
+		<li>5、ease-in-out：（加速然后减速），ease-in-out 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)；</li>
+		<li>6、cubic-bezier：（该值允许你去自定义一个时间曲线）， 特定的cubic-bezier曲线。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效。</li>
+	</ul>
+</p>
+<p><strong>transition-delay：</strong>变化延迟时间</p>
+
+
+
+
+<p class="pege_tail">参考<a href="http://www.php100.com/html/webkaifa/DIV_CSS/2012/1029/11403.html" target="_blank">CSS3中的Transition属性详解</a></p>
+
+
+
+
+
+
+
