@@ -1,0 +1,67 @@
+---
+layout: default_post
+title : Jquery ajax实例
+---
+
+
+
+
+<h3>Jquery ajax实例</h3>
+
+
+
+<p>下面是页面的Html结构</p>
+<p>
+     {% highlight html %}
+
+     <body>
+<div>点击按钮获取JSON数据</div>
+<input type="button" id="button" value="确定" />
+<div id="result"></div>   
+</body>
+
+     {% endhighlight  %}
+</p>
+
+
+
+
+<p>下面是ajax代码</p>
+<p>
+     {% highlight javascript %}
+
+$(function(){
+
+     $('#button').click(function(){
+          $.ajax({
+               type:"GET",
+               url:"music.txt",
+               dataType:"json",
+               success:function(data){
+                    var music="<ul>";
+                    //i表示在data中的索引位置，n表示包含的信息的对象
+                    $.each(data,function(i,n){
+                         //获取对象中属性为optionsValue的值                   
+                         music+="<li>"+n["optionValue"]+"</li>";
+                    });
+                    music+="</ul>";
+                    $('#result').append(music);
+               }
+          });
+          return false;
+     });
+});
+
+
+
+     {% endhighlight %}
+</p>
+
+
+
+
+
+
+
+
+
