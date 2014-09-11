@@ -81,7 +81,73 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>Javascript：</h4>
+
+
+
+
+
+
 <p>1. 闭包的理解，javascript的作用域（高频率）</p>
+
+<p>先来回答javascript作用域的问题,javascript语言没有会计作用域，只有一条从内向外的作用域链，看个例子
+</p>
+<p>
+	{% highlight javascript %}
+var scope = "global";
+function CheckScope(){
+    console.log(scope);
+    var scope = "local";
+    console.log(scope);
+}
+CheckScope();
+	{% endhighlight %}
+</p>
+<p>输出的值是1：undefied 2:local</p>
+<p>其实这个函数等价于下面这个函数（变量提升）</p>
+<p>
+	{% highlight javascript %}
+var scope = "global";
+function CheckScope(){
+    var scope;
+    console.log(scope);
+    scope = "local";
+    console.log(scope);
+}
+CheckScope();
+	{% endhighlight %}
+</p>
+<p>再来看个例子</p>
+<p>
+	{% highlight javascript %}
+var scope = "global";
+function CheckScope(){
+	console.log(scope);
+    console.log(scope2);
+    var scope2 = "local2";
+    console.log(scope2);
+}
+CheckScope();
+	{% endhighlight %}
+</p>
+<p>同样这个函数等价于下面这个函数（变量提升）</p>
+<p>
+	{% highlight javascript %}
+var scope = "global";
+function CheckScope(){
+    var scope2;
+    console.log(scope);
+    console.log(scope2);
+    scope2 = "local";
+    console.log(scope2);
+}
+CheckScope();
+	{% endhighlight %}
+</p>
+<p>输出的值是1：global2：undefied 3:local</p>
+<p>从例子中我们可以看出：一种情况，函数里面的变量和函数外部变量同名时候</p>
+
+
+
 <p>2. Ajax的跨域问题和缓存原理？同步与异步的区别？（高频率）</p>
 
 <p>3. 数组的增删查找（高频率）</p>
@@ -113,6 +179,7 @@ alert(obj.key0)  // 输出0</p>
 
 
 <p>11.Ajax的执行过程</p>
+
 
 <p>12.JSON与XML的区别？优缺点？</p>
 
