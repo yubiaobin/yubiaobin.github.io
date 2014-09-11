@@ -108,7 +108,7 @@ CheckScope();
 	{% highlight javascript %}
 var scope = "global";
 function CheckScope(){
-    var scope;
+var scope;
     console.log(scope);
     scope = "local";
     console.log(scope);
@@ -143,8 +143,8 @@ function CheckScope(){
 CheckScope();
 	{% endhighlight %}
 </p>
-<p>输出的值是1：global2：undefied 3:local</p>
-<p>从例子中我们可以看出：一种情况，函数里面的变量和函数外部变量同名时候</p>
+<p>输出的值是1：global 2：undefied 3:local</p>
+<p>从例子中我们可以看出：一种情况，函数里面的变量和函数外部变量同名时候,作用域顶端（函数代码块里面）先遍历查找变量的定义和赋值，如果找不到再向作用域末端（函数代码块外面）去查找；这样就形成了javascript特有的链式作用域。</p>
 
 
 
