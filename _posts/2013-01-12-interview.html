@@ -68,6 +68,22 @@ title : Web前端的一些面试考察的知识点
  
 
 <h4>5.  HTML与XHTML的区别</h4>
+<p>XHTML是HTML像XML的一个过渡语言，它比HTML严谨性会高点，然后基本语言都还是沿用的HTML的标签，只不过废除了部分表现层的标签，同事在标准上要求高了点比如标签的严格嵌套，标签结束等等简单的说写 XHTML 要用干净的 HTML 语法。</p>
+<p>XHTML的一些语法要求：
+    <ul>
+        <li>XHTML 元素一定要被正确的嵌套使用。</li>
+        <li>标签名字一定要用小写字母。</li>
+        <li>属性名字必须小写。</li>
+        <li>所有的 XHTML 元素一定要关闭。</li>
+    </ul>
+</p>
+<p>XHTML 1.0 提供了三种DTD声明可供选择：
+    <ul>
+        <li>过渡的(Transitional):要求非常宽松的DTD，它允许你继续使用HTML4.01的标识(但是要符合xhtml的写法)。完整代码如下：!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</li>
+        <li>严格的(Strict):要求严格的DTD，你不能使用任何表现层的标识和属性，完整代码如下：!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</li>
+        <li>框架的(Frameset):专门针对框架页面设计使用的DTD，如果你的页面中包含有框架，需要采用这种DTD。完整代码如下：!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"</li>
+    </ul>
+</p>
 
 
 <h4>6.  HTML5以什么标签开头？</h4>
