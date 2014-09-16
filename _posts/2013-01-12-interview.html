@@ -295,7 +295,26 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>6. 常见兼容性问题（高频率）</h4>
-
+<p>
+    <ul>
+        <li>
+            <p>浏览器兼容问题一：不同浏览器的标签默认的外补丁和内补丁不同,例如随便写几个标签，不加样式控制的情况下，各自的margin 和padding差异较大。<span class="p_info">--解决方案：CSS    *{margin:0;padding:0;}</span></p>
+        </li>
+        <li>
+            <p>浏览器兼容问题二：块属性标签float后，又有横行的margin情况下，在IE6显示双倍margin。<span class="p_info">--解决方案：在float的标签样式控制中加入 display:inline;将其转化为行内属性。</span></p>
+        </li>
+        <li>
+            <p>浏览器兼容问题三：设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度。<span class="p_info">--解决方案：给超出高度的标签设置overflow:hidden;或者设置行高line-height 小于你设置的高度。</span></p>
+        </li>
+        <li>
+            <p>浏览器兼容问题四：行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug。<span class="p_info">在display:block;后面加入display:inline;display:table;</span></p>
+        </li>
+        <li>
+            <p>浏览器兼容问题五：图片默认有间距。<span class="p_info">使用float属性为img布局。</span></p>
+            <p><strong>注：</strong>因为img标签是行内属性标签，所以只要不超出容器宽度，img标签都会排在一行里，但是部分浏览器的img标签之间会有个间距。去掉这个间距使用float是正道。（也可以使用负margin，虽然能解决，但负margin本身就是容易引起浏览器兼容问题的用法，所以最好不这样使用）</p>
+        </li>
+    </ul>
+</p>
 
 
 
