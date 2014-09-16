@@ -193,7 +193,7 @@ title : Web前端的一些面试考察的知识点
 
 <h4>1. CSS盒模型原理（高频率）</h4>
 <p>CSS假定所有的HTML文档元素都生成了一个描述该元素在HTML文档布局中所占空间的矩形元素框（element box），可以形象地将其看作是一个盒子。</p>
-<p><img src="{{ site.url }}/img/css_box_model.gif" alt=""></p>
+<p><img src="{{ site.url }}/img/css_box_model.gif" alt="css盒模型描述图片"></p>
 
 
 
@@ -320,7 +320,22 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>7. CSS的定位属性，各自区别，应用场景</h4>
-
+<p>CSS的定位属性<strong>position</strong>有五个属性： static | relative | absolute | fixed | inherit</p>
+<p>
+    <ul>
+        <li>static 和 inherit : 没什么值得介绍的。</li>
+        <li>relative : 相对于元素自身的定位。</li>
+        <li>absolute ：相对于包含块的定位。</li>
+        <li>fixed : 相对于窗口的定位。</li>
+    </ul>
+</p>
+<p>只要元素设置了 postion : absolute | relative | fixed ， 该元素就会脱离文档流。<span class="p_info">--但是relative元素是个特例，因为该元素对然脱离了文档流，但是它原本所占的空间仍然占据文档流。</span></p>
+<p>关于display--
+    <ul>
+        <li>relative : 原来是什么类型的依旧是什么类型。</li>
+        <li>absolute | fixed ： 元素就被重置为了区块元素，例如：打算为span元素指定大小，并绝对定位。</li>
+    </ul>
+</p>
 
 
 
@@ -345,8 +360,15 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>9. Diplay:none与visibility：hidden的区别（高频率）</h4>
 
+<h4>9. Display:none与visibility：hidden的区别（高频率）</h4>
+<p>
+    <ul>
+        <li>display: none--不为被隐藏的对象保留其物理空间。</li>
+        <li>visibility:hidden--为隐藏的对象保留其物理空间。</li>
+    </ul>
+</p>
+<p><img src="{{ site.url }}/img/css_display_none.gif" alt="display不保留物理空间描述图片" style="border:5px solid #ababab;"></p>
 
 
 
@@ -357,7 +379,26 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>11.CSS中em和px的关系和区别</h4>
+<h4>11.CSS中rem、em和px的关系和区别</h4>
+<p>定义em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
+<p><strong>px的特点</strong>
+    <ul>
+        <li>IE无法调整那些使用px作为单位的字体大小；</li>
+        <li>px</li>
+    </ul>
+</p>
+<p><strong>rem的特点</strong>
+    <ul>
+        <li>em的值并不是固定的；</li>
+        <li>m会继承父级元素的字体大小。</li>
+    </ul>
+</p>
+<p><strong>em的特点</strong>
+    <ul>
+        <li>em的值并不是固定的；</li>
+        <li>m会继承父级元素的字体大小。</li>
+    </ul>
+</p>
 
 
 
