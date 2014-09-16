@@ -475,3 +475,18 @@ p{text-indent:2em;}
 
 
 
+.p_info{
+  display:block;
+  text-indent:60px;
+}
+
+.li_no_disc li{
+  list-style: none; 
+}
+
+
+
+
+
+
+

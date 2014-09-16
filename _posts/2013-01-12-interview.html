@@ -192,30 +192,136 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>1. CSS盒模型原理（高频率）</h4>
+<p>CSS假定所有的HTML文档元素都生成了一个描述该元素在HTML文档布局中所占空间的矩形元素框（element box），可以形象地将其看作是一个盒子。</p>
+<p><img src="{{ site.url }}/img/css_box_model.gif" alt=""></p>
+
+
+
 
 <h4>2. CSS的导入方式：import与link方式的区别？优缺点？（高频率）</h4>
+<p>本质上，这两种方式都是为了加载CSS文件，但还是存在着细微的差别</p>
+<p>
+    <ul>
+        <li>属性来源——link属于XHTML标签，而@import完全是CSS提供的一种方式。</li>
+        <li>加载速度——当一个页面被加载的时候（就是被浏览器渲染的时候），link引用的CSS会同时被加载，而@import引用的CSS 会等到页面全部被下载完再被加载。</li>
+        <li>兼容性——由于@import是CSS2.1提出的所以老的浏览器不支持，@import只有在IE5以上的才能识别，而link标签无此问题。</li>
+        <li>脚本控制——使用dom控制样式时的差别。当使用javascript控制dom去改变样式的时候，只能使用link标签，因为@import不是dom可以控制的。</li>
+    </ul>
+</p>
+<p><strong>注：</strong>还有流量比较大的门户网站会把样式直接写在页面上，是为了减少link请求的次数，从而优化加载速度。</p>
+
+
+
 
 <h4>3. CSS的优先级？内联和important哪个优先级高？（高频率）</h4>
+<p>使用!important可以改变优先级别为最高，其次是内联（style对象），然后是id > class >tag。</p>
+
+
 
 
 <h4>4. 盒子垂直居中方法（高频率）</h4>
+<p>方法有三种：</p>
+<p>
+    <ul>
+        <li>
+            把一些 div 的显示方式设置为表格，因此我们可以使用表格的 vertical-align属性。
+            <span class="p_info">--优点：不用受内容高度的限制，简单实现垂直居中；缺点：不兼容ie6,7。</span>
+        </li>
+        <li>
+            使用line-height等于父div的高度。
+            <span class="p_info">--优点：不用受内容高度的限制，简单实现垂直居中；缺点：只适用于单行文本垂直居中。</span>
+        </li>
+        <li>
+            这个方法使用绝对定位的 div，把它的 top 设置为 50％，margin-top 设置为负的 content 高度。这意味着对象必须在 CSS 中指定固定的高度。
+            <span class="p_info">--优点：兼容性好；缺点：必须知道内容盒子的高度才可以。</span>
+        </li>
+    </ul>
+</p>
+
+
 
 
 <h4>5. 浮动元素清除浮动方法（高频率）</h4>
+<p>有五种方式可以清除浮动</p>
+<p>
+    <ul class="li_no_disc">
+        <li>
+            {% highlight html %}
+            /* 通过overflow的方式 */
+.overflow-clear{
+    overflow:auto;/*或者 hidden,scroll,不包括visible */
+    _height:1%; /*设置高度是为了ie6获取haslayout */
+}
+            {% endhighlight %}
+        </li>
+        <li>
+            {% highlight html %}
+            /* display 的方式*/
+.display-clear{
+    display:inline-block;
+}
+            {% endhighlight %}
+        </li>
+        <li>
+            {% highlight html %}
+            /* position的方式 */
+.position-clear{
+    position:absolute;
+}
+            {% endhighlight %}
+        </li>
+        <li>
+            {% highlight html %}
+            /* 浮动方式 */
+.float-clear{
+    float:left; /*或者right，不是none就行*/
+}
+            {% endhighlight %}
+        </li>
+        <li>
+            {% highlight html %}
+            /*zoom 的方式*/
+.zoom-clear{
+    zoom:1;/* only for IE6.7 因为他们haslayout，ie8以后和标准浏览器都弱化了haslayout */
+}
+            {% endhighlight %}
+        </li>
+    </ul>
+</p>
+<p>
+    上面几种方式都有清除浮动影响的作用，前四种是在ie678和其他标准浏览器下都有效地方法，最后一种zoom的方式因为用到了ie的haslayout，所以只在ie6/7的内核下才有效。
+</p>
+
+
 
 <h4>6. 常见兼容性问题（高频率）</h4>
+
+
+
 
 
 <h4>7. CSS的定位属性，各自区别，应用场景</h4>
 
 
+
+
+
 <h4>8. 谈谈CSS3 Media Queries</h4>
+
+
+
 
 
 <h4>9. Diplay:none与visibility：hidden的区别（高频率）</h4>
 
 
+
+
+
 <h4>10.谈谈CSS hack</h4>
+
+
+
 
 
 <h4>11.CSS中em和px的关系和区别</h4>
