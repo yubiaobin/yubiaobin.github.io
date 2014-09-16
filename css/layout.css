@@ -300,7 +300,8 @@ h6 {
 
 p {
   font-weight: 300;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
+  margin:10px 0;
 }
  
 a {
