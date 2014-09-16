@@ -326,8 +326,22 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>8. 谈谈CSS3 Media Queries</h4>
-
-
+<p>CSS2.1定义了 Media 的部分，包括类型、组别和规则等。CSS并非为了显示器而创造，而是应用于各种各样的媒体，比如常见的显示器，越来愈多的手持设备，可能略显过时的电视机等等。</p>
+<p>而 Media Queries 的引入，其作用就是允许添加表达式用以确定媒体的情况，以此来应用不同的样式表。换句话说，其允许我们在不改变内容的情况下，改变页面的布局以精确适应不同的设备，以此加强体验。所以Media Queries和CSS优化没有关系，甚至是矛盾的。</p>
+<p>当浏览器宽度改变时，应用的CSS发生变化。而这些，原本需要 JavaScript 的控制才能做到。</p>
+<p>
+    {% highlight css %}
+<link rel="stylesheet" type="text/css" href="swordair.css" media="screen and (min-width: 400px)">
+    {% endhighlight %}
+</p>
+<p>在media属性里：</p>
+<p>
+    <ul>
+        <li>screen 是媒体类型里的一种，CSS2.1定义了<a href="http://www.w3.org/TR/CSS2/media.html#media-types" target="_blank">10种媒体类型</a>(all、braille、embossed、handheld、print、projection、screen、speech、tty、tv、)；</li>
+        <li>and 被称为关键字，其他关键字还包括 not(排除某种设备)，only(限定某种设备)；</li>
+        <li>(min-width: 400px) 就是媒体特性，其被放置在一对圆括号中。完整的特性可以查看<a href="http://www.w3.org/TR/css3-mediaqueries/#media1" target="_blank">相关的Media features部分</a>；</li>
+    </ul>
+</p>
 
 
 
