@@ -374,6 +374,49 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>10.谈谈CSS hack</h4>
+<p>CSS Hack大致有3种表现形式，<strong>CSS属性前缀法</strong>、<strong>选择器前缀法</strong>以及<strong>IE条件注释法（即HTML头部引用if IE）Hack</strong>，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。</p>
+<p><strong>CSS属性前缀法</strong>
+    <ul>
+        <li>属性前缀法(即类内部Hack)：
+            <ul>
+                <li>IE6能识别下划线"_"和星号" * ";</li>
+                <li>IE7能识别星号" * "，但不能识别下划线"_";</li>
+                <li>IE6~IE10都认识"\9";</li>
+                <li>firefox前述三个都不能认识。</li>
+            </ul>
+        </li>
+        <li>选择器前缀法(即选择器Hack)：
+            <ul>
+                <li>IE6能识别*html .class{};</li>
+                <li>IE7能识别*+html .class{}或者*:first-child+html .class{};</li>
+                <li></li>
+            </ul>
+        </li>
+        <li>IE条件注释法(即HTML条件注释Hack)：
+            <ul>
+                <li>
+                    针对所有IE(注：IE10+已经不再支持条件注释)：
+                    {% highlight html %}
+                    <!--[if IE]>IE浏览器显示的内容 <![endif]-->
+                    {% endhighlight %}
+                </li>
+                <li>
+                    针对IE6及以下版本：
+                    {% highlight html %}
+                    <!--[if lt IE 6]>只在IE6-显示的内容 <![endif]-->
+                    {% endhighlight %}
+                </li>
+                <li>
+                    针对所有IE(注：IE10+已经不再支持条件注释)：
+                    {% highlight html %}
+                    <!--[if IE]>IE浏览器显示的内容 <![endif]-->
+                    {% endhighlight %}
+                    这类Hack不仅对CSS生效，对写在判断语句里面的所有代码都会生效。
+                </li>
+            </ul> 
+        </li>
+    </ul>
+</p>
 
 
 

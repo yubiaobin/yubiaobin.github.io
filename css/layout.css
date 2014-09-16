@@ -266,7 +266,7 @@ h1 {
 } 
 
 h2 {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
   color: #303030;
   margin-bottom: 8px;
@@ -275,7 +275,7 @@ h2 {
 h3 {
   /*color: #d5000d;*/
   color:#0d9ba9;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
   /*margin-bottom: 8px;*/
   margin-bottom:36px;
@@ -283,7 +283,7 @@ h3 {
 } 
  
 h4 {
-  font-size: 16px;
+  font-size: 20px;
   color: #303030;
   font-weight: bold;
 } 
