@@ -404,10 +404,18 @@ footer a:hover {
 /*----------------------------custom style----------------------------*/
 /*去除百度检测图片样式*/
 img[src="http://eiv.baidu.com/hmt/icon/21.gif"]{
-  display:none;
+    display:none;
 }
 
 p{text-indent:2em;}
+
+.index_global_year_title{
+    font-size:48px;
+    margin:20px 0;
+    text-indent:24px;
+    border-bottom:1px solid #ccc;
+}
+
 .pege_tail{padding-top:240px;}
 
 
