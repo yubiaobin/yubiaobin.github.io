@@ -695,14 +695,12 @@ function parentQueryString(url){
 <p>
     <ul>
         <li>void</li>
-        <li></li>
     </ul>
 </p>
 <p>javascript关键字也是语言保留的，不能用作标识符。</p>
 <p>
     <ul>
         <li>class</li>
-        <li></li>
     </ul>
 </p>
 
@@ -872,19 +870,80 @@ for(var i = 0; i < list.length; i++){
 
 
 <h4>17.js如何实现多重继承？</h4>
+<p>先给答案   ：可以通过argument.call实现。</p>
+<p>首先来看一下普通继承怎么实现：
+    {% highlight javascript %}
+    //继承（原型继承）
+var f = function(){};  //类
+
+var b =  function(){
+    this.aa = 'abcdefg',
+    this.bb = '2B青年欢乐多'
+}     
+f.prototype = new b(); //f 类原型继承b类
+var a = new f(); //原型继承需要new
+alert(a.bb);
+    {% endhighlight %}
+</p>
+<p>再来看一下多重继承的实现：
+    {% highlight javascript %}
+    //多重继承 
+var a = function(){
+   this.a = '我输出 1';
+}
+
+var b = function(){
+   this.b = '我输出 2'
+}
+
+var c = function(){
+   a.call(this);
+   b.call(this);
+}
+//call 方法可以用来代替另一个对象调用一个方法
+var d = new c()
+alert(d.a);
+alert(d.b);
+    {% endhighlight %}
+</p>
 
 
 
 
 
 <h4>18.Eval是啥？谈谈对它的理解</h4>
+<p>eval的作用其实很简单，就是把一段字符串传递给JS解释器，由Javascript解释器将这段字符串解释成Javascript代码，并且执行它。</p>
 
 
 
 
-<h4>19.事件、IE与火狐的事件机制有什么区别？</h4>
+<h4>19.事件、IE与火狐的事件机制有什么区别？（事件冒泡 和事件捕获）如何阻止冒泡？</h4>
+<p>事件传播三个阶段:</p>
+<p>
+    <ul>
+        <li>1.捕捉阶段，事件从对象沿着文档树向下传播给目标节点。</li>
+        <li>2.目标节点触发阶段：在目标上的适合的事件处理程序将运行。</li>
+        <li>3.冒泡阶段，在这个阶段，事件将从目标元素向上传播或者气泡回对象的文档层次。</li>
+    </ul>
+</p>
+<p>javascript的事件模型有三种，它们分别是NN4、IE4+和W3C/Safari，这也造成了在不同的浏览器中处理event的差异。</p>
 
-
+<p>
+    <ul>
+        <li>
+            <ul>捕获事件：
+                <li>IE--obj.setCapture() 、obj.releaseCapture()</li>
+                <li>Firefox--document.addEventListener("mousemove",mousemovefunction,true)、document.removeEventListener("mousemove",mousemovefunction,true)</li>
+            </ul>
+        </li>
+        <li>
+            <ul>window.event：
+                <li>IE--有window.event对象 </li>
+                <li>Firefox--没有window.event对象</li>
+            </ul>
+        </li>
+    </ul>
+</p>
 
 
 
@@ -941,11 +1000,29 @@ for(var i = 0; i < list.length; i++){
 
 
 <h4>4. 前端由哪些部分组成？（高频率）</h4>
-<p></p>
+<p>
+    <ul>
+        <li>1.UI设计部分</li>
+        <li>2.HTML/CSS,页面静态化</li>
+        <li>3.Javascript, AS 客户端动态化</li>
+        <li>4.Flash、Silverlight、Video 多媒体化</li>
+        <li>5.PHP、Python等CGI, 服务端通信基本知识和编码</li>
+    </ul>
+</p>
 
 
 
 <h4>5. W3C标准是什么？</h4>
+<p>万维网联盟（World Wide Web Consortium）标准不是某一个标准，而是一系列标准的集合。网页主要由三部分组成：结构（Structure）、表现（Presentation）和行为（Behavior）。</p>
+<p>对应的标准也分三方面：
+    <ul>
+        <li>结构化标准语言主要包括XHTML和XML</li>
+        <li>表现标准语言主要包括CSS</li>
+        <li>行为标准主要包括对象模型（如W3C DOM）、ECMAScript等</li>
+    </ul>
+</p>
+<p>这些标准大部分由W3C起草和发布，也有一些是其他标准组织制订的标准，比如ECMA（European Computer Manufacturers Association）的ECMAScript标准。</p>
+
 
 
 
