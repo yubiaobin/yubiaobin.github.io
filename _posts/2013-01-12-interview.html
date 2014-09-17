@@ -62,13 +62,13 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>4.  Doctype 是什么？有啥作用？</h4>
+<h4>4.  Doctype 是什么？有什么作用？</h4>
 <p>DOCTYPE标签是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该使用什么样的文档类型定义（DTD）来解析文档。</p>
 <p>在超文本标记语言（标准通用标记语言的一个应用）里头，就是用来说明编写网页的HTML/XHTML的标签用的是什么版本。</p>
  
 
 
-<h4>5.  HTML与XHTML的区别</h4>
+<h4>5.  HTML与XHTML的区别是什么？</h4>
 <p>XHTML是HTML像XML的一个过渡语言，它比HTML严谨性会高点，然后基本语言都还是沿用的HTML的标签，只不过废除了部分表现层的标签，同事在标准上要求高了点比如标签的严格嵌套，标签结束等等简单的说写 XHTML 要用干净的 HTML 语法。</p>
 <p>XHTML的一些语法要求：
     <ul>
@@ -112,7 +112,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>7.  Div与span的区别</h4>
+<h4>7.  Div与span的区别是什么？</h4>
 <p>两者最明显的区别在于DIV是块元素，而SPAN是行内元素(也译作内嵌元素)。SPAN 的前后是不会换行的，它没有结构的意义，纯粹是应用样式。总的来说，一个div是占一个块的，它的默认display属性是block，表示一个块。而span，它的display默认属性是inline，可以连在一起的。 </p>
 
 
@@ -136,7 +136,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>9.  HTML5的离线储存</h4>
+<h4>9.  HTML5的离线储存有哪些？</h4>
 <p>内置到HTML5中的Web存储对象有两种类型：
     <ul>
         <li>sessionStorage 对象负责存储一个会话的数据。如果用户关闭了页面或浏览器，则会销毁数据。</li>
@@ -191,7 +191,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>1. CSS盒模型原理（高频率）</h4>
+<h4>1. 谈谈CSS盒模型原理？（高频率）</h4>
 <p>CSS假定所有的HTML文档元素都生成了一个描述该元素在HTML文档布局中所占空间的矩形元素框（element box），可以形象地将其看作是一个盒子。</p>
 <p><img src="{{ site.url }}/img/css_box_model.gif" alt="css盒模型描述图片"></p>
 
@@ -219,7 +219,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>4. 盒子垂直居中方法（高频率）</h4>
+<h4>4. 说几个盒子垂直居中方法？（高频率）</h4>
 <p>方法有三种：</p>
 <p>
     <ul>
@@ -241,7 +241,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>5. 浮动元素清除浮动方法（高频率）</h4>
+<h4>5. 浮动元素清除浮动方法有哪些？（高频率）</h4>
 <p>有五种方式可以清除浮动</p>
 <p>
     <ul class="li_no_disc">
@@ -294,7 +294,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>6. 常见兼容性问题（高频率）</h4>
+<h4>6. 常见兼容性问题有哪些？（高频率）</h4>
 <p>
     <ul>
         <li>
@@ -319,7 +319,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>7. CSS的定位属性，各自区别，应用场景</h4>
+<h4>7. CSS的定位属性，各自区别，应用场景？</h4>
 <p>CSS的定位属性<strong>position</strong>有五个属性： static | relative | absolute | fixed | inherit</p>
 <p>
     <ul>
@@ -339,8 +339,31 @@ title : Web前端的一些面试考察的知识点
 
 
 
+<h4>8.CSS中rem、em和px的关系和区别？</h4>
+<p>定义em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
+<p><strong>px的特点</strong>
+    <ul>
+        <li>IE无法调整那些使用px作为单位的字体大小；</li>
+        <li>px</li>
+    </ul>
+</p>
+<p><strong>rem的特点</strong>
+    <ul>
+        <li>em的值并不是固定的；</li>
+        <li>m会继承父级元素的字体大小。</li>
+    </ul>
+</p>
+<p><strong>em的特点</strong>
+    <ul>
+        <li>em的值并不是固定的；</li>
+        <li>m会继承父级元素的字体大小。</li>
+    </ul>
+</p>
 
-<h4>8. 谈谈CSS3 Media Queries</h4>
+
+
+
+<h4>9. 谈谈CSS3 Media Queries</h4>
 <p>CSS2.1定义了 Media 的部分，包括类型、组别和规则等。CSS并非为了显示器而创造，而是应用于各种各样的媒体，比如常见的显示器，越来愈多的手持设备，可能略显过时的电视机等等。</p>
 <p>而 Media Queries 的引入，其作用就是允许添加表达式用以确定媒体的情况，以此来应用不同的样式表。换句话说，其允许我们在不改变内容的情况下，改变页面的布局以精确适应不同的设备，以此加强体验。所以Media Queries和CSS优化没有关系，甚至是矛盾的。</p>
 <p>当浏览器宽度改变时，应用的CSS发生变化。而这些，原本需要 JavaScript 的控制才能做到。</p>
@@ -361,7 +384,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>9. Display:none与visibility：hidden的区别（高频率）</h4>
+<h4>10. Display:none与visibility：hidden的区别（高频率）</h4>
 <p>
     <ul>
         <li>display: none--不为被隐藏的对象保留其物理空间。</li>
@@ -373,7 +396,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>10.谈谈CSS hack</h4>
+<h4>11.谈谈CSS hack</h4>
 <p>CSS Hack大致有3种表现形式，<strong>CSS属性前缀法</strong>、<strong>选择器前缀法</strong>以及<strong>IE条件注释法（即HTML头部引用if IE）Hack</strong>，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。</p>
 <p><strong>CSS属性前缀法</strong>
     <ul>
@@ -422,26 +445,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>11.CSS中rem、em和px的关系和区别</h4>
-<p>定义em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
-<p><strong>px的特点</strong>
-    <ul>
-        <li>IE无法调整那些使用px作为单位的字体大小；</li>
-        <li>px</li>
-    </ul>
-</p>
-<p><strong>rem的特点</strong>
-    <ul>
-        <li>em的值并不是固定的；</li>
-        <li>m会继承父级元素的字体大小。</li>
-    </ul>
-</p>
-<p><strong>em的特点</strong>
-    <ul>
-        <li>em的值并不是固定的；</li>
-        <li>m会继承父级元素的字体大小。</li>
-    </ul>
-</p>
+
 
 
 
@@ -472,7 +476,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h4>1. 闭包的理解，javascript的作用域（高频率）</h4>
+<h4>1. 对闭包的理解，javascript的作用域问题？（高频率）</h4>
 <p>先来回答javascript作用域的问题,javascript语言没有块级作用域，只有一条从内向外的作用域链，看这个例子
 </p>
 <p>
@@ -540,13 +544,13 @@ CheckScope();
     {% highlight javascript %}
     var temp; 
 $.ajax({ 
-async: false, 
-type : "POST", 
-url : defaultPostData.url, 
-dataType : 'json', 
-success : function(data) { 
-temp=data; 
-} 
+    async: false, 
+    type : "POST", 
+    url : defaultPostData.url, 
+    dataType : 'json', 
+    success : function(data) { 
+    temp=data; 
+    } 
 }); 
 alert(temp); 
     {% endhighlight %}
@@ -556,7 +560,7 @@ alert(temp);
 
 
 
-<h4>3. 数组的增删查找（高频率）</h4>
+<h4>3. 数组的增删查找的方法有哪些？（高频率）</h4>
 <p>JAVAScript为数组对象提供以下多种方法：</p>
 <p>
     <ul>
@@ -580,7 +584,7 @@ alert(temp);
 
 
 
-<h4>4. DOM节点的创建、移动、复制、删除、查找。（高频率）</h4>
+<h4>4. DOM节点的创建、移动、复制、删除、查找的方法有哪些？（高频率）</h4>
 <p>DOM节点的创建
     <ul>
         <li>createDocumentFragment()    //创建一个DOM片段</li>
@@ -609,7 +613,7 @@ alert(temp);
 
 
 
-<h4>5. SetTimeout与setInterval区别</h4>
+<h4>5. 说说setTimeout与setInterval区别？</h4>
 <p>相同点：这两个方法都可以用来实现在一个固定时间段之后去执行JavaScript。</p>
 <p>不同点：
     <ul>
@@ -757,28 +761,126 @@ alert(b);
 
 
 <h4>11.Ajax的执行过程</h4>
+<p>
+    <ul>
+        <li>(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象。</li>
+        <li>(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息。</li>
+        <li>(3)设置响应HTTP请求状态变化的函数。</li>
+        <li>(4)发送HTTP请求。</li>
+        <li>(5)获取异步调用返回的数据。</li>
+        <li>(6)使用JavaScript和DOM实现局部刷新。</li>
+    </ul>
+</p>
 
+
+
+      
 
 <h4>12.JSON与XML的区别？优缺点？</h4>
+<p>JSON(JavaScript Object Notation)一种轻量级的数据交换格式，具有良好的可读和便于快速编写的特性。可在不同平台之间进行数据交换。</p>
+<p>扩展标记语言 (Extensible Markup Language, XML) ，用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。</p>
+<p>
+    <strong>JSON的优点</strong>
+    <ul>
+        <li>数据格式比较简单，易于读写，格式都是压缩的，占用带宽小。</li>
+        <li>易于解析，客户端JavaScript可以简单的通过eval()进行JSON数据的读取。</li>
+        <li>支持多种语言，包括ActionScript, C, C#, ColdFusion, Java, JavaScript, Perl, PHP, Python, Ruby等服务器端语言，便于服务器端的解析。</li>
+        <li>在PHP世界，已经有PHP-JSON和JSON-PHP出现了，偏于PHP序列化后的程序直接调用，PHP服务器端的对象、数组等能直接生成JSON格式，便于客户端的访问提取。</li>
+        <li>因为JSON格式能直接为服务器端代码使用，大大简化了服务器端和客户端的代码开发量，且完成任务不变，并且易于维护。</li>
+    </ul>
+    <strong>JSON的缺点</strong>
+    <ul>
+        <li>没有XML格式这么推广的深入人心和喜用广泛，没有XML那么通用性。</li>
+        <li>JSON格式目前在Web Service中推广还属于初级阶段。</li>
+    </ul>
+</p>
+<p>
+    <strong>XML的优点</strong>
+    <ul>
+        <li>格式统一，符合标准。</li>
+        <li>容易与其他系统进行远程交互，数据共享比较方便。</li>
+    </ul>
+    <strong>XML的缺点</strong>
+    <ul>
+        <li>XML文件庞大，文件格式复杂，传输占带宽。</li>
+        <li>服务器端和客户端都需要花费大量代码来解析XML，导致服务器端和客户端代码变得异常复杂且不易维护。</li>
+        <li>客户端不同浏览器之间解析XML的方式不一致，需要重复编写很多代码。</li>
+        <li>服务器端和客户端解析XML花费较多的资源和时间。</li>
+    </ul>
+</p>
+
+
+
+
 
 <h4>13.写一个tab菜单切换程序</h4>
 
 
+
+
+
 <h4>14.写一个点击input能够弹出当前input索引的函数</h4>
+<p>原生js
+    {% highlight javascript %}
+    var list=document.getElementsByTagName("input");
+for(var i = 0; i < list.length; i++){
+
+}
+    {% endhighlight %}
+</p>
+<p>jquery
+    {% highlight javascript %}
+    $("input").click(function(){ 
+    alert($("input").index(this)); 
+}); 
+    {% endhighlight %}
+</p>
 
 
 
 
-<h4>15.==与===的区别</h4>
 
 
-<h4>16.Null与undefined的区别</h4>
+<h4>15.说说==与===的区别？</h4>
+<p>先总结：由于javascript存在隐式类型转换，所以==只要转换之后的值相等便是true；而===（叫做全等或者恒等）不仅要求值相等，同时要求类型也相等。</p>
+<p>1、对于string,number等基础类型，==和===是有区别的</p>
+<p>
+    <ul>
+        <li>不同类型间比较，==之比较“转化成同一类型后的值”看“值”是否相等，===如果类型不同，其结果就是不等</li>
+        <li>同类型比较，直接进行“值”比较，两者结果一样</li>
+    </ul>
+</p>
+<p>2、对于Array,Object等高级类型，==和===是没有区别的</p>
+<p>因为都是进行进行“指针地址”比较</p>
+<p>3、基础类型与高级类型，==和===是有区别的</p>
+<p>
+    <ul>
+        <li>对于==，将高级转化为基础类型，进行“值”比较</li>
+        <li>因为类型不同，===结果为false</li>
+    </ul>
+</p>
 
 
-<h4>17.Js如何实现多重继承</h4>
+
+
+<h4>16.null与undefined的区别？</h4>
+<p>Undefined类型只有一个值，即undefined。当声明的变量还未被初始化时，变量的默认值为undefined。</p>
+<p>Null类型也只有一个值，即null。null用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象(即是一个不存在的对象的占位符)。</p>
+
+
+
+
+
+<h4>17.js如何实现多重继承？</h4>
+
+
+
 
 
 <h4>18.Eval是啥？谈谈对它的理解</h4>
+
+
+
 
 <h4>19.事件、IE与火狐的事件机制有什么区别？</h4>
 
@@ -826,52 +928,70 @@ alert(b);
 
 
 
-<h4>1. 对bootstrap的理解（高频率）</h4>
-
-<h4>2. 网站性能优化的方法（高频率）</h4>
-
-<h4>3. 响应式布局（高频率）</h4>
+<h4>1. 谈谈对bootstrap的理解（高频率）</h4>
 
 
-<h4>4. 前端由哪些部分组成（高频率）</h4>
 
-<h4>5. W3C标准是啥</h4>
+<h4>2. 网站性能优化的方法有哪些？（高频率）</h4>
+
+
+
+<h4>3. 谈谈响应式布局（高频率）</h4>
+
+
+
+<h4>4. 前端由哪些部分组成？（高频率）</h4>
+<p></p>
+
+
+
+<h4>5. W3C标准是什么？</h4>
+
+
 
 
 <h4>6. 渐进增强与优雅降级的理解</h4>
 
 
 
+
 <h4>7. 为什么利用多个域名来提供网站资源会更有效？</h4>
+<p>缓解网络请求的阻塞时间，增加并发量，一般图片等静态资源优先考虑利用多域名加载。</p>
 
 
 
 
-
-<h4>8. http中的404状态码是什么意思</h4>
+<h4>8. http中的404状态码是什么意思？</h4>
+<p>找不到文件</p>
 
 
 
 <h4>9. 常用的测试工具、开发工具有哪些？</h4>
 
 
-<h4>10.Jpeg、gif、png格式的优缺点，应用场景</h4>
 
 
-<h4>11.谈谈对前端的理解</h4>
-
-
-<h4>12.你认为做前端最需要的品质</h4>
+<h4>10.jpeg、gif、png格式的优缺点，应用场景？</h4>
 
 
 
 
+<h4>11.谈谈对前端的理解？（开放式）</h4>
 
-<h4>13.你最近看过的文章是什么</h4>
+<h4>12.你认为做前端最需要的品质？（开放式）</h4>
+
+<h4>13.你最近看过的文章是什么？（开放式）</h4>
+
 
 
 
 <h4>14.有没有逛技术网站的习惯？请列举这些网站</h4>
+<p>
+    <ul>
+        <li><a href="https://github.com/" target="_blank">Github</a></li>
+        <li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow</a></li>
+    </ul>
+</p>
 
 
 
