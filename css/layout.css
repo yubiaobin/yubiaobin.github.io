@@ -65,10 +65,12 @@ body {
 }
 
 a {
-  color: #d5000d;
+  /*color: #d5000d;*/
+  color:#78daa6;
 }
 a:hover {
-  color: #c5000c;
+  /*color: #c5000c;*/
+  color:#4ac383;
 }
 
 header {
@@ -421,7 +423,7 @@ p{text-indent:2em;}
 
 
 .header_jekyll{color:#666;}
-.header_jekyll:hover{color:#333;}
+.header_jekyll:hover{color:#4ac383;}
 
 
 
@@ -466,7 +468,8 @@ p{text-indent:2em;}
   font-family: "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 } 
 .index_list li a:hover {
-  color: #c5000c; 
+  /*color: #c5000c; */
+  color:#4ac383;
   background: #d8d8d8;
   cursor:pointer;
 }
