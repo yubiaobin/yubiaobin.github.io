@@ -473,7 +473,6 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>1. 闭包的理解，javascript的作用域（高频率）</h4>
-
 <p>先来回答javascript作用域的问题,javascript语言没有块级作用域，只有一条从内向外的作用域链，看这个例子
 </p>
 <p>
@@ -534,31 +533,225 @@ CheckScope();
 
 
 <h4>2. Ajax的跨域问题和缓存原理？同步与异步的区别？（高频率）</h4>
+<p>AJAX即“Asynchronous Javascript And XML[1] ”（异步JavaScript和XML[1] ），是指一种创建交互式网页应用的网页开发技术。</p>
+<p>Ajax的跨域实现方式是通过jsonp动态控制script标记的生成，通过修改script标记的src属性完成对跨域页面的调用。此方案存在的缺陷是，script的src属性完成该调用时采取的方式时get方式，如果请求时传递的字符串过大时，可能会无法正常运行。</p>
+<p>默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。 </p>
+<p>
+    {% highlight javascript %}
+    var temp; 
+$.ajax({ 
+async: false, 
+type : "POST", 
+url : defaultPostData.url, 
+dataType : 'json', 
+success : function(data) { 
+temp=data; 
+} 
+}); 
+alert(temp); 
+    {% endhighlight %}
+</p>
+<p>这个ajax请求则为同步请求，在没有返回值之前，alert(temp)是不会执行的。</p>
+<p>如果async设置为：true,则不会等待ajax请求返回的结果，会直接执行ajax后面的语句。</p>
+
+
 
 <h4>3. 数组的增删查找（高频率）</h4>
+<p>JAVAScript为数组对象提供以下多种方法：</p>
+<p>
+    <ul>
+        <li>1 concat(数组1,数组2,...,数组N) 将多个数组结合成一个新的数组</li>
+        <li>2 join(分隔字符) 将数组结合成一个字符串，用特定字符来分开</li>
+        <li>3 pop() 将数组内最后一个组件删除，并返回该组件内容</li>
+        <li>4 push(组件1,组件2,...,组件N) 将一个或多个组件补在数组最后面，并返回最后一个组件内容 </li>
+        <li>5 reverse() 将数组内所有组件的索引次序反转（Transpose）第一个组件变成最后一个，最后一个组件则拿到最前面 </li>
+        <li>6 shift() 将数组内第一个组件删除，并返回该组件内容 </li>
+        <li>7 slice(开始索引,结束索引) 将数组内容转入一个新的数杉 </li>
+        <li>8 sort() 将数组内容排序 </li>
+        <li>9 splice() 增加或删除数组组件 </li>
+        <li>10 toSource() 返回代表特定数组的数组常数，可以用来建立新的数组 </li>
+        <li>11 toString() 以字符串来表示该数组及其组件 </li>
+        <li>12 unshift(组件1,组件2,...,组件N) 将一个或多个组件补在数组最前面，并返回最后数组长度 </li>
+        <li>13 valueOf() 取得数组值 </li>
+    </ul>
+</p>
+
+
+
 
 
 <h4>4. DOM节点的创建、移动、复制、删除、查找。（高频率）</h4>
+<p>DOM节点的创建
+    <ul>
+        <li>createDocumentFragment()    //创建一个DOM片段</li>
+        <li>createElement_x()   //创建一个具体的元素</li>
+        <li>createTextNode()   //创建一个文本节点</li>
+    </ul>
+</p>
+<p>DOM节点的添加、移除、替换、插入
+    <ul>
+        <li>appendChild()</li>
+        <li>removeChild()</li>
+        <li>replaceChild()</li>
+        <li>insertBefore()</li>
+    </ul>
+</p>
+<p>DOM节点的查找
+    <ul>
+        <li>getElementsByTagName()    //通过标签名称</li>
+        <li>getElementsByName()    //通过元素的Name属性的值</li>
+        <li>getElementById()    //通过元素Id，唯一性</li>
+    </ul>
+</p>
+
+
+
+
 
 
 <h4>5. SetTimeout与setInterval区别</h4>
+<p>相同点：这两个方法都可以用来实现在一个固定时间段之后去执行JavaScript。</p>
+<p>不同点：
+    <ul>
+        <li>setInterval在执行完一次代码之后，经过了那个固定的时间间隔，它还会自动重复执行代码</li>
+        <li>setTimeout只执行一次那段代码。</li>
+    </ul>
+</p>
 
 
-<h4>6. 面向对象编程:b怎么继承a</h4>
 
 
-<h4>7. 编写一个JavaScript函数 parseQueryString，它的用途是把URL参数解析为一个对象varobj = parseQueryString(url);
-alert(obj.key0)  // 输出0</h4>
+<h4>6. 面向对象编程:B怎么继承A</h4>
+<p>继承方法一、利用call或者apply方法改变this的指针，
+    {% highlight javascript %}
+function A(name,age){
+    this.age = age ? age : 25;
+    this.name = name ? name : '小明'
+    this.say = function(){
+        alert(this.name + '今年' + this.age + '岁了！');    
+    }
+}
+function B(name,age){
+    A.apply(this,arguments);    
+}
+C = new B('小刚',18);
+C.say();
+    {% endhighlight %}
+</p>
+<p>继承方法二、
+    {% highlight javascript %}
+function A(name,age){
+    this.age = age ? age : 30;
+    this.name = name ? name : '小明'
+    this.say = function(){
+        alert(this.name + '今年' + this.age + '岁了！');    
+    }
+}
+function B(){}
+B.prototype = new A();
+var C = new B();
+C.say();
+    {% endhighlight %}
+</p>
 
 
 
-<h4>8. JS关键字与保留字的选择：parent，class，void,main。</h4>
+
+
+<h4>7. 编写一个JavaScript函数 parseQueryString，它的用途是把URL参数解析为一个对象var obj = parseQueryString(url);
+alert(obj.key[0])  // 输出第一个参数</h4>
+<p>
+    {% highlight javascript %}
+    var url1 = "http://www.oc35.com/resume.html?user_id=001&user_name=yubiaobin";
+
+function parentQueryString(url){
+    var arguments = [];
+    var arr = url.split("?");
+    if(arr.length <= 1){
+        return arguments;
+    }
+    arr = arr[1].split("&");
+    for(var i = 0, k = arr.length; i < k; i++){
+        var a = arr[i].split("=");
+        arguments[a[0]] = a[1];
+    }
+    return arguments;
+}
+
+    var result = parentQueryString(url1);
+    alert(result["user_id"]);
+    {% endhighlight %}
+</p>
+
+
+
+
+<h4>8. JS关键字与保留字的选择：parent，class，void，main。</h4>
+<p>javascript关键字也是语言保留的，不能用作标识符。</p>
+<p>
+    <ul>
+        <li>void</li>
+        <li></li>
+    </ul>
+</p>
+<p>javascript关键字也是语言保留的，不能用作标识符。</p>
+<p>
+    <ul>
+        <li>class</li>
+        <li></li>
+    </ul>
+</p>
+
+
 
 
 <h4>9. ajax属于javascript？</h4>
+<p>JavaScript是一种客户端脚本语言。Ajax是JS的一种应用,利用JS在客户端创建一个ActiveX对象,进行异步请求的提交和处理。严格来讲，Ajax是一种技术而非语言，两者没有从属关系。</p>
 
 
-<h4>10.Var a = ‘abc def ghi’,把每三个字中的首字母转为大写。</h4>
+
+
+<h4>10.var a = ‘abc def ghi’,把每三个字中的首字母转为大写。</h4>
+<p>有三种方式可以实现</p>
+<p>
+    {% highlight javascript %}
+    var a = "abc def ghi";  
+var array1 = a.split(" ");  //第一步必须先用 拆分；
+for(var i = 0 ; i < array1.length; i++){  
+    var temp = array1[i].split('');  
+    temp.unshift(temp.shift().toUpperCase())  
+    array1[i] = temp;  
+}  
+var b = array1[0].concat([' '],array1[1],[' '],array1[2]).join('');  
+alert(b);
+    {% endhighlight %}
+</p>
+<p>
+    {% highlight javascript %}
+    var a = "abc def ghi";  
+var array1 = a.split(" ");  //第一步必须先用 拆分；
+alert(array1);  
+for(var i = 0 ; i < array1.length; i++){  
+    var temp = array1[i].split('');  
+    var up = temp[0].toUpperCase();  
+    array1[i] = up+temp[1]+temp[2];  
+}  
+var b = array1[0]+array1[1]+array1[2];  
+alert(b);  
+    {% endhighlight %}
+</p>
+<p>
+    {% highlight javascript %}
+    var a = "abc def ghi";  
+var array1 = a.split(" ");  //第一步必须先用 拆分；
+for(var i = 0 ; i < array1.length; i++){  
+    array1[i] =  array1[i].substring(0,1).toUpperCase()+array1[i].substring(1);  
+    //alert(array1[i]);  
+}  
+var b = array1[0].concat([' '],array1[1],[' '],array1[2]);  
+alert(b); 
+    {% endhighlight %}
+</p>
 
 
 
