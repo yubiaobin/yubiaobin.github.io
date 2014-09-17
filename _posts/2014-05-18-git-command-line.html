@@ -1,0 +1,252 @@
+---
+layout: default_post
+title : git学习速查手册
+---
+
+
+
+
+
+
+
+
+<h4>Git create（git 创建命令）</h4>
+
+
+
+<p>Clone an existing repository（克隆远程已存在的版本库）</p>
+<p>
+	{% highlight java %}
+	$ git clone ssh://user@domail.com/repo.git
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git clone https://user@github.com/someone/repo.git
+	{% endhighlight %}
+</p>
+
+
+<p>Create an new local repository（创建本地的本版库）</p>
+<p>
+	{% highlight java %}
+	$ git init         //（当前目录初始化——即增加.git隐藏文件来记录版本）
+	{% endhighlight %}
+</p>
+
+
+
+
+
+
+
+<h4>Local changes（本地的更改命令）</h4>
+
+
+<p>
+	{% highlight java %}
+	$ git status          //（本地目录状态）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git diff           //（本地目录追踪文件更改的比较）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git add --all      //（添加当前所有有过改动的文件）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git commit        //（提交更改的记录到暂存区）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git commit -a <file>     //提交之前所有本地追踪文件的更改）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git commit --amend      //查看上次提交的更改的部分）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git commit -m       //（添加这次提交更改的文字说明）
+	{% endhighlight %}
+</p>
+
+
+
+
+
+
+
+
+
+<h4>Commit history（提交历史）</h4>
+<p>
+	{% highlight java %}
+	$ git log      //（从最近的提交开始显示所有的提交）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git reflog      //（从最近的提交开始显示所有的提交）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git log -p <file>      //（特定文件的按时间显示提交历史）
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight java %}
+	$ git log --pretty=oneline     //（单行显示所有的提交）
+	{% endhighlight %}
+</p>
+
+
+
+<p>Who changed what and when in <file>（什么时候谁更改了文件）</p>
+<p>
+	{% highlight java %}
+	$ git blame <file>
+	{% endhighlight %}
+</p>
+
+
+
+
+
+
+
+<h4>Branches & Tags（分支和标识）</h4>
+
+
+
+
+
+
+<p>List all existing branches（列出所有现有的分支）</p>
+<p>
+	{% highlight java %}
+	$ git branch
+	{% endhighlight %}
+</p>
+
+
+
+<p>Switch HEAD branch（切换到这个分支）</p>
+<p>
+	{% highlight java %}
+	$ git checkout <branch>
+	{% endhighlight %}
+</p>
+
+
+
+<p>Create a new branch based on your current HEAD（在当前版本库创建一个新的分支）</p>
+<p>
+	{% highlight java %}
+	$ git branch <new-branch>
+	{% endhighlight %}
+</p>
+
+
+
+<p>Create a new tracking branch based on a remote branch（在远程版本库创建一个新的跟踪的分支）</p>
+<p>
+	{% highlight java %}
+	$ git branch --tracked <new-branch>  <remote-branch>	
+ 	{% endhighlight %}
+</p>
+
+
+
+<p>Delete a local branch（删除一个本地的分支）</p>
+<p>
+	{% highlight java %}
+	$ git branch -d <branch>
+	{% endhighlight %}
+</p>
+
+
+
+<p>Mark the current commit with a tag（标记最新的提交）</p>
+<p>
+	{% highlight java %}
+	$ git tag <tag-name>
+	{% endhighlight %}
+</p>
+
+
+
+
+<p>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</p>
+<p>
+	{% highlight java %}
+	$ git push --tags
+	{% endhighlight %}
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>学习Git 以来收获不少 ，感谢一下共享学习资料的开源作者</h3>
+
+<p>  1.  廖雪峰老师的博客Git教程-- <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖雪峰老师的博客Git教程</a></p>
+
+
+<p>  2.  Tower git client-- <a href="http://www.git-tower.com/learn/?utm_source=Tower+Blog&utm_medium=sidebar&utm_campaign=Learn-Git" target="_blank">Tower git client</a></p>
+
+
+<p>  3.  Tower git card-- <a href="http://www.git-tower.com/blog/assets/2013-05-22-git-cheat-sheet/cheat-sheet-large01.png" target="_blank">Tower git card</a></p>
+
+
+
+
