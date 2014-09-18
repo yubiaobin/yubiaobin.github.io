@@ -6,7 +6,7 @@ title : Html页面的性能优化以及缓存处理
 
 
 
-<h3>Html页面的性能优化以及缓存处理</h3>
+<h3>Html页面的性能优化</h3>
 
 
 
@@ -15,7 +15,7 @@ title : Html页面的性能优化以及缓存处理
 <h4>Html页面的性能优化的方法</h4>
 
 
-<p><strong>1）. 减少HTTP请求数。</strong></p>
+<p><strong>1. 减少HTTP请求数。</strong></p>
 <p>打开网页，浏览器会发出很多请求，图片，脚本，每个对象的加载都需要花时间， 需要减负载。
 	<ul>
 		<li>合并CSS,Js文件 ，减少Http的请求数</li>
@@ -26,7 +26,7 @@ title : Html页面的性能优化以及缓存处理
 
 
 
-<p><strong>2）. 减少被请求文件的大小，较少请求数据占用的网络带宽。</strong></p>
+<p><strong>2. 减少被请求文件的大小，较少请求数据占用的网络带宽。</strong></p>
 <p>打开网页，浏览器会发出很多请求，图片，脚本，每个对象的加载都需要花时间， 需要减负载。
 	<ul>
 		<li>压缩Js体积， 删除没有空行，注释，变量名。 大型的Js很乱，没有空行或换行，其实也是优化的表现。</li>
@@ -38,7 +38,7 @@ title : Html页面的性能优化以及缓存处理
 
 
 
-<p><strong>3）. 通过版本化控制客户端的缓存。</strong></p>
+<p><strong>3. 通过版本化控制客户端的缓存。</strong></p>
 <p>打开网页，浏览器会发出很多请求，图片，脚本，每个对象的加载都需要花时间， 需要减负载。
 	<ul>
 		<li>通常JS/CSS这类文件改动比较频繁，为加载加快，可能要设置这类文件的过期时间，为几天后从而实现缓存， 那我们的问题就是如何及时的更改这些被缓存的文件了。</li>
@@ -49,23 +49,23 @@ title : Html页面的性能优化以及缓存处理
 
 
 
-<p><strong>4）. 帮页面减肥 。简洁风格，少用Flash等</strong></p>
+<p><strong>4. 帮页面减肥 。简洁风格，少用Flash等。</strong></p>
 
 
-<p><strong>5）. 删除页眉可有可无的内容。 如空格，注释</strong></p>
-<p><strong>6). 删除页面代码中的空语句</strong></p>
-<p><strong>7). 删除HTMl中的默认值，什么颜色，对齐之类的</strong></p>
-<p><strong>8. 优化CSS文件</strong></p>
-<p><strong>9. Visibility 快于Display
-  图片的时隐时现，如果是保持决定位置，用Visibility 好。  none,hidden  . visibility: hindden</strong></p>
-<p><strong>10. 缓存区是区分大小写的，保持url大小写一致性</strong></p>
-<p><strong>11. 让html标记有始终。 减少浏览器的判断时间</strong></p>
+<p><strong>5. 删除页眉可有可无的内容。 如空格，注释。</strong></p>
+<p><strong>6. 删除页面代码中的空语句。</strong></p>
+<p><strong>7. 删除HTMl中的默认值，什么颜色，对齐之类的。</strong></p>
+<p><strong>8. 优化CSS文件。</strong></p>
+<p><strong>9. Visibility比Display渲染的快。</strong></p>
+<p class="p_info">--如果是保持决定位置，用visibility: hindden 好。</p>
+<p><strong>10. 缓存区是区分大小写的，保持url大小写一致性。</strong></p>
+<p><strong>11. 让html标记有始有终（结束标签），减少浏览器的判断时间。</strong></p>
 <p><strong>12. 不用将全部内容塞入一个Table中。  因为Talbe要等内容加载完毕才显示出来。 如果某些内容有错，将拖延页面的访问速度。</strong></p>
-<p><strong>13. 把Javascript移到HTML文件末尾</strong></p>
+<p><strong>13. 把Javascript移到HTML文件末尾。</strong></p>
 <p><strong>14. JS会阻塞后面的页面的显示。</strong></p>
 <p><strong>15. 友情链接的学问， 尽量用文字。</strong></p>
 
-<p><strong>16. 优化图片。 Gif图片比较少，一般做Logo,按钮，表情。 PNG，做透明背景比较多</strong></p>
+<p><strong>16. 优化图片。 Gif图片比较少，一般做Logo,按钮，表情。 PNG，做透明背景比较多。</strong></p>
 <p><strong>17. 网址后面加入一个反斜杠. www.maticsoft.com/220/ ，让服务器立即知道访问的是个文件夹。</strong></p>
 <p><strong>18. 指定图片的大小，让浏览器一目了然。</strong></p>
 
@@ -74,7 +74,7 @@ title : Html页面的性能优化以及缓存处理
 
 
 
-
+<h3>Html页面缓存处理</h3>
 
 
 
@@ -86,7 +86,6 @@ title : Html页面的性能优化以及缓存处理
 <meta http-equiv="expires" content="0">   
 	{% endhighlight %}
 </p>
-
 
 
 
