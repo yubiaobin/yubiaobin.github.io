@@ -78,8 +78,14 @@ title : Html页面的性能优化以及缓存处理
 
 
 
-
-
+<h4>如果需要在html页面上设置不缓存，这在head标签中加入如下语句</h4>
+<p>
+	{% highlight html %}
+	<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">   
+	{% endhighlight %}
+</p>
 
 
 
