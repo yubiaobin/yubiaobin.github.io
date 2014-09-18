@@ -184,7 +184,7 @@ a.button span {
 
 #view-on-github span {
   color:#666;
-  background: transparent url(../img/octocat-icon.png) 12px 50% no-repeat;
+  background: transparent url("data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAXCAYAAAAYyi9XAAABpElEQVRIx7WUzUpCURDHL/ogPUKEfe2yaFFBIBIR1sqgRbhpFa2ybNEjKNHHoocIBGkXgbtalOCqhUGbMjS8XZlmrjN6Oh4vetSBPx7m/Gd+zjn3XscJDkAVUTOoUIAvxJ4i11gHsLKoV1RNyYlqvJdVclYR5WLXAOkl8UZtgHsobwCYyONa6+O01cBRGQL2bgNsSoPNxVl4vjkDr3AJcH/9T5SjPfIowKYN0L+/jYXpVvPSA4Dntn4FqOUUqNcPIKKJjsX/937z3wYUdncA3J8OUMuRl4EVQ78ukB45Km7kLzrNk9vdQCVHXgbmAgbqOeU6qtqesI8j5QmrXBsJGKbnxsrW0lxdf1BeTlK+9Hxieb5ONQP0N8bEYWItX7o9d01PabNwBbRHHvKO4juqRtrwzqWdEYYOHdlXZdhPnDNOaNqwHluMF5h8gzBqFXWKuqPmk6mjbwHKmvbYQ96wLSyGKqOoYftIpw6OjWvxcU3MBvilNIH4Y0sCEpjkVS/qwwYYVycU6P5TBy5rDUY18WHvMEP3hM3LCPlUgLQu8x1m+rnDP5+EUbVrSe0OAAAAAElFTkSuQmCC") 12px 50% no-repeat;
 }
 
 #back-to-index span {
