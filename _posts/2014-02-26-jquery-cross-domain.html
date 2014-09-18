@@ -1,0 +1,73 @@
+---
+layout: default_post
+title : JavaScript跨域访问的问题和解决过程
+---
+
+
+
+
+<h3>JavaScript跨域访问的问题和解决过程</h3>
+
+
+<h4>利用Jquery的$.ajax()方法和jsonp实现跨域访问</h4>
+<p>下面来看具体代码</p>
+<p>
+{% highlight javascript %}
+var qsData = {
+"searchWord"             :  $("#searchWord").attr("value"),
+"currentUserId"          :  $("#currentUserId").attr("value"),
+"conditionBean.pageSize" :  $("#pageSize").attr("value")
+};
+$.ajax({
+    async:false,
+    url: http:    //跨域的dns/document!searchJSONResult.action,
+    type: "GET",
+    dataType: 'jsonp',
+    jsonp: 'jsoncallback',
+    data: qsData,
+    timeout: 5000,
+    beforeSend: function(){
+    //jsonp 方式此方法不被触发.原因可能是dataType如果指定为jsonp的话,就已经不是ajax事件了
+    },
+    success: function (json) {  
+    	/*客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,
+    	会动态执行这个callback函数*/
+    	if(json.actionErrors.length!=0){
+           alert(json.actionErrors);
+        }
+        genDynamicContent(qsData,type,json);
+    },
+    complete: function(XMLHttpRequest, textStatus){
+    	$.unblockUI({ fadeOut: 10 }); 
+    },
+    error: function(xhr){
+    	//jsonp 方式此方法不被触发.原因可能是dataType如果指定为jsonp的话,就已经不是ajax事件了
+    	//请求出错处理
+    	alert("请求出错(请检查相关度网络状况.)");
+    }
+});
+	{% endhighlight %}
+
+</p>
+<p>这种方式其实是上例$.ajax({..}) api的一种高级封装,有些$.ajax api底层的参数就被封装而不可见了。</p>
+
+<p><strong>jsonp的最基本的原理是:</strong>动态添加一个script标签，而script标签的src属性是没有跨域的限制的。这样说来,这种跨域方式其实与ajax XmlHttpRequest协议无关了。</p>
+
+<p>JSONP是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问JSONP即JSON with Padding。由于同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源。如果要进行跨域请求，我们可以通过使用html的script标记来进行跨域请求，并在响应中返回要执行的script代码，其中可以直接使用JSON传递javascript对象。这种跨域的通讯方式称为JSONP。</p>
+
+
+<p><strong>注</strong>jquey是不支持post方式跨域的。</p>
+<p><strong>为什么呢?</strong>虽然采用post +动态生成iframe是可以达到post跨域的目的,但这样做是一个比较极端的方式,不建议采用。
+也可以说get方式的跨域是合法的,post方式从安全角度上,被认为是不合法的, 万不得已还是不要剑走偏锋..
+client端跨域访问的需求看来也引起w3c的注意了,看资料说html5 WebSocket标准支持跨域的数据交换,应该也是一个将来可选的跨域数据交换的解决方案。</p>
+
+
+
+
+
+
+
+<p class="pege_tail">参考<a href="http://www.cnblogs.com/PurpleTide/archive/2011/11/06/2238293.html" target="_blank">JavaScript 跨域访问的问题和解决过程</a></p>
+<p>参考<a href="http://www.poluoluo.com/jzxy/201402/261614.html" target="_blank">用jQuery与JSONP轻松解决跨域访问的问题</a></p>
+
+
