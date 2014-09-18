@@ -1,7 +1,45 @@
 ---
 layout: default_post
-title : git学习速查手册
+title : git 命令速查手册
 ---
+
+
+
+
+
+<h3> 初次运行 Git 前的配置</h3>
+
+
+
+<h4>用户信息</h4>
+<p>第一个要配置的是你个人的用户名称和电子邮件地址。这两条配置很重要，每次 Git 提交时都会引用这两条信息，说明是谁提交了更新，所以会随更新内容一起被永久纳入历史记录：</p>
+
+
+<p>
+	{% highlight javascript %}
+	$ git config --global user.name       //设置全局用户名
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight javascript %}
+	Example:  $ git config --global user.name "yubiaobin"
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight javascript %}
+	$ git config --global user.email       //设置全局用户邮箱
+	{% endhighlight %}
+</p>
+<p>
+	{% highlight javascript %}
+	Example:  $ git config --global user.email  yubiaobin@163.com
+	{% endhighlight %}
+</p>
+
+
+
+
+
 
 
 
@@ -12,25 +50,20 @@ title : git学习速查手册
 
 <h4>Git create（git 创建命令）</h4>
 
-
-
-<p>Clone an existing repository（克隆远程已存在的版本库）</p>
+<p>Git 可以使用四种主要的协议来传输数据：本地传输，SSH 协议，Git 协议和 HTTP 协议。比较常用的就是SSH协议和HTTP协议。</p>
 <p>
 	{% highlight java %}
-	$ git clone ssh://user@domail.com/repo.git
+	$ git clone ssh:user@domail.com/repo.git      //（克隆远程已存在的版本库）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git clone https://user@github.com/someone/repo.git
+	$ git clone https:user@github.com/someone/repo.git    //（克隆远程已存在的版本库）
 	{% endhighlight %}
 </p>
-
-
-<p>Create an new local repository（创建本地的本版库）</p>
 <p>
 	{% highlight java %}
-	$ git init         //（当前目录初始化——即增加.git隐藏文件来记录版本）
+	$ git init         //（创建本地的本版库并初始化——即增加.git隐藏文件来记录版本）
 	{% endhighlight %}
 </p>
 
@@ -108,13 +141,9 @@ title : git学习速查手册
 	$ git log --pretty=oneline     //（单行显示所有的提交）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Who changed what and when in <file>（什么时候谁更改了文件）</p>
 <p>
 	{% highlight java %}
-	$ git blame <file>
+	$ git blame <file>    //（什么时候谁更改了文件）
 	{% endhighlight %}
 </p>
 
@@ -127,75 +156,41 @@ title : git学习速查手册
 <h4>Branches & Tags（分支和标识）</h4>
 
 
-
-
-
-
-<p>List all existing branches（列出所有现有的分支）</p>
 <p>
 	{% highlight java %}
-	$ git branch
+	$ git branch       //（列出所有现有的分支）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Switch HEAD branch（切换到这个分支）</p>
 <p>
 	{% highlight java %}
-	$ git checkout <branch>
+	$ git checkout <branch>      //（切换到这个分支）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Create a new branch based on your current HEAD（在当前版本库创建一个新的分支）</p>
 <p>
 	{% highlight java %}
-	$ git branch <new-branch>
+	$ git branch <new-branch>      //（在当前版本库创建一个新的分支）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Create a new tracking branch based on a remote branch（在远程版本库创建一个新的跟踪的分支）</p>
 <p>
 	{% highlight java %}
-	$ git branch --tracked <new-branch>  <remote-branch>	
+	$ git branch --tracked <new-branch>  <remote-branch>	      //（在远程版本库创建一个新的跟踪的分支）
  	{% endhighlight %}
 </p>
-
-
-
-<p>Delete a local branch（删除一个本地的分支）</p>
 <p>
 	{% highlight java %}
-	$ git branch -d <branch>
+	$ git branch -d <branch>       //（删除一个本地的分支）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Mark the current commit with a tag（标记最新的提交）</p>
 <p>
 	{% highlight java %}
-	$ git tag <tag-name>
+	$ git tag <tag-name>       //（标记最新的提交）
 	{% endhighlight %}
 </p>
-
-
-
-
-<p>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</p>
 <p>
 	{% highlight java %}
-	$ git push --tags
+	$ git push --tags     //（发布本地所有的标记去远程本版库）
 	{% endhighlight %}
 </p>
-
-
-
-
 
 
 
@@ -208,75 +203,44 @@ title : git学习速查手册
 
 
 
-
-
-<p>List all currently configured remotes（列出所有当前的远程配置）</p>
 <p>
-	{% highlight java %}
-	$ git remote -v
+	{% highlight javascript %}
+	$ git remote -v      //（列出所有当前的远程配置）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Show information about a remote（显示远程版本库信息）</p>
 <p>
-	{% highlight java %}
-	$ git remote show
+	{% highlight javascript %}
+	$ git remote show     //（显示远程版本库信息）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Add mew remote repository , named <remote>（增加一个新的名为<remote>的远程版本）</p>
 <p>
-	{% highlight java %}
-	$ git remote add <remote>
+	{% highlight javascript %}
+	$ git remote add <remote>     //（增加一个新的名为<remote>的远程版本）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Download all changes from <remote> , but don't integrate into HEAD（从远程下载所有更改，但是不和本地合并）</p>
 <p>
-	{% highlight java %}
-	$ git fetch <remote>
+	{% highlight javascript %}
+	$ git fetch <remote>      //（从远程下载所有更改，但是不和本地合并）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Download changes and directly merge/integrate into HEAD （从远程下载所有更改，并且和本地合并）</p>
 <p>
-	{% highlight java %}
-	$ git pull <remote> <branch>
+	{% highlight javascript %}
+	$ git pull <remote> <branch>     //（从远程下载所有更改，并且和本地合并）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Publish local changes on a remote（发布本地的提交的更改去远程版本库）</p>
 <p>
-	{% highlight java %}
-	$ git push <remote> <branch>
+	{% highlight javascript %}
+	$ git push <remote> <branch>     //（发布本地的提交的更改去远程版本库）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Delete a branch on the remote（删除远程的版本库的一个分支）</p>
 <p>
-	{% highlight java %}
-	$ git push <remote> : <branch>
+	{% highlight javascript %}
+	$ git push <remote> : <branch>     //（删除远程的版本库的一个分支）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Publish your local all tags to remote （发布本地所有的标记去远程本版库）</p>
 <p>
-	{% highlight java %}
-	$ git push --tags
+	{% highlight javascript %}
+	$ git push --tags      //（发布本地所有的标记去远程本版库）
 	{% endhighlight %}
 </p>
 
@@ -297,46 +261,29 @@ title : git学习速查手册
 
 
 
-<p>Merge <branch> into your current HEAD（合并分支去当前版本）</p>
 <p>
 	{% highlight java %}
-	$ git merge <branch>
+	$ git merge <branch>     //（合并分支去当前版本）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Rebase your current HEAD onto <branch>（重定义当前的版本）</p>
 <p>
 	{% highlight java %}
-	$ git rebase <branch>
+	$ git rebase <branch>     //（重定义当前的版本）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Abort a rebase（中支重定义）</p>
 <p>
 	{% highlight java %}
-	$ git rebase --abort
+	$ git rebase --abort     //（中止重定义）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Continue a rebase after resolving conflicts（解决冲突之后继续）</p>
 <p>
 	{% highlight java %}
-	$ git rebase --continue
+	$ git rebase --continue       //（解决冲突之后继续）
 	{% endhighlight %}
 </p>
-
-
-
-<p>Changes to tracked files（本地目录追踪文件更改的比较）</p>
 <p>
 	{% highlight java %}
-	$ git diff
+	$ git diff        //（本地目录追踪文件更改的比较）
 	{% endhighlight %}
 </p>
 
@@ -372,7 +319,7 @@ title : git学习速查手册
 
 
 
-<h3>学习Git 以来收获不少 ，感谢一下共享学习资料的开源作者</h3>
+<h4 class="pege_tail">学习Git 以来收获不少 ，感谢一下共享学习资料的开源作者</h4>
 
 <p>  1.  廖雪峰老师的博客Git教程-- <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖雪峰老师的博客Git教程</a></p>
 
