@@ -1,6 +1,6 @@
 ---
 layout: default_post
-title : git 命令速查手册
+title : Git 命令速查手册
 ---
 
 
@@ -48,13 +48,13 @@ title : git 命令速查手册
 
 
 
-<h4>Git create（git 创建命令）</h4>
+<h3>Git create（git 创建命令）</h3>
 
 
 <p>Git 可以使用四种主要的协议来传输数据：本地传输，SSH 协议，Git 协议和 HTTP 协议。比较常用的就是SSH协议和HTTP协议。</p>
 <p>
 	{% highlight java %}
-	$ git clone ssh:user@domail.com/repo.git      //（克隆远程已存在的版本库）
+	$ git clone ssh:user@domail.com/repo.git              //（克隆远程已存在的版本库）
 	{% endhighlight %}
 </p>
 <p>
@@ -64,7 +64,7 @@ title : git 命令速查手册
 </p>
 <p>
 	{% highlight java %}
-	$ git init         //（创建本地的本版库并初始化——即增加.git隐藏文件来记录版本）
+	$ git init                        //（创建本地的本版库并初始化——即增加.git隐藏文件来记录版本）
 	{% endhighlight %}
 </p>
 
@@ -74,27 +74,27 @@ title : git 命令速查手册
 
 
 
-<h4>Local changes（本地的更改命令）</h4>
+<h3>Local changes（本地的更改命令）</h3>
 
 
 <p>
 	{% highlight java %}
-	$ git status          //（本地目录状态）
+	$ git status               //（本地目录状态）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git diff           //（本地目录追踪文件更改的比较）
+	$ git diff                 //（本地目录追踪文件更改的比较）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git add --all      //（添加当前所有有过改动的文件）
+	$ git add --all            //（添加当前所有有过改动的文件）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git commit        //（提交更改的记录到暂存区）
+	$ git commit               //（提交更改的记录到暂存区）
 	{% endhighlight %}
 </p>
 <p>
@@ -104,12 +104,12 @@ title : git 命令速查手册
 </p>
 <p>
 	{% highlight java %}
-	$ git commit --amend      //查看上次提交的更改的部分）
+	$ git commit --amend       //查看上次提交的更改的部分）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git commit -m       //（添加这次提交更改的文字说明）
+	$ git commit -m            //（添加这次提交更改的文字说明）
 	{% endhighlight %}
 </p>
 
@@ -121,20 +121,20 @@ title : git 命令速查手册
 
 
 
-<h4>Commit history（提交历史）</h4>
+<h3>Commit history（提交历史）</h3>
 <p>
 	{% highlight java %}
-	$ git log      //（从最近的提交开始显示所有的提交）
+	$ git log                     //（从最近的提交开始显示所有的提交）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git reflog      //（从最近的提交开始显示所有的提交）
+	$ git reflog                  //（从最近的提交开始显示所有的提交）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git log -p <file>      //（特定文件的按时间显示提交历史）
+	$ git log -p <file>           //（特定文件的按时间显示提交历史）
 	{% endhighlight %}
 </p>
 <p>
@@ -144,7 +144,7 @@ title : git 命令速查手册
 </p>
 <p>
 	{% highlight java %}
-	$ git blame <file>    //（什么时候谁更改了文件）
+	$ git blame <file>            //（什么时候谁更改了文件）
 	{% endhighlight %}
 </p>
 
@@ -154,17 +154,17 @@ title : git 命令速查手册
 
 
 
-<h4>Branches & Tags（分支和标识）</h4>
+<h3>Branches & Tags（分支和标识）</h3>
 
 
 <p>
 	{% highlight java %}
-	$ git branch       //（列出所有现有的分支）
+	$ git branch                   //（列出所有现有的分支）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git checkout <branch>      //（切换到这个分支）
+	$ git checkout <branch>        //（切换到这个分支）
 	{% endhighlight %}
 </p>
 <p>
@@ -174,7 +174,7 @@ title : git 命令速查手册
 </p>
 <p>
 	{% highlight java %}
-	$ git branch --tracked <new-branch>  <remote-branch>	      //（在远程版本库创建一个新的跟踪的分支）
+	$ git branch --tracked <new-branch> <remote-branch>  //（在远程版本库创建一个新的跟踪的分支）
  	{% endhighlight %}
 </p>
 <p>
@@ -184,12 +184,12 @@ title : git 命令速查手册
 </p>
 <p>
 	{% highlight java %}
-	$ git tag <tag-name>       //（标记最新的提交）
+	$ git tag <tag-name>           //（标记最新的提交）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git push --tags     //（发布本地所有的标记去远程本版库）
+	$ git push --tags              //（发布本地所有的标记去远程本版库）
 	{% endhighlight %}
 </p>
 
@@ -206,22 +206,22 @@ title : git 命令速查手册
 
 <p>
 	{% highlight javascript %}
-	$ git remote -v      //（列出所有当前的远程配置）
+	$ git remote -v                 //（列出所有当前的远程配置）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight javascript %}
-	$ git remote show     //（显示远程版本库信息）
+	$ git remote show               //（显示远程版本库信息）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight javascript %}
-	$ git remote add <remote>     //（增加一个新的名为<remote>的远程版本）
+	$ git remote add <remote>       //（增加一个新的名为<remote>的远程版本）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight javascript %}
-	$ git fetch <remote>      //（从远程下载所有更改，但是不和本地合并）
+	$ git fetch <remote>             //（从远程下载所有更改，但是不和本地合并）
 	{% endhighlight %}
 </p>
 <p>
@@ -231,17 +231,17 @@ title : git 命令速查手册
 </p>
 <p>
 	{% highlight javascript %}
-	$ git push <remote> <branch>     //（发布本地的提交的更改去远程版本库）
+	$ git push <remote> <branch>      //（发布本地的提交的更改去远程版本库）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight javascript %}
-	$ git push <remote> : <branch>     //（删除远程的版本库的一个分支）
+	$ git push <remote> : <branch>    //（删除远程的版本库的一个分支）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight javascript %}
-	$ git push --tags      //（发布本地所有的标记去远程本版库）
+	$ git push --tags                 //（发布本地所有的标记去远程本版库）
 	{% endhighlight %}
 </p>
 
@@ -264,27 +264,27 @@ title : git 命令速查手册
 
 <p>
 	{% highlight java %}
-	$ git merge <branch>     //（合并分支去当前版本）
+	$ git merge <branch>       //（合并分支去当前版本）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git rebase <branch>     //（重定义当前的版本）
+	$ git rebase <branch>      //（重定义当前的版本）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git rebase --abort     //（中止重定义）
+	$ git rebase --abort       //（中止重定义）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git rebase --continue       //（解决冲突之后继续）
+	$ git rebase --continue   //（解决冲突之后继续）
 	{% endhighlight %}
 </p>
 <p>
 	{% highlight java %}
-	$ git diff        //（本地目录追踪文件更改的比较）
+	$ git diff                 //（本地目录追踪文件更改的比较）
 	{% endhighlight %}
 </p>
 
