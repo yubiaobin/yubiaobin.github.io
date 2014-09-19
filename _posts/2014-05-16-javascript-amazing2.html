@@ -1,0 +1,88 @@
+---
+layout: default_post
+title : Js特性（缺陷）之二 —— 链式作用域
+---
+
+<h3>Javascript的链式作用域</h3>
+
+
+
+
+<h4>函数作用域问题</h4>
+
+<p>
+	{% highlight html %}
+    var a = 1;
+    function saya(){
+        a = 10;
+        return;
+        function a(){
+            alert("I'm another a")
+        }
+    }
+    saya();
+    alert(a)     // 1
+	{% endhighlight %}
+</p>
+
+
+<p>
+	{% highlight html %}
+    var a = 1;
+    function saya(){
+        a = 10;
+        return;
+        alert("I'm another A")
+    }
+    saya(); 
+    alert(a)    //  10
+	{% endhighlight %}
+</p>
+
+
+<p>
+	{% highlight html %}
+    var a = 1;
+    function saya(){
+        a = 10;
+        return;
+        function abc(){
+            alert("I‘m abc")
+        }
+    }
+    saya();
+    alert(a)  // 10
+	{% endhighlight %}
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<p class="pege_tail">参考<a href="http://blog.sina.com.cn/s/blog_912389e5010120n2.html" target="_blank">js之匿名函数</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

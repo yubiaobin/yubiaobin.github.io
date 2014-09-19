@@ -66,11 +66,12 @@ body {
 
 a {
   /*color: #d5000d;*/
-  color:#78daa6;
+  color:#0d9ba9;
 }
 a:hover {
   /*color: #c5000c;*/
-  color:#4ac383;
+  /*color:#0f7b86;*/
+  text-decoration: underline;
 }
 
 header {
@@ -195,10 +196,13 @@ a.button span {
   width:72px;
   margin-right:6px;
 }
+#back-to-index:hover{
+    text-decoration: none;
+}
 
 code, pre {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
-  color: #222;
+  color: #fff;
   margin-bottom: 20px;
   font-size: 14px;
 }
@@ -210,16 +214,17 @@ code {
 }
 
 pre {
-  padding: 20px;
-  background: #303030;
-  color: #f2f2f2;
-  text-shadow: none;
-  overflow: auto;
-  border-radius:5px;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    text-shadow: none;
+    overflow: auto;
+    border-radius:5px;
+    border:3px solid #999;
 }
 pre code {
-  color: #f2f2f2;
-  background-color: #303030;
+  color: #fff;
+  background-color: #333;
   border: none;
   padding: 0;
 }
@@ -423,7 +428,7 @@ p{text-indent:2em;}
 
 
 .header_jekyll{color:#666;}
-.header_jekyll:hover{color:#4ac383;}
+.header_jekyll:hover{color:#0f7b86;}
 
 
 
@@ -469,9 +474,10 @@ p{text-indent:2em;}
 } 
 .index_list li a:hover {
   /*color: #c5000c; */
-  color:#4ac383;
+  color:#0d9ba9;
   background: #d8d8d8;
   cursor:pointer;
+  text-decoration:none;
 }
 
 

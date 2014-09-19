@@ -1,0 +1,66 @@
+---
+layout: default_post
+title : Javascript函数、事件原理，继承和闭包
+---
+
+
+
+<h3>Javascript函数、事件原理，继承和闭包</h3>
+
+
+
+
+<h3>Javascript的匿名函数</h3>
+
+
+
+<p>先来看看Javascript创建一个函数一般有以下两种方式：</p>
+<h4>函数声明</h4>
+<p>
+	{% highlight html %}
+function functionName(arg0,arg1){
+   //函数体
+}
+	{% endhighlight %}
+</p>
+
+
+
+<h4>函数表达式</h4>
+<p>
+	{% highlight html %}
+var functionName = function(arg0,arg1){
+   //函数体
+}
+	{% endhighlight %}
+</p>
+
+
+<p>函数声明和函数表达式之间的主要区别是前者会在代码执行前被加载到作用域中，而后者是在代码执行到那一行的时候才会有定义。另一个区别是函数声明会给函数指定一个名字，而函数表达式则创建一个匿名函数，然后将这个函数赋给一个变量。</p>
+
+
+
+
+
+
+<h4>什么是事件？</h4>
+<p>事件(Event)是JavaScript应用跳动的心脏 ，也是把所有东西粘在一起的胶水。当我们与浏览器中 Web 页面进行某些类型的交互时，事件就发生了。事件可能是用户在某些内容上的点击、鼠标经过某个特定元素或按下键盘上的某些按键。事件还可能是 Web 浏览器中发生的事情，比如说某个 Web 页面加载完成，或者是用户滚动窗口或改变窗口大小。</p>
+<p>通过使用 JavaScript ，你可以监听特定事件的发生，并规定让某些事件发生以对这些事件做出响应。</p>
+
+
+
+
+
+<p class="pege_tail">参考<a href="http://blog.sina.com.cn/s/blog_912389e5010120n2.html" target="_blank">js之匿名函数</a></p>
+
+
+
+
+
+
+
+<p class="pege_tail">参考<a href="http://www.cnblogs.com/binyong/articles/1750263.html" target="_blank">理解Javascript的事件处理机制</a></p>
+
+
+
+
