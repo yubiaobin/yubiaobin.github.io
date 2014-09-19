@@ -6,70 +6,113 @@ title : Js特性之一 —— 链式作用域
 <h3>Javascript的链式作用域</h3>
 
 
-<p>
-    对于JavaScript新手来说scoping是最令人困惑的部分之一。事实上，不仅仅是新手，我遇到或很多有经验的JavaScript程序员也不能完全理解scoping。JavaScript的scoping如此复杂的原因是它看上去非常像C系语言的成员。 
+
+
+
+
+<p>对于JavaScript新手来说作用域（scope）是最令人困惑的部分，没有之一。</p>
+
+<p>JavaScript的（scope）如此复杂的原因是它看上去非常像C系语言的成员。在C/C++中，花括号内中的每一段代码都具有各自的作用域，而且变量在声明它们的代码段之外是不可见的。</p>
+<p>而Javascript压根没有块级作用域，而是函数作用域。</p>
+<p>所谓函数作用域就是说：变量在声明它们的函数体以及这个函数体嵌套的任意函数体内都是有定义的。</p>
+
+    {% highlight javascript %}
+    var name="global";  
+if(true){  
+    var name="local";  
+    console.log(name)    // local
+}  
+console.log(name);       // local
+    {% endhighlight %}
+
+<p>都输出是“local",如果有块级作用域，明显if语句将创建局部变量name,并不会修改全局name,可是没有这样，所以Js没有块级作用域。</p>
+
+
+<h4>变量作用域</h4>
+<p>变量的声明分两种情况；
+    <ul>
+        <li>函数内显示var声明变量 ， 作用域为当前函数体内，叫做局部变量；</li>
+        <li>函数内声明变量（非var方式），作用域为全局，叫做全局变量；</li>
+    </ul>
 </p>
+<p>那么，这两种有什么区别呢？</p>
+<p>
+    <ul>
+        <li>当使用var声明一个变量时，创建的这个属性是不可配置的，也就是说无法通过delete运算符删除；</li>
+        <li>不使用var声明一个变量时，创建的这个属性是可配置的，可以通过delete运算符删除；</li>
+    </ul>
+</p>
+
+
+	{% highlight javascript %}
+    var unconfig = "变量一";
+delete unconfig;
+console.log(unconfig)     // 变量一
+	{% endhighlight %}
+
+<p>非显示声明变量</p>
+
+    {% highlight javascript %}
+    config = "变量二";
+delete config;
+console.log(config)     // Uncaught ReferenceError: config is not defined 
+console.log(typeof config)   //undefined
+    {% endhighlight %}
+
+<p>会发现全局变量被删除了，打印语句会报错，打印类型操作符显示是undefined类型。</p>
+
+
+
+<h4>Js作用域链</h4>
+<p>来看ECMA-262的英文原文：Scope chain is exactly this list of all (parent) variable objects for the inner contexts. This chain is used for variables lookup. </p>
+<p>翻译过来大致意思是：作用域链就是在所有内部环境（包括全局环境）内查找变量的链式表。（注：它是一个链表结构）</p>
+
+
+<p>用var关键字声明一个变量时，就是为该变量所在的对象添加了一个属性。</p>
+<p>由于js的变量都是对象的属性，而该对象可能又是其它对象的属性，而所有的对象都是window对象的属性，所以这些对象的关系可以看作是一条链。</p>
+
+<p>链头：就是变量所处的对象，链尾：就是window对象</p>
+
+    {% highlight javascript %}
+    function global() { 
+    var a; 
+    function local() { 
+        var b; 
+    } 
+}
+    {% endhighlight %}
+
+<p>js中函数也是对象，所以变量a所在的对象是global，global又在window对象中，所以a的作用域链如下：</P>
+<p><strong>global（链头）-- window（链尾）</strong></p>
+<p>那么b所以在的对象即local，local又包含在global中，global又在window对象，所以b的作用域链如下：</p>
+<p><strong>local（链头）-- global -- window（链尾）</strong></p>
+
 
 <h4>函数作用域问题</h4>
 
-<p>
-	{% highlight html %}
-    var a = 1;
-    function saya(){
-        a = 10;
-        return;
-        function a(){
-            alert("I'm another a")
-        }
-    }
-    saya();
-    alert(a)     // 1
-	{% endhighlight %}
-</p>
+<p><strong>函数内(函数内的函数除外)定义的变量在整个函数内部都有效</strong></p>
+    
+    {% highlight javascript %}
+    function loop() { 
+    var t = 0; 
+    //在for的条件里定义变量i，这个变量i的作用域链对象是这个函数 
+    //因此在整个的函数里它是有效的 
+    for (var i = 0; i < 5; i++) { 
+        t += i; 
+    } 
+    console.log(i);    // 5
+    console.log(t);    //  10 = 1+2+3+4
+} 
+loop();
+    {% endhighlight %}
 
+<p>释义；在函数loop里面的for循环里面定义的变量i，它的作用域对象是这个函数，所以经过for循环语句之后打印出来的结果是5，而此时t累加之后结果等于10。</p>
 
-<p>
-	{% highlight html %}
-    var a = 1;
-    function saya(){
-        a = 10;
-        return;
-        alert("I'm another A")
-    }
-    saya(); 
-    alert(a)    //  10
-	{% endhighlight %}
-</p>
-
-
-<p>
-	{% highlight html %}
-    var a = 1;
-    function saya(){
-        a = 10;
-        return;
-        function abc(){
-            alert("I‘m abc")
-        }
-    }
-    saya();
-    alert(a)  // 10
-	{% endhighlight %}
-</p>
-
-
-
-
-
-
-
-
-
-
+<!-- 
 
 <p class="pege_tail">参考<a href="http://blog.sina.com.cn/s/blog_912389e5010120n2.html" target="_blank">js之匿名函数</a></p>
 
-
+ -->
 
 
 
