@@ -1,17 +1,102 @@
 ---
 layout: default_post
-title : Js特性（缺陷）之二 —— 链式作用域
+title : Js特性之二 —— 变量提升
 ---
 
-<h3>Javascript的链式作用域</h3>
+<h3>Javascript的变量提升</h3>
+
+<p>先来看一段英文原文：In JavaScript, a variable can be declared after it has been used. In other words, a variable can be used before it has been declared. To understand this, you have to understand the term "hoisting". Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).</p>
+<p>翻译过来大致意思是：在Javascript语言中，变量的声明可以放在它的使用之后。换句话说，变量可以先使用后声明。为什么会这样呢？哦，原来一切都是提升（hoisting）机制在“作怪”。提升（hoisting）是Javascript语言默认就具有的一种<strong>将当前作用域内的所有声明都提升（hoisting）到最顶部</strong>的行为机制。</p>
+
+
+<p>为了理解上面的含义，我们来看具体案例，此处定义一个函数 fn1：</p>
+    {% highlight javascript %}
+    function fn1(){
+    var a = "变量一";
+    var b = "变量二";
+    var c = "变量三";
+}
+    {% endhighlight %}
+<p>其实它会“摇身一变”成这样：</p>
+    {% highlight javascript %}
+    function fn1(){
+    var a,b,c;
+    a = "变量一";
+    b = "变量二";
+    c = "变量三";
+}
+    {% endhighlight %}
+
+
+<h3>变量提升（但是）</h3>
+<p> <strong>但是（注意这个但是）：</strong>变量提升 只是提升变量的声明，并不会把赋值也提升上来。</p>
+<p>我们来跳坑：</p>
+    {% highlight javascript %}
+    var name = "jack";
+function fn1(){
+    alert(name);
+}
+fn1();       // jack
+    {% endhighlight %}
+<p>此处弹出jack不错，再来：</p>
+    {% highlight javascript %}
+    var name = "jack";
+function fn1(){
+    alert(name);
+    var name = "peter";
+}
+fn1();       // undefined
+    {% endhighlight %}
+<p>此处并不会弹出“peter", 而是弹出undified 有些人回叙会不解？ 为什么会这样呢？</p>
+<p>我们把上面的函数改写一下（内容没有变化）：</p>
+    {% highlight javascript %}
+    var name = "jack";
+function fn1(){
+    var name;
+    alert(name);
+    name = "peter";
+}
+fn1();       // undefined
+    {% endhighlight %}
+<p>释义：代码执行函数fn1，运行到执行alert语句的时候当前作用域（函数体内）只有变量name的定义，并没有赋值，所以alert语句打印出来的当然是undefined了。</p>
+<p>然后，我们可以再次改写函数（内容有变化）：</p>
+    {% highlight javascript %}
+    var name = "jack";
+function fn1(){
+    var name;
+    alert(name);
+    name = "peter";
+    alert(name);
+}
+fn1();       // undefined peter
+    {% endhighlight %}
+<p>这个时候，执行函数fn1，运行到执行第一条alert语句的时候当前作用域（函数体内）只有变量name的定义，并没有赋值，所以弹出undefined了，接着给变量name赋值，所以执行第二条alert语句的时候。变量name的值为peter，所以接着会打印peter出来。</p>
 
 
 
 
-<h4>函数作用域问题</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+<p>会计师次啊会上来吃快点好吃的 </p>
 
 <p>
-	{% highlight html %}
+    {% highlight javascript %}
     var a = 1;
     function saya(){
         a = 10;
@@ -22,12 +107,12 @@ title : Js特性（缺陷）之二 —— 链式作用域
     }
     saya();
     alert(a)     // 1
-	{% endhighlight %}
+    {% endhighlight %}
 </p>
 
 
 <p>
-	{% highlight html %}
+    {% highlight javascript %}
     var a = 1;
     function saya(){
         a = 10;
@@ -36,12 +121,11 @@ title : Js特性（缺陷）之二 —— 链式作用域
     }
     saya(); 
     alert(a)    //  10
-	{% endhighlight %}
+    {% endhighlight %}
 </p>
 
 
-<p>
-	{% highlight html %}
+    {% highlight javascript %}
     var a = 1;
     function saya(){
         a = 10;
@@ -52,11 +136,22 @@ title : Js特性（缺陷）之二 —— 链式作用域
     }
     saya();
     alert(a)  // 10
-	{% endhighlight %}
-</p>
+    {% endhighlight %}
 
 
 
+
+<p>变量提升：顾名思义，就是把下面的东西提到上面。在JS中，就是把定义在后面的东东（变量或函数）提升到前面中定义。</p>
+
+
+
+
+
+ 
+
+
+
+<h4>Declare Your Variables At the Top !</h4>
 
 
 
@@ -70,7 +165,7 @@ title : Js特性（缺陷）之二 —— 链式作用域
 
 
 
-
+ -->
 
 
 

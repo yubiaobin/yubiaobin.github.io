@@ -1,38 +1,14 @@
 ---
 layout: default_post
-title : Js特性（缺陷）之一 —— 变量提升
+title : Js特性之一 —— 链式作用域
 ---
 
-<h3>Javascript的变量提升</h3>
+<h3>Javascript的链式作用域</h3>
 
 
-
-<p>先来看看Javascript创建一个函数一般有以下两种方式：</p>
-<h4>函数声明</h4>
 <p>
-	{% highlight html %}
-function functionName(arg0,arg1){
-   //函数体
-}
-	{% endhighlight %}
+    对于JavaScript新手来说scoping是最令人困惑的部分之一。事实上，不仅仅是新手，我遇到或很多有经验的JavaScript程序员也不能完全理解scoping。JavaScript的scoping如此复杂的原因是它看上去非常像C系语言的成员。请看下面的C程序： 
 </p>
-
-
-
-<h4>函数表达式</h4>
-<p>
-	{% highlight html %}
-var functionName = function(arg0,arg1){
-   //函数体
-}
-	{% endhighlight %}
-</p>
-
-
-<p>函数声明和函数表达式之间的主要区别是前者会在代码执行前被加载到作用域中，而后者是在代码执行到那一行的时候才会有定义。另一个区别是函数声明会给函数指定一个名字，而函数表达式则创建一个匿名函数，然后将这个函数赋给一个变量。</p>
-
-
-
 
 <h4>函数作用域问题</h4>
 
