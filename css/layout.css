@@ -270,11 +270,11 @@ form {
 /* GENERAL ELEMENT TYPE STYLES */
 
 h1 {
-  font-size: 32px;
+  font-size: 28px;
 } 
 
 h2 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   color: #303030;
   margin-bottom: 8px;
@@ -283,7 +283,7 @@ h2 {
 h3 {
   /*color: #d5000d;*/
   color:#0d9ba9;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
   /*margin-bottom: 8px;*/
   margin-bottom:36px;
@@ -420,6 +420,7 @@ p{text-indent:2em;}
 
 .index_global_year_title{
     font-size:48px;
+    line-height: 60px;
     margin:20px 0;
     text-indent:24px;
     border-bottom:1px solid #ccc;
@@ -436,7 +437,7 @@ p{text-indent:2em;}
 .content{
     position: relative;
     /*border-top: 1px solid #bdbdbd;*/
-    padding-top:25px;
+    /*padding-top:25px;*/
 }
 
 
@@ -456,12 +457,13 @@ p{text-indent:2em;}
 /*首页列表样式*/
 .index_list li{
     list-style:none;
-    margin:0;
+    margin: 10px 0;
     padding-left:0;
 }
 .index_list li a{
     display:block; 
-    padding:10px 0 10px 20px; 
+    /*padding:10px 0 10px 20px; */
+    padding:5px 0 5px 20px;
     text-shadow:none;
     border-radius:2px;
     cursor:pointer;
