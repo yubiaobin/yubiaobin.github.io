@@ -13,63 +13,57 @@ title : 使用jekyll搭建博客系统
 
 
 <p>Mac电脑上首先要安装jekyll,命令如下：</p>
-<p>
+
 	{% highlight html %}
 	$ gem install jekyll
 	{% endhighlight %}
-</p>
 
 
 
 <p>如果提示没有执行权限的话，就在前面加上sudo</p>
-<p>
+
 	{% highlight html %}
 	$ sudo gem install jekyll
 	{% endhighlight %}
-</p>
 
 
 
 <p>安装完毕之后,用命令新建一个jekyll项目</p>
-<p>
+
 	{% highlight html %}
 	$ jekyll new mywebsite
 	{% endhighlight %}
-</p>
 
 
 
 <p>可以看到提示已经新建一个jekyll目录(文件夹)名为mywebsite</p>
-<p>
+
 	{% highlight html %}
 	Mac-Max:python max$ jekyll new mywebsite
 New jekyll site installed in /Users/max/python/mywebsite. 
 Mac-Max:python max$ 
 	{% endhighlight %}
-</p>
 
 
 
 <p>然后切换到这个目录下</p>
-<p>
+
 	{% highlight html %}
 	$ cd mywebsite
 	{% endhighlight %}
-</p>
 
 
 
 <p>本地环境测试开启命令</p>
-<p>
+
 	{% highlight html  %}
 	$ jekyll serve
 	{% endhighlight %}
-</p>
 
 
 
 <p>可以看到jekyll已经运行并且生成了页面存放在_site文件夹中，并且调用了localhost:4000本地浏览器的端口来在本地电脑商实时的预览博客网站的效果</p>
-<p>
+
 	{% highlight html  %}
 	Mac-Max:mywebsite max$ jekyll serve
 Configuration file: /Users/max/python/mywebsite/_config.yml
@@ -82,7 +76,6 @@ Configuration file: /Users/max/python/mywebsite/_config.yml
     Server address: http://0.0.0.0:4000/
   Server running... press ctrl-c to stop.
 	{% endhighlight %}
-</p>
 
 
 

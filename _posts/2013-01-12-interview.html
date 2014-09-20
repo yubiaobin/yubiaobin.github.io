@@ -50,13 +50,13 @@ title : Web前端的一些面试考察的知识点
 <h4>3.  严格模式与混杂模式的区分？如何触发这两种模式？（高频率）</h4>
 <p>各个浏览器的混杂模式，基本就是各个浏览器的私有模式，不相互兼容。所以，除非是为了兼容的问题，比如你不想修改很久很久以前做的IE ONLY的网页，否则刻意触发混杂模式没有任何意义。</p>
 <p>可以通过以下javascript代码可以检测当前页面是哪一种渲染模式？</p>
-<p>
+
     {% highlight javascript %}
     alert(window.top.document.compatMode) ;
 //BackCompat  表示怪异模式
 //CSS1Compat  表示标准模式
     {% endhighlight %}
-</p>
+
 <p>区分是标准模式还是混合模式，有其重要的意义所在，那就是确定页面解析时，使用的是“标准盒Box模型“，还是使用“传统Box模型“。
 </p>
 
@@ -89,13 +89,14 @@ title : Web前端的一些面试考察的知识点
 
 
 <h4>6.  HTML5以什么标签开头？</h4>
-<p>
+
     {% highlight html %}
     <!DOCTYPE html>
     {% endhighlight %}
-</p>
+
 <p>HTML5文档以开头，这是一个文档类型声明，并且必须位于HTML5文档的第一行，它可以用来告诉浏览器或任何其它分析程序它们所查看的文件类型。html标签是HTML5文档的根标签，紧跟在!DOCTYPE html下面。html标签支持HTML5全局属性和manifest属性。manifest属性主要在创建HTML5离线应用的时候使用。</p>
-<p>
+
+
     {% highlight html %}
     <!DOCTYPE html>
 <html>
@@ -108,7 +109,6 @@ title : Web前端的一些面试考察的知识点
 </body>
 </html>
     {% endhighlight %}
-</p>
 
 
 
@@ -479,7 +479,7 @@ title : Web前端的一些面试考察的知识点
 <h4>1. 对闭包的理解，javascript的作用域问题？（高频率）</h4>
 <p>先来回答javascript作用域的问题,javascript语言没有块级作用域，只有一条从内向外的作用域链，看这个例子
 </p>
-<p>
+
 	{% highlight javascript %}
 var scope = "global";
 function CheckScope(){
@@ -489,10 +489,10 @@ function CheckScope(){
 }
 CheckScope();
 	{% endhighlight %}
-</p>
+
 <p>输出的值是1：undefied 2:local</p>
 <p>其实这个函数等价于下面这个函数（变量提升）</p>
-<p>
+
 	{% highlight javascript %}
 var scope = "global";
 function CheckScope(){
@@ -503,9 +503,9 @@ var scope;
 }
 CheckScope();
 	{% endhighlight %}
-</p>
+
 <p>再来看个例子</p>
-<p>
+
 	{% highlight javascript %}
 var scope = "global";
 function CheckScope(){
@@ -516,9 +516,9 @@ console.log(scope);
 }
 CheckScope();
 	{% endhighlight %}
-</p>
+
 <p>同样这个函数等价于下面这个函数（变量提升）</p>
-<p>
+
 	{% highlight javascript %}
 var scope = "global";
 function CheckScope(){
@@ -530,7 +530,7 @@ function CheckScope(){
 }
 CheckScope();
 	{% endhighlight %}
-</p>
+
 <p>输出的值是1：global 2：undefied 3:local</p>
 <p>从例子中我们可以看出：一种情况，函数里面的变量和函数外部变量同名时候,作用域顶端（函数代码块里面）先遍历查找变量的定义和赋值，如果找不到再向作用域末端（函数代码块外面）去查找；这样就形成了javascript特有的链式作用域。第二种情况，函数里面的变量和函数外部变量不同名时候,也是先在作用域顶端（函数代码块里面）先遍历查找变量的定义和赋值，如果找不到再向作用域末端（函数代码块外面）去查找变量。</p>
 
@@ -540,7 +540,7 @@ CheckScope();
 <p>AJAX即“Asynchronous Javascript And XML[1] ”（异步JavaScript和XML[1] ），是指一种创建交互式网页应用的网页开发技术。</p>
 <p>Ajax的跨域实现方式是通过jsonp动态控制script标记的生成，通过修改script标记的src属性完成对跨域页面的调用。此方案存在的缺陷是，script的src属性完成该调用时采取的方式时get方式，如果请求时传递的字符串过大时，可能会无法正常运行。</p>
 <p>默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。 </p>
-<p>
+
     {% highlight javascript %}
     var temp; 
 $.ajax({ 
@@ -554,7 +554,7 @@ $.ajax({
 }); 
 alert(temp); 
     {% endhighlight %}
-</p>
+
 <p>这个ajax请求则为同步请求，在没有返回值之前，alert(temp)是不会执行的。</p>
 <p>如果async设置为：true,则不会等待ajax请求返回的结果，会直接执行ajax后面的语句。</p>
 
@@ -626,7 +626,8 @@ alert(temp);
 
 
 <h4>6. 面向对象编程:B怎么继承A</h4>
-<p>继承方法一、利用call或者apply方法改变this的指针，
+<p>继承方法一、利用call或者apply方法改变this的指针</p>
+
     {% highlight javascript %}
 function A(name,age){
     this.age = age ? age : 25;
@@ -641,8 +642,9 @@ function B(name,age){
 C = new B('小刚',18);
 C.say();
     {% endhighlight %}
-</p>
-<p>继承方法二、
+
+<p>继承方法二</p>
+
     {% highlight javascript %}
 function A(name,age){
     this.age = age ? age : 30;
@@ -656,7 +658,7 @@ B.prototype = new A();
 var C = new B();
 C.say();
     {% endhighlight %}
-</p>
+
 
 
 
@@ -664,7 +666,7 @@ C.say();
 
 <h4>7. 编写一个JavaScript函数 parseQueryString，它的用途是把URL参数解析为一个对象var obj = parseQueryString(url);
 alert(obj.key[0])  // 输出第一个参数</h4>
-<p>
+
     {% highlight javascript %}
     var url1 = "http://www.oc35.com/resume.html?user_id=001&user_name=yubiaobin";
 
@@ -685,7 +687,6 @@ function parentQueryString(url){
     var result = parentQueryString(url1);
     alert(result["user_id"]);
     {% endhighlight %}
-</p>
 
 
 
@@ -715,7 +716,7 @@ function parentQueryString(url){
 
 <h4>10.var a = ‘abc def ghi’,把每三个字中的首字母转为大写。</h4>
 <p>有三种方式可以实现</p>
-<p>
+
     {% highlight javascript %}
     var a = "abc def ghi";  
 var array1 = a.split(" ");  //第一步必须先用 拆分；
@@ -727,8 +728,8 @@ for(var i = 0 ; i < array1.length; i++){
 var b = array1[0].concat([' '],array1[1],[' '],array1[2]).join('');  
 alert(b);
     {% endhighlight %}
-</p>
-<p>
+
+
     {% highlight javascript %}
     var a = "abc def ghi";  
 var array1 = a.split(" ");  //第一步必须先用 拆分；
@@ -741,8 +742,8 @@ for(var i = 0 ; i < array1.length; i++){
 var b = array1[0]+array1[1]+array1[2];  
 alert(b);  
     {% endhighlight %}
-</p>
-<p>
+
+
     {% highlight javascript %}
     var a = "abc def ghi";  
 var array1 = a.split(" ");  //第一步必须先用 拆分；
@@ -753,7 +754,6 @@ for(var i = 0 ; i < array1.length; i++){
 var b = array1[0].concat([' '],array1[1],[' '],array1[2]);  
 alert(b); 
     {% endhighlight %}
-</p>
 
 
 
@@ -818,21 +818,22 @@ alert(b);
 
 
 <h4>14.写一个点击input能够弹出当前input索引的函数</h4>
-<p>原生js
+<p>原生js</p>
+
     {% highlight javascript %}
     var list=document.getElementsByTagName("input");
 for(var i = 0; i < list.length; i++){
 
 }
     {% endhighlight %}
-</p>
-<p>jquery
+
+<p>jquery</p>
+
     {% highlight javascript %}
     $("input").click(function(){ 
     alert($("input").index(this)); 
 }); 
     {% endhighlight %}
-</p>
 
 
 
@@ -871,7 +872,8 @@ for(var i = 0; i < list.length; i++){
 
 <h4>17.js如何实现多重继承？</h4>
 <p>先给答案   ：可以通过argument.call实现。</p>
-<p>首先来看一下普通继承怎么实现：
+<p>首先来看一下普通继承怎么实现：</p>
+
     {% highlight javascript %}
     //继承（原型继承）
 var f = function(){};  //类
@@ -884,8 +886,9 @@ f.prototype = new b(); //f 类原型继承b类
 var a = new f(); //原型继承需要new
 alert(a.bb);
     {% endhighlight %}
-</p>
-<p>再来看一下多重继承的实现：
+
+<p>再来看一下多重继承的实现：</p>
+
     {% highlight javascript %}
     //多重继承 
 var a = function(){
@@ -905,7 +908,7 @@ var d = new c()
 alert(d.a);
 alert(d.b);
     {% endhighlight %}
-</p>
+
 
 
 

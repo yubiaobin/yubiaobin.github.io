@@ -11,8 +11,8 @@ title : JavaScript跨域访问的问题和解决过程
 
 <h4>利用Jquery的$.ajax()方法和jsonp实现跨域访问</h4>
 <p>下面来看具体代码</p>
-<p>
-{% highlight javascript %}
+
+    {% highlight javascript %}
 var qsData = {
 "searchWord"             :  $("#searchWord").attr("value"),
 "currentUserId"          :  $("#currentUserId").attr("value"),
@@ -48,7 +48,7 @@ $.ajax({
 });
 	{% endhighlight %}
 
-</p>
+
 <p>这种方式其实是上例$.ajax({..}) api的一种高级封装,有些$.ajax api底层的参数就被封装而不可见了。</p>
 
 <p><strong>jsonp的最基本的原理是:</strong>动态添加一个script标签，而script标签的src属性是没有跨域的限制的。这样说来,这种跨域方式其实与ajax XmlHttpRequest协议无关了。</p>

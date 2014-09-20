@@ -21,14 +21,14 @@ title : 函数式编程语言
 
 
 <p>如果用代码来表示大概是这样的一个过程：</p>
-<p>
+
 	{% highlight html %}
 	start
 function add(a,b)
 return a+b
 end
 	{% endhighlight %}
-</p>
+
 
 <p>这个过程可以表示为：<strong>function(data)</strong> &rArr; <strong>data</strong>指函数接受数据，处理最后输出数据作为计算结果的全部过程。</p>
 
@@ -38,28 +38,26 @@ end
 
 
 <p>举例说明：现在有这样一个数学表达式</p>
-<p>
+
 	{% highlight html %}
 	(1 + 2) * 3 - 4
 	{% endhighlight %}
-</p>
 
 
 
 
 <p>传统的过程式编程，可能这样写：</p>
-<p>
+
 	{% highlight html %}
 	var a = 1 + 2;
 var b = a * 3;
 var c = b - 4;
 	{% endhighlight %}
-</p>
 
 
 
 <p>函数式编程要求使用函数，我们可以把运算过程定义为不同的函数，然后写成下面这样：</p>
-<p>
+
 	{% highlight html %}
 	function add(add1,add2){
 	return add1 + add2;
@@ -72,7 +70,6 @@ function subtract(sub1,sub2){
 };
 var result = subtract(multiply(add(1,2), 3), 4);
 	{% endhighlight %}
-</p>
 
 
 
