@@ -8,7 +8,7 @@ title : 函数式编程的特性和优缺点
 
 
 <h4>一：函数是"第一等公民"</h4>
-<p>所谓"第一等公民"（first class），指的是函数与其他数据类型一样，处于平等地位，可以赋值给其他变量，也可以作为参数，传入另一个函数，或者作为别的函数的返回值。</p>
+<p>所谓"第一等公民"（first class），指的是函数与其他数据类型一样，处于平等地位，它不仅拥有一切传统函数的使用方式（声明和调用），可以赋值给其他变量（赋值），也可以作为参数，传入另一个函数（传参），或者作为别的函数的返回值（返回）。</p>
 <p>举例来说，下面代码中的print变量就是一个函数，可以作为另一个函数的参数。</p>
 
 	{% highlight html %}
@@ -16,6 +16,7 @@ title : 函数式编程的特性和优缺点
 [1,2,3].forEach(print);
 	{% endhighlight %}
 
+<p>不仅如此，JavaScript中的函数还充当了类的构造函数的作用，同时又是一个Function类的实例(instance)。这样的多重身份让JavaScript的函数变得非常重要。</p>
 
 
 <h4>二：只用"表达式"，不用"语句"</h4>
@@ -152,7 +153,7 @@ var s3 = concat(s1, s2);
 
 <p class="pege_tail">参考<a href="http://www.ruanyifeng.com/blog/2012/04/functional_programming.html" target="_blank">阮一峰老师的函数式编程初探</a></p>
 <p>参考<a href="http://www.yinwang.org/blog-cn/2013/03/31/purely-functional/" target="_blank">王垠的博客对函数式语言的误解</a></p>
-<p>参考<a href="http://www.php100.com/html/webkaifa/javascript/2009/0411/1698.html" target="_blank">参考</a></p>
+<p>参考<a href="http://www.php100.com/html/webkaifa/javascript/2009/0411/1698.html" target="_blank">JavaScript与函数式编程</a></p>
 
 
 
