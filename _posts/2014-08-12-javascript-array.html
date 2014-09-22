@@ -6,57 +6,261 @@ title : Javascript数组和一些常用的数组方法
 
 
 
-<h3>Javascript数组的定义、创建和特性</h3>
+<h3>一般数组的定义、创建和特性</h3>
+
+
+
+
+
+
 
 
 
 <h4>什么是数组？</h4>
-<p>Javascript中数组对象用来在单独的变量名中存储一系列的值。我们使用关键词 new 来创建数组对象。下面的代码定义了一个名为 myArray 的数组对象：</p>
+<p>数组对象用来在单独的变量名中存储一系列的（多个）值。</p>
+
+
+
+<h4>数组怎么创建？</h4>
+<p>我们使用关键词 new 来创建数组对象。下面的代码定义了三个数组对象：</p>
 
 	{% highlight javascript %}
-	var myArray = new Array();
+var myArray1 = new Array();                       //该数组的length为0（即该数组有0个元素）
+var myArray2 = new Array(9);                      //该数组的length为9（即该数组有9个元素）
+var myArray3 = new Array(el1,el2,el3,...,eln);    //该数组的length为n（即该数组有n个元素）
 	{% endhighlight %}
 
 <p>或者也可以使用字面量的方式创建数组；</p>
 
 	{% highlight javascript %}
-	var myArray = [ ];
+var myArray = [ ];
 	{% endhighlight %}
+
+
+<p><strong>注：</strong></p>
+
+    {% highlight javascript %}
+var array = new Array(5);           //指创建长度为5的数组
+var array = new Array([5]);         //指创建一个数组，长度为1，并且第一位是5
+    {% endhighlight %}
+
+<h4>数组的元素怎么访问？</h4>
+<p>通过[index]索引下标进行访问。</p>
+
+    {% highlight javascript %}
+var myArray = ["jack", "peter" ,"pony"];
+alert(myArray[1])       //  peter
+    {% endhighlight %}
+
+<p><strong>注：</strong>数组的索引index从0开始。</p>
+
+
+
+<h4>数组的属性</h4>
+<p>Array 对象具有如下三个属性：</p>
+<table class="dataintable">
+    <tbody>
+        <tr>
+            <th style="width:25%">属性</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td class="table_feature">constructor</td>
+            <td>返回对创建此对象的数组函数的引用。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">length</td>
+            <td>设置或返回数组中元素的数目。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">prototype</td>
+            <td>使您有能力向对象添加属性和方法。</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>constructor属性：</strong></p>
+<p>表示创建对象的函数。</p>
+
+    {%highlight javascript %}
+object.constructor        //object是对象或函数的名称。
+    {% endhighlight %}
+
+<p>constructor 属性是所有具有 prototype 的对象的成员。它们包括除 Global 和 Math 对象以外的所有 JS 固有对象。<strong>constructor 属性保存了对构造特定对象实例的函数的引用。</strong></p>
+
+<p><strong>length属性：</strong></p>
+<p> length属性表示数组的长度，即其中元素的个数。因为数组的索引总是由0开始，所以一个数组的上下限分别是：0和length-1。和其他大多数语言不同的是。<strong>JavaScript数组的length属性是可变的</strong>，这一点需要特别注意。当length属性被设置得更大时，整个数组的状态事实上不会发生变化，仅仅是length属性变大；当length属性被设置得比原来小时，则原先数组中索引大于或等于length的元素的值全部被丢失。</p>
+
+<p><strong>prototype属性：</strong></p>
+<p>返回对象类型原型的引用，prototype 属性是 object 共有的。</p>
+
+    {% highlight javascript %}
+objectName.prototype       //objectName 参数是object对象的名称。
+    {% endhighlight %}
+
+<p> 用 prototype 属性提供对象的类的一组基本功能。 对象的新实例“继承”赋予该对象原型的操作。</p>
+
+
+<h4>数组的方法</h4>
+<p>如果想对数组进行添加、删除、截取、合并、拷贝、排序、转化字符串等操作，需要用到数组的一些操作函数（方法）。</p>
+<p>Array 对象具有如下方法：</p>
+<table class="dataintable">
+    <tbody>
+        <tr>
+            <th style="width:25%">方法</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td class="table_feature">concat()</td>
+            <td>连接两个或更多的数组，并返回结果。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">join()</td>
+            <td>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">pop()</td>
+            <td>删除并返回数组的最后一个元素</td>
+        </tr>
+        <tr>
+         <td class="table_feature">push()</td>
+         <td>向数组的末尾添加一个或更多元素，并返回新的长度。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">reverse()</td>
+            <td>颠倒数组中元素的顺序。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">shift()</td>
+            <td>删除并返回数组的第一个元素</td>
+        </tr>
+        <tr>
+            <td class="table_feature">slice()</td>
+            <td>从某个已有的数组返回选定的元素</td>
+        </tr>
+        <tr>
+            <td class="table_feature">sort()</td>
+            <td>对数组的元素进行排序</td>
+        </tr>
+        <tr>
+            <td class="table_feature">splice()</td>
+            <td>删除元素，并向数组添加新元素。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">toSource()</td>
+            <td>返回该对象的源代码。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">toString()</td>
+            <td>把数组转换为字符串，并返回结果。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">toLocaleString()</td>
+            <td>把数组转换为本地数组，并返回结果。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">unshift()</td>
+            <td>向数组的开头添加一个或更多元素，并返回新的长度。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">valueOf()</td>
+            <td>返回数组对象的原始值</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Javascript中的数组的特性</h3>
+
+<p>如果正常来使用，JS里的数组与C、Java里的数组是相似的，都是由中括号包裹起来的一组元素。</p>
+<p><strong>但是：</strong></p>
+<p>与这些语言不同的是，JS里数组元素不一定要求是相同的数据类型。（换句话说，可以是不同的数据类型。）</p>
+
+    {% highlight javascript %}
+var arr = [1,3.1415,true,"hello",{}];
+    {% endhighlight %}
+
+<p>这样的数组在JS里是合法的。</p>
+<p>而且在JS里面，所有不是number,string,boolean,null,undefined这五种类型的数据都是object。即数组(array)也是一种对象。</p>
+<p>这样的话：</p>
+
+    {% highlight javascript %}
+var array1 = [];
+array1["first"] = "hello,";
+array1["second"] = "world";
+array1.three = "!"
+console.log(array1.length);       // 长度是0;
+console.log(array1.first);        // 值是hello,
+console.log(array1["three"]);     // 值是!
+    {% endhighlight %}
+
+<p>因为数组本质上是对象，所以JS对象的某些特性也可以用于数组上，如可以用delete方法来删除数组元素:</p>
+
+    {% highlight javascript %}
+var a = [1,2,3,4,5];  
+delete a[1];  
+console.log(a.length);     // 5
+console.log(a);            // [1, ,3,4,5]
+    {% endhighlight %}
+
+<p>delete语句会删掉元素，但不会删掉位置。</p>
+
+    {% highlight javascript %}
+var a = [0,1,2,3];  
+a[6] = 6;  
+console.log(a);           // [0,1,2,3,,,6] 
+    {% endhighlight %}
+
+<p>中间有两个位置是没有值的，但这样做是完全合法的。数组的长度会自动的从4增长到7。</p>
+
+
+
+
+
+
+
 
 
 
 <h3>一些常用到的数组处理方法（函数）</h3>
 
 
-<h4>数组去重</h4>
-<p>去掉数组中的重复项</p>
+<h4>数组去重（经典）</h4>
+<p>目的：去掉数组中的重复项。</p>
 <p>方法一：</p>
 
     {% highlight javascript %}
-Array.prototype.unique1 = function () {
-  var n = []; //一个新的临时数组
-  for (var i = 0; i < this.length; i++) //遍历当前数组
-  {
-    //如果当前数组的第i已经保存进了临时数组，那么跳过，
-    //否则把当前项push到临时数组里面
-    if (n.indexOf(this[i]) == -1) n.push(this[i]);
-  }
-  return n;
+Array.prototype.removeRepeat = function () {
+    var n = []; //一个新的临时数组
+    for (var i = 0; i < this.length; i++){    //遍历当前数组
+        //如果当前数组的第i已经保存进了临时数组，那么跳过，
+        //否则把当前项push到临时数组里面
+        if (n.indexOf(this[i]) == -1) n.push(this[i]);
+    }
+    return n;
 }
     {% endhighlight %}
 
 <p>方法二：</p>
 
     {% highlight javascript %}
-Array.prototype.unique2 = function(){
+Array.prototype.removeRepeat2 = function(){
     var n = {},r=[]; //n为hash表，r为临时数组
-    for(var i = 0; i < this.length; i++) //遍历当前数组
-    {
-            if (!n[this[i]]) //如果hash表中没有当前项
-            {
-                    n[this[i]] = true; //存入hash表
-                    r.push(this[i]); //把当前数组的当前项push到临时数组里面
-            }
+    for(var i = 0; i < this.length; i++) {    //遍历当前数组
+        if (!n[this[i]]) {     //如果hash表中没有当前项
+            n[this[i]] = true;    //存入hash表
+            r.push(this[i]);     //把当前数组的当前项push到临时数组里面
+        }
     }
     return r;
 }
@@ -65,13 +269,12 @@ Array.prototype.unique2 = function(){
 <p>方法三：</p>
 
     {% highlight javascript %}
-Array.prototype.unique3 = function(){
+Array.prototype.removeRepeat3 = function(){
     var n = [this[0]]; //结果数组
-    for(var i = 1; i < this.length; i++) //从第二项开始遍历
-    {
-            //如果当前数组的第i项在当前数组中第一次出现的位置不是i，
-            //那么表示第i项是重复的，忽略掉。否则存入结果数组
-            if (this.indexOf(this[i]) == i) n.push(this[i]);
+    for(var i = 1; i < this.length; i++) {    //从第二项开始遍历
+        //如果当前数组的第i项在当前数组中第一次出现的位置不是i，
+        //那么表示第i项是重复的，忽略掉。否则存入结果数组
+        if (this.indexOf(this[i]) == i) n.push(this[i]);
     }
     return n;
 }
@@ -83,15 +286,13 @@ Array.prototype.unique3 = function(){
 <p>方法四：</p>
 
     {% highlight javascript %}
-Array.prototype.unique4 = function(){
+Array.prototype.removeRepeat4 = function(){
     this.sort();
-    var re=[this[0]];
-    for(var i = 1; i < this.length; i++)
-    {
-            if( this[i] !== re[re.length-1])
-            {
-                    re.push(this[i]);
-            }
+    var re = [this[0]];
+    for(var i = 1; i < this.length; i++) {
+        if( this[i] !== re[re.length-1]) {
+            re.push(this[i]);
+        }
     }
     return re;
 }
@@ -106,28 +307,25 @@ Array.prototype.unique4 = function(){
 
 
 <h4>多数组排序</h4>
-<p>写一个函数，处理两个数组，并且按照从小到大排列</p>
+<p>目的：写一个函数，处理两个数组，并且按照从小到大排列。</p>
 
 	{% highlight javascript %}
 	var a1 = [1,2,3,4,5],
-        a2 = [-6,-4,0,1,3,5,7,8,10,12],
-        a3 = [],
-        l1 = a1.length,
-        l2 = a2.length,
-        l3 = l1 + l2,
-        i1,i2,i3;
+    a2 = [-6,-4,0,1,3,5,7,8,10,12],
+    a3 = [],
+    l1 = a1.length,
+    l2 = a2.length,
+    l3 = l1 + l2,
+    i1,i2,i3;
 
-for(i1=i2=i3=0;i3 < l3; i3++){        
-        if(i2 == l2 || a1[i1] < a2[i2])
-        {
-                a3[i3] = a1[i1];
-                i1 ++;
-        }
-        else
-        {
-                a3[i3] = a2[i2];
-                i2 ++;
-        }
+for(i1=i2=i3=0; i3 < l3; i3++){        
+    if(i2 == l2 || a1[i1] < a2[i2]) {
+            a3[i3] = a1[i1];
+            i1 ++;
+    } else {
+            a3[i3] = a2[i2];
+            i2 ++;
+    }
 }
 
 alert(a3);  //-6,-4,0,1,1,2,3,3,4,5,5,7,8,10,12
@@ -139,6 +337,8 @@ alert(a3);  //-6,-4,0,1,1,2,3,3,4,5,5,7,8,10,12
 
 
 
+<p class="pege_tail">参考<a href="http://www.w3school.com.cn/jsref/jsref_obj_array.asp" target="_blank">w3school——JavaScript Array 对象</a></p>
+<p>参考<a href="http://blog.csdn.net/codebistu/article/details/8044263" target="_blank">JS Array</a></p>
 
 
 
