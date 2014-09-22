@@ -31,6 +31,12 @@ var myArray = [ ];
 	{% endhighlight %}
 
 
+<p><strong>注：</strong></p>
+
+    {% highlight javascript %}
+var array = new Array(5);           //指创建长度为5的数组
+var array = new Array([5]);         //指创建一个数组，长度为1，并且第一位是5
+    {% endhighlight %}
 
 <h4>数组的元素怎么访问？</h4>
 <p>通过[index]索引下标进行访问。</p>
@@ -68,8 +74,26 @@ alert(myArray[1])       //  peter
     </tbody>
 </table>
 
+<p><strong>constructor属性：</strong></p>
+<p>表示创建对象的函数。</p>
 
+    {%highlight javascript %}
+object.constructor        //object是对象或函数的名称。
+    {% endhighlight %}
 
+<p>constructor 属性是所有具有 prototype 的对象的成员。它们包括除 Global 和 Math 对象以外的所有 JS 固有对象。<strong>constructor 属性保存了对构造特定对象实例的函数的引用。</strong></p>
+
+<p><strong>length属性：</strong></p>
+<p> length属性表示数组的长度，即其中元素的个数。因为数组的索引总是由0开始，所以一个数组的上下限分别是：0和length-1。和其他大多数语言不同的是。<strong>JavaScript数组的length属性是可变的</strong>，这一点需要特别注意。当length属性被设置得更大时，整个数组的状态事实上不会发生变化，仅仅是length属性变大；当length属性被设置得比原来小时，则原先数组中索引大于或等于length的元素的值全部被丢失。</p>
+
+<p><strong>prototype属性：</strong></p>
+<p>返回对象类型原型的引用，prototype 属性是 object 共有的。</p>
+
+    {% highlight javascript %}
+objectName.prototype       //objectName 参数是object对象的名称。
+    {% endhighlight %}
+
+<p> 用 prototype 属性提供对象的类的一组基本功能。 对象的新实例“继承”赋予该对象原型的操作。对于数组对象。</p>
 
 
 <h4>数组的方法</h4>
