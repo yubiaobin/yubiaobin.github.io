@@ -511,3 +511,26 @@ p{text-indent:2em;}
 
 
 
+
+table.dataintable {
+    margin: 10px 0 20px 0;
+    border-collapse: collapse;
+    border: 1px solid #aaa;
+    width: 100%;
+}
+table.dataintable th {
+    vertical-align: baseline;
+    padding: 5px 15px 5px 6px;
+    background-color: #d5d5d5;
+    border: 1px solid #aaa;
+}
+table.dataintable td {
+    vertical-align: text-top;
+    padding: 6px 15px 6px 6px;
+    background-color: #efefef;
+    border: 1px solid #aaa;
+}
+table.dataintable .table_feature{
+    color:#0d9ba9;
+    font-size:bold;
+}

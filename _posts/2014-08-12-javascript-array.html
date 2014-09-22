@@ -11,25 +11,149 @@ title : Javascript数组和一些常用的数组方法
 
 
 <h4>什么是数组？</h4>
-<p>Javascript中数组对象用来在单独的变量名中存储一系列的值。我们使用关键词 new 来创建数组对象。下面的代码定义了一个名为 myArray 的数组对象：</p>
+<p>Javascript中数组对象用来在单独的变量名中存储一系列的（多个）值。</p>
+
+
+
+<h4>数组怎么创建？</h4>
+<p>我们使用关键词 new 来创建数组对象。下面的代码定义了三个数组对象：</p>
 
 	{% highlight javascript %}
-	var myArray = new Array();
+var myArray1 = new Array();                       //该数组的length为0（即该数组有0个元素）
+var myArray2 = new Array(9);                      //该数组的length为9（即该数组有9个元素）
+var myArray3 = new Array(el1,el2,el3,...,eln);    //该数组的length为n（即该数组有n个元素）
 	{% endhighlight %}
 
 <p>或者也可以使用字面量的方式创建数组；</p>
 
 	{% highlight javascript %}
-	var myArray = [ ];
+var myArray = [ ];
 	{% endhighlight %}
+
+
+
+<h4>数组的元素怎么访问？</h4>
+<p>通过[index]索引下标进行访问。</p>
+
+    {% highlight javascript %}
+var myArray = ["jack", "peter" ,"pony"];
+alert(myArray[1])       //  peter
+    {% endhighlight %}
+
+<p><strong>注：</strong>数组的索引index从0开始。</p>
+
+
+
+
+<h4>数组的属性</h4>
+<p>Array 对象具有如下三个属性：</p>
+<table class="dataintable">
+    <tbody>
+        <tr>
+            <th style="width:25%">属性</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td class="table_feature">constructor</td>
+            <td>返回对创建此对象的数组函数的引用。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">length</td>
+            <td>设置或返回数组中元素的数目。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">prototype</td>
+            <td>使您有能力向对象添加属性和方法。</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<h4>数组的方法</h4>
+<p>如果想对数组进行添加、删除、截取、合并、拷贝、排序、转化字符串等操作，需要用到数组的一些操作函数（方法）。</p>
+<p>Array 对象具有如下方法：</p>
+<table class="dataintable">
+    <tbody>
+        <tr>
+            <th style="width:25%">方法</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td class="table_feature">concat()</td>
+            <td>连接两个或更多的数组，并返回结果。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">join()</td>
+            <td>把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">pop()</td>
+            <td>删除并返回数组的最后一个元素</td>
+        </tr>
+        <tr>
+         <td class="table_feature">push()</td>
+         <td>向数组的末尾添加一个或更多元素，并返回新的长度。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">reverse()</td>
+            <td>颠倒数组中元素的顺序。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">shift()</td>
+            <td>删除并返回数组的第一个元素</td>
+        </tr>
+        <tr>
+            <td class="table_feature">slice()</td>
+            <td>从某个已有的数组返回选定的元素</td>
+        </tr>
+        <tr>
+            <td class="table_feature">sort()</td>
+            <td>对数组的元素进行排序</td>
+        </tr>
+        <tr>
+            <td class="table_feature">splice()</td>
+            <td>删除元素，并向数组添加新元素。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">toSource()</td>
+            <td>返回该对象的源代码。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">toString()</td>
+            <td>把数组转换为字符串，并返回结果。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">toLocaleString()</td>
+            <td>把数组转换为本地数组，并返回结果。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">unshift()</td>
+            <td>向数组的开头添加一个或更多元素，并返回新的长度。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">valueOf()</td>
+            <td>返回数组对象的原始值</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
 
 
 
 <h3>一些常用到的数组处理方法（函数）</h3>
 
 
-<h4>数组去重</h4>
-<p>去掉数组中的重复项</p>
+<h4>数组去重（经典）</h4>
+<p>目的：去掉数组中的重复项。</p>
 <p>方法一：</p>
 
     {% highlight javascript %}
@@ -81,7 +205,7 @@ Array.prototype.removeRepeat3 = function(){
     {% highlight javascript %}
 Array.prototype.removeRepeat4 = function(){
     this.sort();
-    var re=[this[0]];
+    var re = [this[0]];
     for(var i = 1; i < this.length; i++) {
         if( this[i] !== re[re.length-1]) {
             re.push(this[i]);
@@ -100,7 +224,7 @@ Array.prototype.removeRepeat4 = function(){
 
 
 <h4>多数组排序</h4>
-<p>写一个函数，处理两个数组，并且按照从小到大排列</p>
+<p>目的：写一个函数，处理两个数组，并且按照从小到大排列。</p>
 
 	{% highlight javascript %}
 	var a1 = [1,2,3,4,5],
@@ -111,7 +235,7 @@ Array.prototype.removeRepeat4 = function(){
     l3 = l1 + l2,
     i1,i2,i3;
 
-for(i1=i2=i3=0;i3 < l3; i3++){        
+for(i1=i2=i3=0; i3 < l3; i3++){        
     if(i2 == l2 || a1[i1] < a2[i2]) {
             a3[i3] = a1[i1];
             i1 ++;
@@ -130,6 +254,7 @@ alert(a3);  //-6,-4,0,1,1,2,3,3,4,5,5,7,8,10,12
 
 
 
+<p class="pege_tail">参考<a href="http://www.w3school.com.cn/jsref/jsref_obj_array.asp" target="_blank">w3school——JavaScript Array 对象</a></p>
 
 
 
