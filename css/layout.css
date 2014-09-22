@@ -54,13 +54,14 @@ table {
 
 /* LAYOUT STYLES */
 body {
-    font-size: 1em;
+    font-size: 18px;
     line-height: 1.5; 
-    background: #fff;
+    /*background: #fafafa;*/
+    background:#fff;
     /*font-family: 'Helvetica Neue', Helvetica, Arial, serif;*/
     /*font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif,Times;*/
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-    color: #6d6d6d;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #555;
     font-family: "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
@@ -307,9 +308,10 @@ h6 {
 } 
 
 p {
-  font-weight: 300;
-  /*margin-bottom: 20px;*/
-  margin:10px 0;
+    font-size:20px;
+    font-weight: 300;
+    /*margin-bottom: 20px;*/
+    margin:10px 0;
 }
  
 a {
