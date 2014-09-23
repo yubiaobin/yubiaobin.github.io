@@ -91,6 +91,25 @@ console.log(typeof config)   //undefined
 <p><strong>local（链头）-- global -- window（链尾）</strong></p>
 
 
+
+<p>来看下面这个例子；</p>
+
+    {% highlight javascript %}
+var a = 3;
+var b = 8;
+function fn1(){
+    var a = 5;
+    console.log(a); 
+    console.log(b);
+}
+console.log(a)       // 3
+fn1();               // 5 、 8
+    {% endhighlight %}
+
+<p>函数fn1里面的变量a的赋值为5覆盖了外面的赋值3（但是不会改变全局变量a的值）；所以函数fn1里面打印出来的a的值是5；函数fn1外面打印出来a的值还是3；但是函数fn1里面没有给变量b赋值，所以会沿着作用域链向函数外的全局范围查找变量b的值，所以会打印出来得值为8；</p>
+
+
+
 <h4>函数作用域问题</h4>
 
 <p><strong>函数内(函数内的函数除外)定义的变量在整个函数内部都有效</strong></p>
@@ -104,7 +123,7 @@ console.log(typeof config)   //undefined
         t += i; 
     } 
     console.log(i);    // 5
-    console.log(t);    //  10 = 1+2+3+4
+    console.log(t);    // 10 = 1+2+3+4
 } 
 loop();
     {% endhighlight %}
