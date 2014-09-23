@@ -1,6 +1,6 @@
 ---
 layout: default_post
-title : Web前端的一些面试考察的知识点
+title : Web前端面试考察的一些知识点
 ---
 
 
@@ -13,7 +13,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h3>HTML:</h3>
+<h3>HTML类:</h3>
 
 
 
@@ -184,7 +184,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h3>CSS:</h3>
+<h3>CSS类:</h3>
 
 
 
@@ -470,7 +470,7 @@ title : Web前端的一些面试考察的知识点
 
 
 
-<h3>Javascript：</h3>
+<h3>Javascript类：</h3>
 
 
 
@@ -813,7 +813,23 @@ alert(b);
 
 <h4>13.写一个tab菜单切换程序</h4>
 
-
+    {% highlight javascript %}
+var nav = document.getElementById("nav").getElementsByTagName('span'); //获取导航区的集合
+var box = document.getElementById("content").getElementsByTagName('div');//获取内容区的集合
+for (var i = 0, j = nav.length-1; i <= j; i++ ){
+    nav[i].onclick = function(){                                 //鼠标点击事件
+        for (var i = 0, j = nav.length-1; i <= j; i++ ){
+            if (nav[i] == this){
+                nav[i].className = 'nav_on';
+                box[i].style.display = 'block';
+            }else{
+                nav[i].className = '';
+                box[i].style.display = 'none';
+            }
+        }
+    }
+}
+    {% endhighlight %}
 
 
 
@@ -984,7 +1000,7 @@ alert(d.b);
 
 
 
-<h3>其他</h3>
+<h3>其他类:</h3>
 
 
 
@@ -1051,7 +1067,13 @@ alert(d.b);
 
 <h4>6. 渐进增强与优雅降级的理解</h4>
 
+<ul>
+    <li>渐进增强（progressive enhancement）：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</li>
+    <li>优雅降级（graceful degradation）：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</li>
+</ul>
+<p>区别：优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。降级（功能衰减）意味着往回看；而渐进增强则意味着朝前看，同时保证其根基处于安全地带。</p>
 
+　　
 
 
 <h4>7. 为什么利用多个域名来提供网站资源会更有效？</h4>
@@ -1066,11 +1088,38 @@ alert(d.b);
 
 
 <h4>9. 常用的测试工具、开发工具有哪些？</h4>
-
+<p>测试工具：</p>
+<ul>
+    <li>IE8，9，10浏览器</li>
+    <li>google chrome浏览器</li>
+    <li>firefox浏览器</li>
+    <li>safari浏览器</li>
+    <li>opera浏览器</li>
+</ul>
+<p>开发工具：</p>
+<ul>
+    <li>Sublime代码编辑器</li>
+    <li>google chrome浏览器</li>
+    <li>google chrome控制台</li>
+    <li>jsfiddle调试工具</li>
+    <li>git版本</li>
+</ul>
 
 
 
 <h4>10.jpeg、gif、png格式的优缺点，应用场景？</h4>
+
+<ul>
+    <li>GIF：1987 年诞生，常用于网页动画，使用无损压缩，支持 256 种颜色（一般叫 8 bit 彩色），支持单一透明色； </li>
+    <li>JPEG：1992 年出世，照片一般都用这个格式，有损压缩，24 bit 真彩色（224 = 17 万种颜色），不支持动画，不支持透明色； </li>
+    <li>PNG：1996 年问世，无损压缩，最常见的使用格式是 256 索引色（PNG-8）和 24 bit 真彩色（PNG-24）（当然 PNG 支持的颜色格式远不止此），支持 full alpha 通道（256 级可调半透明色），不支持动画；</li>
+</ul>
+<p>在网页中一般小图标中很多图片格式都采用png，png是一种图片存储格式，可以直接作为素材使用，因为它有一个非常好的特点：背景透明。而一般我们在网页中看到的动态图片一般都是GIF格式的。</p>
+
+
+
+
+
 
 
 
