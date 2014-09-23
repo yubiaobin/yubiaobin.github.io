@@ -16,3 +16,5 @@ Max—— 前端攻城狮 's Blog
 This project name is yubiaobin.github.com
 
 The domain is  http://yubiaobin.github.io  or  short for www.oc35.com
+
+This is an [http://yubiaobin.github.io](http://yubiaobin.github.io).
