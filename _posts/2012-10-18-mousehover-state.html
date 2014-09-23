@@ -1,42 +1,39 @@
 ---
 layout: default_post
-title : 鼠标的四种状态
+title : 鼠标的四种伪类（状态）
 ---
 
 
 
 
-<h3>鼠标的四种状态</h3>
+<h3>鼠标的四种伪类（状态）</h3>
 
 
 
 
 
 <h4>鼠标的状态样式代码</h4>
-<p>按照正常的顺序，应该这样写样式代码</p>
+<p>按照正常的顺序，应该这样写样式代码：</p>
 
 	{% highlight css %}
-	a:link    {color:#000;}
-a:visited {color:#000;}
-a:hover   {color:#000;}
-a:active  {color:#000;}
+a:link    {color:#333;}       /* 有链接属性时 */
+a:visited {color:#444;}       /* 链接地址已被访问过 */
+a:active  {color:#555;}       /* 被用户激活(在鼠标点击与释放之间发生的事件) */
+a:hover   {color:#666;}       /* 鼠标悬停 */
 	{% endhighlight %}
 
 
 
-
-
-
-<p>当然你也可以这样写</p>
-
-	{% highlight css %}
-	a:link    {color:#000;}
-a:active  {color:#000;}
-a:visited {color:#000;}
-a:hover   {color:#000;}
-	{% endhighlight %}
 
 <p>但是一般规则link定义在最前；hover在link之后；</p>
+
+<p>在用户使用超链接的时候，为了最佳的用户体验，要做到下面几点：</p>
+
+<ul>
+	<li>不管是否是被访问过的超链接，只要我鼠标移上的时候(:hover)都要有写变化，比如变色、加下划线等等，告诉用户选中的是可以点击的超链接。</li>
+	<li>不管是否访问过，在a标签被激活时（:active），都应该有相同的样式变化。也就是说，同一个a标签，未访问过时在被用户激活和被访问时再被用户激活时要有相同的样式。这个也很好理解，用户点下同一个超链接时的效果不应该有差别。</li>
+	<li>访问过的a标签可能要跟没有访问过的a相区分。</li>
+</ul>
 
 
 
