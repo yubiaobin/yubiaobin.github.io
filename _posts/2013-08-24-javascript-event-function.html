@@ -49,15 +49,76 @@ var functionName = function(arg0,arg1){
 
 
 
+
+
+
+
+
+
+
+<h3>Javascript闭包</h3>
+
+
+<h4>作用域和执行环境</h4>
+
+<p> JavaScript 的执行中会一直存在一个 Execute Context Stack (想想 JavaScript 解释器在看到一个 alert(x) 的时候, 如果没有上下文他怎么知道这个 x 是什么?), Execute Context Stack 中最下面一个一定是 GlobalContext, 而在每一个函数的执行开始就会向这个 stack 中压入一个此 Function 的 Execution Context; 而一个 Execution Context 的组成分为三部分: </p>
+
+<ul>
+	<li>variable Object: 存储方法内的变量 vars, 方法传入的参数, 函数内定义的函数等等(函数表达式不保存), Variable Object 在任何时候是不可以被直接访问到的, 当然不同的 JS 引擎提供了访问接口就说不定了;</li>
+	<li>scope Chain: 这个函数执行的时候用以寻找值的 Scope Chain, 这个 Scope Chain 由 Variable Object + All Parent Scopes 组成, Variable Object 会放在这个 Scope Chain 的最前面, 这也是为什么函数内的变量会被最先找到;</li>
+	<li>thisValue, 函数被调用的时候的 this 对象, 存储的就是函数的调用者(caller)的引用; </li>
+</ul>
+<p>对于 Variable Object 在不同的情况下会有不同的定义, 例如在全局的时候被称为 Global Object, 而在函数中则被称为 Activation Object 激活对象; </p>
+
+
+
+<h4>闭包</h4>
+
+
+<p>简单来说：闭包（first-class function with lexical scope。）就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。</p>
+
+<p>闭包通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。</p>
+
+<p>First-class function 决定了函数可以在另一个函数内部被定义，并且作为 return value 返回。</p>
+
+	{% highlight javascript %}
+var foo = ( function() {
+    var secret = 'secret';
+    // “闭包”内的函数可以访问 secret 变量，而 secret 变量对于外部却是隐藏的
+    return {
+        get_secret: function () {
+            // 通过定义的接口来访问 secret
+            return secret;
+        },
+        new_secret: function ( new_secret ) {
+            // 通过定义的接口来修改 secret
+            secret = new_secret;
+        }
+    };
+} () );
+
+foo.get_secret (); // 得到 'secret'
+foo.secret; // Type error，访问不能
+foo.new_secret ('a new secret'); // 通过函数接口，我们访问并修改了 secret 变量
+foo.get_secret (); // 得到 'a new secret'
+	{% endhighlight %}
+
+
+<p>引用 Douglas Crockford (Javascript大牛，json发明者) :</p>
+
+<p>之所以可能通过这种方式在 JavaScript 种实现公有，私有，特权变量正是因为闭包，闭包是指在 JavaScript 中，内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。</p>
+
+
+<p>需要注意的一点时，内部函数访问的是被创建的内部变量本身，而不是它的拷贝。所以在闭包函数内加入 loop 时要格外注意。另外当然的是，闭包特性也可以用于创建私有函数或方法。</p>
+
+
+<p>关于为什么在 JavaScript 中闭包的应用都有关键词“return”，引用 JavaScript 秘密花园中的一段话：</p>
+<p>闭包是 JavaScript 一个非常重要的特性，这意味着当前作用域总是能够访问外部作用域中的变量。 因为 函数 是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数。</p>
+
+
+
 <p class="pege_tail">参考<a href="http://blog.sina.com.cn/s/blog_912389e5010120n2.html" target="_blank">js之匿名函数</a></p>
-
-
-
-
-
-
-
-<p class="pege_tail">参考<a href="http://www.cnblogs.com/binyong/articles/1750263.html" target="_blank">理解Javascript的事件处理机制</a></p>
+<p>参考<a href="http://www.cnblogs.com/binyong/articles/1750263.html" target="_blank">理解Javascript的事件处理机制</a></p>
 
 
 
