@@ -115,7 +115,9 @@ foo.get_secret (); // 得到 'a new secret'
 <p>关于为什么在 JavaScript 中闭包的应用都有关键词“return”，引用 JavaScript 秘密花园中的一段话：</p>
 <p>闭包是 JavaScript 一个非常重要的特性，这意味着当前作用域总是能够访问外部作用域中的变量。 因为 函数 是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数。</p>
 
-
+<h4>闭包的作用</h4>
+<p>闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。</p>
+<p>通俗来说闭包的作用在于值的传递，或生命周期的传递，或变量的存活时间，闭包给了变量第二次生命，使他躲过内存标记，在外层函数调用完之后，成功的存活下来。。</p>
 
 <p class="pege_tail">参考<a href="http://blog.sina.com.cn/s/blog_912389e5010120n2.html" target="_blank">js之匿名函数</a></p>
 <p>参考<a href="http://www.cnblogs.com/binyong/articles/1750263.html" target="_blank">理解Javascript的事件处理机制</a></p>
