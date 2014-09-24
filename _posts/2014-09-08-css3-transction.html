@@ -1,16 +1,86 @@
 ---
 layout: default_post
-title : Css3 transition的应用
+title : CSS3的一些应用
 ---
 
+<h3>CSS3背景颜色渐变</h3>
+
+<p>对于背景渐变每个浏览器都没有达成统一的解析语法，所以我们不得不为各个浏览器写不同的样式规则：</p>
 
 
 
-<h3>Css3 transition的应用</h3>
+<h4>Webkit引擎</h4>
+<code><strong>语法结构：</strong>-webkit-gradient(&lt;type>, &lt;point> [, &lt;radius>]?, &lt;point> [, &lt;radius>]? [, &lt;stop>]*)</code>	
+	{% highlight css %}
+background: -webkit-gradient(linear, 0 0, 0 100%, from(red), to(blue));
+	{% endhighlight %}
+
+<p>其实规则很好记，也很好理解，多写几遍就熟悉了：</p>
+<ul>
+	<li>渐变的类型 —— (linear)</li>
+	<li>渐变开始的X Y 轴坐标 —— (0 0 – 或者left top)</li>
+	<li>渐变结束的X Y 轴坐标 —— (0 100% 或者left bottom)</li>
+	<li>开始的颜色 —— (from(red) 或者form(#3a3a3a))</li>
+	<li>结束的颜色 —— (to(blue) 或者to(#6c6c6c))</li>
+</ul>
 
 
 
-<h4>一般来说，Display有下列几种状态值</h4>
+
+
+
+
+<h4>Mozilla引擎</h4>
+<code><strong>语法结构：</strong>-moz-linear-gradient( [&lt;point> || &lt;angle>,]? &lt;stop>, &lt;stop> [, &lt;stop>]</code>	
+	{% highlight css %}
+background: -moz-linear-gradient(top, red, blue);
+	{% endhighlight %}
+
+<p>规则更简单了：</p>
+<ul>
+	<li>请注意我们将渐变的类型 —— linear —— 放到了属性前缀中了</li>
+	<li>渐变从哪里开始 —— (top – 我们也可以使用度数，比如-45deg)</li>
+	<li>开始的颜色 —— (red) 或者(#3a3a3a))</li>
+	<li>结束的颜色 —— (blue) 或者(#6c6c6c))</li>
+</ul>
+
+
+
+
+
+
+
+
+<h4>IE引擎</h4>
+<p>IE并不支持CSS渐变，但是提供了渐变滤镜，可以实现最简单的渐变效果：</p>
+	{% highlight css %}
+filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ff0000' grandientType=1); /* IE6,IE7 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ff0000')"; /* IE8 */
+	{% endhighlight %}
+
+	
+<ul>
+	<li>startColorstr —— 渐变起始位置的颜色</li>
+	<li>endColorstr —— 渐变终止位置的颜色</li>
+	<li>grandientType —— 渐变的类型（0：代表竖向渐变，1：代表横向渐变）</li>
+</ul>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>CSS3 transition的应用</h3>
+
+
+<h4>一般来说，transition有下列几种参数</h4>
 
 	{% highlight css %}
 	transition-property : all;
