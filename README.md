@@ -78,6 +78,11 @@ The domain is  [http://yubiaobin.github.io](http://yubiaobin.github.io)  or  sho
 
 
 
+后记
+----
+
+> 生命的精彩在于不断的向前，生命的可贵在于执著的坚持；
+技术的精彩在于不断的折腾，技术的可贵在于不舍的追求。
 
 
 
