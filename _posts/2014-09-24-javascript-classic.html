@@ -34,6 +34,141 @@ console.log(b);   // ReferenceError  =>>  b is not defined
 
 
 
+<h4>经典二：创建“原生”（native）方法</h4>
+
+<p>给字符串对象定义一个repeatify功能。当传入一个整数n时，它会返回重复n次字符串的结果。例如：</p>
+
+	{% highlight javascript %}
+console.log('hello'.repeatify(3));      // hellohellohello;
+	{% endhighlight %}
+
+<p>答案为：</p>
+
+	{% highlight javascript %}
+String.prototype.repeatify = String.prototype.repeatify || function(times) {
+   var str = '';
+   for (var i = 0; i < times; i++) {
+      str += this;
+   }
+   return str;
+};
+	{% endhighlight %}
+
+<p>这个问题测试开发者有关JavaScript继承和prototype的知识点。这也验证了开发者是否知道该如果扩展内置对象（尽管这不应该做的）。</p>
+
+<p>这里的另一个要点是，你要知道如何不覆盖可能已经定义的功能。通过测试一下该功能定义之前并不存在：</p>
+
+
+	{% highlight javascript %}
+String.prototype.repeatify = String.prototype.repeatify || function(times) {/* code here */};
+	{% endhighlight %}
+
+<p>当你被要求做好JavaScript函数兼容时这种技术特别有用。</p>
+
+
+
+
+
+<h4>经典三：声明提升（Hoisting）</h4>
+
+<p>执行这段代码，输出什么结果。	</p>
+
+	{% highlight javascript %}
+function test() {
+   console.log(a);
+   console.log(foo());
+   var a = 1;
+   function foo() {
+      return 2;
+   }
+}
+test();
+	{% endhighlight %}
+
+<p>回答：这段代码的结果是 undefined 和 2。</p>
+
+
+<p>原因是，变量和函数的声明都被提前了（移到了函数的顶部），但变量不分配任何值。因此，在打印变量的时候，它在函数中存在（它被声明了），但它仍然是 undefined 。表示换句话说，上面的代码等同于以下内容：</p>
+
+
+	{% highlight javascript %}
+function test() {
+   var a;
+   function foo() {
+      return 2;
+   }
+ 
+   console.log(a);
+   console.log(foo());
+    
+   a = 1;
+}
+ 
+test();
+	{% endhighlight %}
+
+
+
+
+
+
+
+
+<h4>经典四：this在JavaScript中如何工作的</h4>
+
+<p>下面的代码会输出什么结果？给出你的答案。</p>
+
+	{% highlight javascript %}
+var fullname = 'John Doe';
+var obj = {
+   fullname: 'Colin Ihrig',
+   prop: {
+      fullname: 'Aurelio De Rosa',
+      getFullname: function() {
+         return this.fullname;
+      }
+   }
+};
+
+console.log(obj.prop.getFullname());
+ 
+var test = obj.prop.getFullname;
+ 
+console.log(test());
+	{% endhighlight %}
+
+<p>答案是Aurelio De Rosa和Aurelio De Rosa。原因是，在一个函数中，this的行为，取决于JavaScript函数的调用方式和定义方式，而不仅仅是看它如何被定义的。</p>
+
+<p>在第一个 console.log()调用中，getFullname() 被调用作为obj.prop对象的函数。所以，上下文指的是后者，函数返回该对象的fullname。与此相反，当getFullname()被分配到test变量时，上下文指的是全局对象（window）。这是因为test是被隐式设置为全局对象的属性。出于这个原因，该函数返回window的fullname，即定义在第一行的那个值。</p>
+
+
+
+
+
+
+
+
+
+<h4>经典五：call() 和 apply()</h4>
+
+<p>现在让你解决前一个问题，使最后的console.log() 打印 Aurelio De Rosa。</p>
+
+
+<p>该问题可以通过强制使用 call() 或者 apply() 改变函数上下文。在下面我将使用call()，但在这种情况下，apply()会输出相同的结果：</p>
+
+	{% highlight javascript %}
+console.log(test.call(obj.prop));
+	{% endhighlight %}
+
+
+
+
+
+
+
+
+
+
 
 <!-- <p class="pege_tail">参考<a href="http://www.tuicool.com/articles/yAJNZ3" target="_blank">5个经典的前端面试问题</a></p> -->
 
