@@ -53,7 +53,7 @@ The domain is  [http://yubiaobin.github.io](http://yubiaobin.github.io)  or  sho
 | :------: | :-----:| :-----: |
 | 2014     |   1    |    10   |
 | 2013     |   2    |    10   |
-| 2012     |   3    |    9    |
+| 2012     |   3    |    10   |
 
 
 
@@ -72,6 +72,20 @@ The domain is  [http://yubiaobin.github.io](http://yubiaobin.github.io)  or  sho
 
 - QQ ：[14203405](http://im.qq.com/)
 - 邮箱：<yubiaobin1986@gmail.com>
+
+
+
+
+### 简历
+
+- 在线简历地址 ：[我的简历](http://www.oc35.com/resume.html)
+
+
+
+### 好玩的
+
+- 魔方小游戏 ：[小魔方](http://www.oc35.com/rubik.html)
+
 
 
 
