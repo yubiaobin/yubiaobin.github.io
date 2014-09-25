@@ -1,0 +1,45 @@
+---
+layout: default_post
+title : Javascript几个经典的考察题目
+---
+
+<h3>Javascript几个经典的考察题目</h3>
+
+
+
+<h4>经典一：作用域范围</h4>
+
+	{% highlight javascript %}
+function fn1(){
+   var a = b = 5;
+};
+fn1();
+console.log(b);    // 5
+	{% endhighlight %}
+
+<p>这里有两个变量声明，但 a 使用关键字var声明的。代表它是一个函数的局部变量。与此相反，b 变成了全局变量。</p>
+
+<p><strong>注：</strong>它没有使用严格模式 ('use strict';) 。如果启用了严格模式，代码就会引发ReferenceError的错误：B没有定义（b is not defined）。请记住，严格模式，则需要明确指定，才能实现全局变量声明。</p>
+
+	{% highlight javascript %}
+function fn1(){
+   'use strict';
+   var a = window.b = 5;
+};
+fn1();
+console.log(b);   // ReferenceError  =>>  b is not defined
+	{% endhighlight %}
+
+
+
+
+
+
+<!-- <p class="pege_tail">参考<a href="http://www.tuicool.com/articles/yAJNZ3" target="_blank">5个经典的前端面试问题</a></p> -->
+
+
+
+
+
+
+
