@@ -51,7 +51,7 @@ The domain is  [http://yubiaobin.github.io](http://yubiaobin.github.io)  or  sho
 
 | 博客年份  |   排序  | 博文数量 |
 | :------: | :-----:| :-----: |
-| 2014     |   1    |    9    |
+| 2014     |   1    |    10   |
 | 2013     |   2    |    10   |
 | 2012     |   3    |    9    |
 
