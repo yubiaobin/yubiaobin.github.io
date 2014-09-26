@@ -71,6 +71,24 @@ var add = function(num1,num2){
 <h4>函数的调用</h4>
 
 <p>函数通过函数名来调用，后面加上一对圆括号和参数（如果有参数的话）。</p>
+<p>在Javascript中，有一个数据类型是Function类型，而每个函数都是Function的实例。而且，有意思的是，<strong>函数实际上也是对象</strong>。它同其他引用类型一样具有属性和方法。由于函数是对象，所以函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。换句话说，一个函数可能有多个名字。</p>
+
+    {% highlight javascript %}
+function add(num1,num2){
+   return num1 + num2;
+};
+alert(add(10,20));            // 30
+var anotherAdd = add;
+alert(add(10,20));            // 30
+add = null;
+alert(anotherAdd(10,20));     // 30
+    {% endhighlight %}
+
+<p>以上代码首先定义了个名为add的函数，用于求两个值的和。然后又声明了变量anotherAdd，并将其设置为和add相等（将变量add指向的函数体赋给anotherAdd），因为<strong>使用不带括号的函数名是访问函数指针，而不是调用函数；函数名后面接圆括号才是调用函数</strong>，此时anotherAdd和add就都指向了同一个函数，因此anotherAdd也可以被调用并返回结果。即使后来手动将add设置为null，此时只是解除了add和函数体的映射关系，并不会影响到anotherAdd和函数体的映射关系，所以anotherAdd仍然可以正常调用函数体并返回结果。</p>
+
+
+
+
 
 
 
@@ -137,7 +155,7 @@ alert(result);     // undefined
 
 
 
-<h4>函数的参数、和参数传递</h4>
+<!-- <h4>函数的参数、和参数传递</h4> -->
 
 
 
@@ -146,7 +164,7 @@ alert(result);     // undefined
 
 
 
-<h4>函数没有重载</h4>
+<!-- <h4>函数没有重载</h4> -->
 
 
 
