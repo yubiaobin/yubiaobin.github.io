@@ -1,0 +1,52 @@
+---
+layout: default_post
+title : js之静态方法与实例方法的区别
+---
+
+<h3>js之静态方法与实例方法的区别</h3>
+
+
+
+<p>静态方法是指不需要声明类的实例就可以使用的方法。</p>
+
+<p>实例方法是指必须要先使用"new"关键字声明一个类的实例, 然后才可以通过此实例访问的方法。</p>
+
+	{% highlight javascript %}
+function staticClass() { }; //声明一个类
+staticClass.staticMethod = function() { alert("static method") };            // 创建一个静态方法
+staticClass.prototype.instanceMethod = function() { "instance method" };     // 创建一个实例方法
+	{% endhighlight %}
+
+<p>上面首先声明了一个类staticClass, 接着为其添加了一个静态方法staticMethod 和一个动态方法instanceMethod。区别就在于添加动态方法要使用prototype原型属性。</p>
+
+
+
+<ul>
+   <li><strong>对于静态方法可以直接调用 </strong>  staticClass.staticMethod();</li>
+   <li><strong>但是动态方法不能直接调用</strong>   staticClass.instanceMethod(); //语句错误, 无法运行。</li>
+</ul>
+
+
+
+<p>需要首先实例化后才能调用   var instance = new staticClass(); //首先实例化</p>
+
+<p>instance.instanceMethod(); //在实例上可以调用实例方法</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p class="pege_tail">参考<a href="http://3721myth.blog.163.com/blog/static/3183170620114910816502/" target="_blank">js之静态方法与实例方法  </a></p> -->
+
+
+
+
+

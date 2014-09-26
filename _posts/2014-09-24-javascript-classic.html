@@ -137,7 +137,7 @@ var test = obj.prop.getFullname;
 console.log(test());
 	{% endhighlight %}
 
-<p>答案是Aurelio De Rosa和Aurelio De Rosa。原因是，在一个函数中，this的行为，取决于JavaScript函数的调用方式和定义方式，而不仅仅是看它如何被定义的。</p>
+<p>答案是Aurelio De Rosa和AJohn Doe。原因是，在一个函数中，this的行为，取决于JavaScript函数的调用方式和定义方式，而不仅仅是看它如何被定义的。</p>
 
 <p>在第一个 console.log()调用中，getFullname() 被调用作为obj.prop对象的函数。所以，上下文指的是后者，函数返回该对象的fullname。与此相反，当getFullname()被分配到test变量时，上下文指的是全局对象（window）。这是因为test是被隐式设置为全局对象的属性。出于这个原因，该函数返回window的fullname，即定义在第一行的那个值。</p>
 
@@ -169,6 +169,8 @@ console.log(test.call(obj.prop));
 
 
 
+
+<p class="pege_tail">参考<a href="http://www.sitepoint.com/5-typical-javascript-interview-exercises/?utm_source=ourjs.com" target="_blank">5个经典的前端面试问题</a></p>
 
 <!-- <p class="pege_tail">参考<a href="http://www.tuicool.com/articles/yAJNZ3" target="_blank">5个经典的前端面试问题</a></p> -->
 
