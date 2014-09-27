@@ -140,7 +140,6 @@ alert(result2);     // 20
 <p>最后，return语句页可以不带有任何返回值，这种情况下，函数在停止执行后，将返回undefined值。</p>
 
     {% highlight javascript %}
-
 function sayName(name){
     return;
     alert("my name is" + name + "!");    // 永远不会调用
@@ -169,15 +168,36 @@ alert(result);     // undefined
 <p>在一些其他语言比如Java语言中，可以为一个函数编写两个定义，只要这两个定义的签名（接受的参数的类型和数量）不同即可。</p>
 <p>但是ECMAScript规定：Javascript中的函数没有签名，因为<strong>其参数是由包含零或多个值的数组来表示的。</strong>而没有函数签名，真正的重载是不可能做到的。</p>
 
+<p>通俗的理解：如果定义了两个名字相同的函数，则该名字只属于后定义的函数（即后定义的函数会覆盖前面定义的函数）。</p>
+
+    {% highlight javascript %}
+function addNum(num){
+    return num + 100;
+};
+function addNum(num){
+    return num + 200;
+};s
+var result = addNum(500);
+alert(result);     // 700
+    {% endhighlight %}
+
+<p>因为函数名是指针，而且存在函数声明，所以上面代码可以改写成一下这样：</p>
 
 
+    {% highlight javascript %}
+var addNum;
+addNum = function(num){
+    return num + 100;
+};
+addNum = function(num){
+    return num + 200;
+};
+var result = addNum(500);
+alert(result);     // 700
+    {% endhighlight %}
 
 
-
-
-
-
-
+<p>通过观察重写之后的函数代码，很容易就可以看出，后面定义的函数体（赋值给同名变量addNum）覆盖了前面的函数定义的赋值过程，将指针指向了新的函数代码，变量addNum跟前面定义的函数体已经没有了映射关系，所以函数不具有重载的特性。</p>
 
 
 
