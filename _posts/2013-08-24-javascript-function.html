@@ -154,7 +154,100 @@ alert(result);     // undefined
 
 
 
-<!-- <h4>函数的参数、和参数传递</h4> -->
+<h4>函数的参数、和参数传递</h4>
+
+<p>在Javascript中，函数的参数与其他大多数语言中函数的参数有很大的不同。因为在ECMAScript规范中确定<strong>函数的参数不是必须的</strong>。函数不介意传递进来多少参数，也不在乎传进来参数是什么数据类型（弱类型语言的特点，类型检查不严格）。换句话说，即使你定义的函数只接受两个参数，在调用的时候这个函数也未必一定要传递两个参数，可以传递一个、三个参数，也可以完全不传递参数。而解析器用永远都会解析（不会报错）。</p>
+
+    {% highlight javascript %}
+function howManyArgs(){
+    alert(arguments.length);    
+};
+howManyArgs("string", 45);               // 2
+howManyArgs();                           // 0
+howManyArgs(12);                         // 1
+howManyArgs([1,2,3],{name : "mary"},23)  // 3
+    {% endhighlight %}
+
+<p>以上代码首先定义了一个函数，运行函数会打印出函数的参数的数量。调用函数的时候，传入不同的参数，则会显示不同的结果。</p>
+<p>之所以会这样，是因为在ECMAScritp规范中，<strong>参数在内部是由一个数组来表示的</strong>。函数接受到的始终都是这个数组，而不管数组中包含哪些参数（如果有参数的话），如果这个数组不包含任何元素也行；如果包含多个元素也可以。</p>
+<p>如果你想访问这个数组，可以使用函数的arguments对象来访问这个参数数组，从而获取每一个传递给函数的每一个参数。（这也就是不同javascript开发者可以写出代码风格差异很大的原因之一，但我觉得这同时也是javascript独特的魅力之所在。）</p>
+
+    {% highlight javascript %}
+function add(num1, num2){
+    return num1 + num2;
+};
+alert(add(20,30));                    // 50
+alert(add("hello ,", 30));            // hello ,30
+alert(add("hello ,", " world !"));    // hello , world !
+    {% endhighlight %}
+
+<p>这段代码可以写成另外一种风格；</p>
+
+    {% highlight javascript %}
+function add(){
+    return arguments[0] + arguments[1];
+};
+alert(add(20,30));                    // 50
+alert(add("hello ,", 30));            // hello ,30
+alert(add("hello ,", " world !"));    // hello , world !
+    {% endhighlight %}
+
+<p>甚至你还可以这样写：</p>
+
+    {% highlight javascript %}
+function add(){
+    var result = null;
+    for(var i = 0, n = arguments.length; i < n; i++){
+        result += arguments[i];
+    }
+    return result;;
+};
+alert(add(20,30));                    // 50
+alert(add("hello ,", 30));            // hello ,30
+alert(add("hello ,", " world !"));    // hello , world !
+    {% endhighlight %}
+
+
+<p>另外，函数的命名的参数页可以和arguments对象混合使用，比如上面的函数可以写成这样：</p>
+    {% highlight javascript %}
+function add(num1,num2){
+    if(arguments.length === 1){
+        return (num1 + 30);
+    } else if (arguments.length === 2){
+        return (arguments[0] + num2);
+    }
+};
+alert(add(20));                       // 50
+alert(add("hello ,", 30));            // hello ,30
+alert(add("hello ,", " world !"));    // hello , world !
+    {% endhighlight %}
+
+
+
+<p>可以看出重写函数后，两个命名参数都与arguments对象一起使用了，由于num1的值与arguments[0]的值相同，因此他们可以互换使用，同理num2的值与arguments[1]也是如此。</p>
+
+<p>所以可以轻松得出结论：<strong>arguments对象的长度是由传入的参数个数决定的，不是由定义函数时的命名参数的个数决定的</strong>。</p>
+
+<p>那如果出现没有传递值的参数会出现什么情况呢？</p>
+
+    {% highlight javascript %}
+function add(){
+    return arguments[0] + arguments[1] + arguments[2];
+};
+alert(add(20,30));                    // NaN
+alert(add("hello ,", 30));            // hello ,30undefined
+alert(add("hello ,", " world !"));    // hello , world !undefined
+    {% endhighlight %}
+
+<p>可以看到，定义函数的时候有三个参数arguments[0]、arguments[1]、arguments[2]但是调用的时候，三次调用都只传递了两个参数的情况下，解析器会把第三个参数自动赋值为undefined。这就和定义了变量但没有赋值（初始化）的时候（或者执行到赋值语句之前的时候）解析器会自动赋值为undefined一样的机制。</p>
+
+
+
+
+
+
+<h4>函数值的传递</h4>
+<p>在Javascript中，函数名是指向函数对象的指针，其本身就是变量，而函数也可以作为返回值来使用。也就是说，不仅可以像传递参数一样把一个函数传递给另外一个函数，而且可以将一个函数作为另外一个函数的结果返回。</p>
 
 
 
