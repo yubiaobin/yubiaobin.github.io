@@ -1,12 +1,12 @@
 ---
 layout: default_post
-title : Webkit内核引擎学习（一）
+title : Webkit内核引擎学习
 ---
 
 
 
 
-<h3>Webkit内核引擎学习（一）</h3>
+<h3>Webkit内核引擎学习</h3>
 
 
 
@@ -30,6 +30,52 @@ title : Webkit内核引擎学习（一）
 WebKit通过Acid2及Acid3的测试，包含完美像素的渲染(pixel-perfect rendering)以及没有任何时间及不顺的问题[65]。</p>
 
 
+<h5>WebCore代码库的基本结构</h5>
+
+<p>WebCore代码结构主要包含下列12个主要组成部分</p>
+<ul>
+	<li>
+		bindings 包含将Dom Binding给JavascriptCore方面的代码，同时包含依据idl接口描述文件，自动生成对应于JavascriptCore的Binding实现的脚本等内容；
+	</li>
+	<li>
+		bridge 主要包含NPPlugin方面的接口访问等内容；
+	</li>
+	<li>
+		css 主要包括与css方面相关的内容如解析、不同css规则的定义与实现、css Binding给JS的接口定义等内容
+	</li>
+	<li>
+		dom 主要包括dom方面相关的内容如不同dom元素的定义与实现、dom Binding给JS的接口定义等内容；
+	</li>
+	<li>
+		html 主要包括html方面相关的内容如不同html元素的定义与实现、HTMLTokenizer及HTMLParser等内容；
+	</li>
+	<li>
+		loader 主要包括装载资源如html页面、css、js及image等方面内容；
+	</li>
+	<li>
+		page 主要包括描述一个Web页面所涉及的内容如page、frame、frameview、frametree、setting、history、chrome、chromeclient等内容；
+	</li>
+	<li>
+		rendering 主要包括如何使用样式，组织布局、显示html元素等方面内容；
+	</li>
+	<li>
+		plugins 主要包括浏览端如何实现NPPlugin方面的内容；
+	</li>
+	<li>
+		svg 主要包括与svg方面相关的内容；
+	</li>
+	<li>
+		xml 主要包括与xml方面相关的内容如xml parser、XPath、XSLT等；
+	</li>
+	<li>
+		platform 主要包括与不同平台或外部库相关的内容如graphics(图形输出方面)、network(网络处理方面)、image-decoders(解析不同图片格式方面)等；
+	</li>
+</ul>
+
+
+
+
+
 
 
 
@@ -43,6 +89,10 @@ WebKit通过Acid2及Acid3的测试，包含完美像素的渲染(pixel-perfect r
 
 
 
+
+
+
+<p class="pege_tail">部分内容参考<a href="http://blog.csdn.net/bertzhang/article/details/6756732" target="_blank">Webkit-WebCore</a></p>
 
 
 
