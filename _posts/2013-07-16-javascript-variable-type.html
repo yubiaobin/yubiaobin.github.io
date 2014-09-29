@@ -8,6 +8,36 @@ title : Javascript基础之——数据类型详解
 
 
 <p>JavaScript既是过程式语言，也是面向对象的语言。这一定程度上，也表现为：它实际上有两套类型系统。第一套类型系统是用typeof来识别，这是这个语言的基本类型系统，只有六种类型，即undefined、number、boolean、string、object与function。我一般也称之为基础类型系统。之所以称为"基础"，是因为第二套类型系统是以它为基础，从object这一种类型中发展起来的，即对象类型系统。</p>
+<p>对象类型系统用instanceof来识别，它相当于其它高级语言中的is操作/运算。面向对象的多态主要通过as和is来表达，对于JavaScript来说，由于是弱类型的(没有强制类型检查)，所以不需要as。</p>
+
+
+
+<p>对象类型系统与基础类型系统存在映射关系，例如基础类型的string影射到对象系统中的String。但这只是影射，所以本质上来说string类型不是String类型。两者本质上不同。</p>
+
+<p>具体来说，undefined,string、number和boolean是“值类型”；object与function是“引用类型”。</p>
+
+<p>由于String、Number与Boolean在基础类型中都属于object类型，是Object()的子类，因此是引用类型。</p>
+
+<p>Function()也是引用类型。所有引用类型都可以看着Object()的子类，所以任意函数也是Object()的子类。例如"匿名函数 instanceof Object"返回true。</p>
+
+<p>undefined是值类型，它没有对应的对象类型——我们通常可以称之为Undefined类型，但它没有对应的构造器。undefined只有一个值，即undefined。准确地说，undefined表明声明(或产生)了但没有值的变量。</p>
+
+
+<p>Null也是一个类型，null是它的惟一值(按照语言规则，null也是一个关键字)。Null类型是对象类型，亦即是引用类型。所以Null与Undefined本质的不同，是它们分属在不同的类型系统中，解释着不同类型系统中的“无”的概念。</p>
+
+
+<p>一般来说，DOM中的某个属性或成员如果无值，应该使用null；而JavaScript运算过程中如果出现无值，应该使用undefined。</p>
+
+<p>这两个类型系统在JavaScript中是可以混用的，实现这一特性的技术被称为“类包装”。这是JavaScript对Java的主要借鉴，也是后来的.NET对Java的主要借鉴之一——类包装也被称为“装箱”(以及“拆箱”)。</p>
+
+
+
+<p>JavaScript中的类包装过程出现然属性存取中，即“.运算符”或“[]运算符”。当这两个运算符发现左操作数x是一个“值类型”数据时，将隐式地调用Object(x)过程将它转为对象</p>
+
+
+<p>'abc'.length; 这个运算实际上就等效于 Object('abc').length;</p>
+
+
 
 <p>变量是存储信息的容器。</p>
 <p>JavaScript 语句和 JavaScript 变量都对大小写敏感。</p>
