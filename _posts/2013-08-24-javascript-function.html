@@ -136,6 +136,7 @@ var result = anotherFactorial(5);
 alert(result);     // 120
     {% endhighlight %}
 
+<p>其实，arguments.callee是一个指向正在执行的函数的指针，因此可以用它来实现对函数的递归调用，可以确保无论怎样调用函数都不会出问题。</p>
 
 
 
