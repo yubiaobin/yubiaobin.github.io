@@ -14,7 +14,7 @@ title : js之静态方法与实例方法的区别
 	{% highlight javascript %}
 function staticClass() { }; //声明一个类
 staticClass.staticMethod = function() { alert("static method") };            // 创建一个静态方法
-staticClass.prototype.instanceMethod = function() { "instance method" };     // 创建一个实例方法
+staticClass.prototype.instanceMethod = function() { alert("instance method") };     // 创建一个实例方法
 	{% endhighlight %}
 
 <p>上面首先声明了一个类staticClass, 接着为其添加了一个静态方法staticMethod 和一个动态方法instanceMethod。区别就在于添加动态方法要使用prototype原型属性。</p>
