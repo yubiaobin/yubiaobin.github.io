@@ -45,6 +45,12 @@ hr {margin: 0;padding:0;border: 0;color: #000;background-color: #000;height: 1px
 
 
 
+
+
+
+
+
+
 /*customs style start*/
 #wrapper{max-width:640px; margin:0 auto; background:#25a7f0;}
 .rotate_title{padding-top:10px; border-bottom:16px solid #008ede;}
@@ -52,16 +58,47 @@ hr {margin: 0;padding:0;border: 0;color: #000;background-color: #000;height: 1px
 .rotate_box{position:relative; border-top:1px solid #39b8ff;}
 .rotate_box img{width:100%;}
 
-.begin_pointer{
-	position:absolute;
-	top:50%;
-	left:50%;
-	width:200px; 
-	height:200px; 
-	margin-left:-100px;
-	margin-top:-100px;
-	cursor:pointer;
+
+@media screen and (max-device-width: 320px) {
+	.begin_pointer{
+		position:absolute;
+		top:50%;
+		left:50%;
+		max-width:120px; 
+		max-height:120px; 
+		margin-left:-60px;
+		margin-top:-60px;
+		cursor:pointer;
+	}
 }
+@media screen and (min-device-width: 320px)  and (max-device-width: 480px) {
+	.begin_pointer{
+		position:absolute;
+		top:50%;
+		left:50%;
+		max-width:160px; 
+		max-height:160px; 
+		margin-left:-80px;
+		margin-top:-80px;
+		cursor:pointer;
+	}
+}
+@media screen and (min-device-width: 480px) {
+	.begin_pointer{
+		position:absolute;
+		top:50%;
+		left:50%;
+		max-width:200px; 
+		max-height:200px; 
+		margin-left:-100px;
+		margin-top:-100px;
+		cursor:pointer;
+	}
+}
+
+
+
+
 .done{
     -webkit-transition: 2s ease;
     -moz-transition:2s ease;
@@ -80,20 +117,45 @@ h3{
 
 
 .marquee_box{height:60px; background:#eaeaea;}
-
 .share_box{padding:50px 0; text-align:center;}
-.share_button{
-	width:350px;
-	height:90px;
-	color:#ff7e00;
-	font-size:36px;
-	letter-spacing:10px;
-	background:#ffd800;
-	border-radius:10px;
-	border:none;
+
+
+@media screen and (max-device-width: 320px) {
+	.share_button{
+		width:240px;
+		height:90px;
+		color:#ff7e00;
+		font-size:36px;
+		letter-spacing:10px;
+		background:#ffd800;
+		border-radius:10px;
+		border:none;
+	}
 }
-
-
+@media screen and (min-device-width: 320px)  and (max-device-width: 480px) {
+	.share_button{
+		width:320px;
+		height:90px;
+		color:#ff7e00;
+		font-size:36px;
+		letter-spacing:10px;
+		background:#ffd800;
+		border-radius:10px;
+		border:none;
+	}
+}
+@media screen and (min-device-width: 480px) {
+	.share_button{
+		width:320px;
+		height:90px;
+		color:#ff7e00;
+		font-size:36px;
+		letter-spacing:10px;
+		background:#ffd800;
+		border-radius:10px;
+		border:none;
+	}
+}
 
 
 
@@ -115,17 +177,51 @@ h3{
 	padding-bottom:120px;
 	background:#1e709e;
 }
-.my_prize_bg li{
-	border-top:1px solid #3c8bb7;
-	color:#fff;
-	font-size:24px;
-	line-height:72px;
-	height:72px;
-	text-indent:48px;
-	background:#1e709e;
-	cursor:pointer;
+
+
+
+@media screen and (max-device-width: 320px) {
+	.my_prize_bg li{
+		border-top:1px solid #3c8bb7;
+		color:#fff;
+		font-size:24px;
+		line-height:72px;
+		height:72px;
+		text-indent:12px;
+		background:#1e709e;
+		cursor:pointer;
+	}
+	.prize_li_right{float:right; padding-right:12px;}
 }
-.prize_li_right{float:right; padding-right:48px;}
+@media screen and (min-device-width: 320px)  and (max-device-width: 480px) {
+	.my_prize_bg li{
+		border-top:1px solid #3c8bb7;
+		color:#fff;
+		font-size:24px;
+		line-height:72px;
+		height:72px;
+		text-indent:36px;
+		background:#1e709e;
+		cursor:pointer;
+	}
+	.prize_li_right{float:right; padding-right:36px;}
+}
+@media screen and (min-device-width: 480px) {
+	.my_prize_bg li{
+		border-top:1px solid #3c8bb7;
+		color:#fff;
+		font-size:24px;
+		line-height:72px;
+		height:72px;
+		text-indent:48px;
+		background:#1e709e;
+		cursor:pointer;
+	}
+	.prize_li_right{float:right; padding-right:48px;}
+}
+
+
+
 .title_box{
 	display:none;
 	color:#fff;
