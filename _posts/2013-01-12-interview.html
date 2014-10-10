@@ -974,10 +974,21 @@ alert(d.b);
 
 
 
+<h4>20.使用Javascript获取当前鼠标坐标，注意IE和Fiirefox的区别？</h4>
 
 
+    {% highlight javascript %}
 
+function mouseCoordinate(e){
+   var x,y;
+   var e = e || window.event;
+       return {
+        x: e.clentX + document.body.scrollLeft + document.document.scrollLeft,
+        y: e.clentY + document.body.scrollLeft + document.document.scrollLeft
+    }
+}
 
+    {% endhighlight %}
 
 
 
