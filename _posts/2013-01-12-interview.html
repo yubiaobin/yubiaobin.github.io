@@ -983,27 +983,51 @@ function mouseCoordinate(e){
    var x,y;
    var e = e || window.event;
        return {
-        x: e.clentX + document.body.scrollLeft + document.document.scrollLeft,
-        y: e.clentY + document.body.scrollLeft + document.document.scrollLeft
+        x: e.pageX||(e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft)),
+        y: e.pageY||(e.clientY+(document.documentElement.scrollTop||document.body.scrollTop))
     }
 }
 
     {% endhighlight %}
 
 
+<h4>21.下面这个li,如何实现点击每一个li的时候alert其index的值？</h4>
+    {% highlight html %}
+<ul id="target">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+    {% endhighlight %}
+
+<p>如果用原生JS来些：</p>
+
+    {% highlight javascript %}
+
+var list = document.getElementById("target").getElementsByTagName("li");
+var length = list.length;
+for(var i = 0; i < length; i++){
+    list[i].onclick = function(i){
+        return function(){
+            alert("当前index值为"+ (i+1));
+        }
+    }(i);
+}
+
+    {% endhighlight %}
 
 
+<p>如果用jQuery来写：</p>
 
+    {% highlight javascript %}
 
-
-
-
-
-
-
-
-
-
+ $("#target").find("li").each(function(){
+    $(this).click(function(i){
+        alert("当前index值为"+ ($(this).index()+1));
+    })
+ })
+    {% endhighlight %}
 
 
 
