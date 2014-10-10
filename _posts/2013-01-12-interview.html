@@ -1031,9 +1031,17 @@ for(var i = 0; i < length; i++){
 
 
 
+<h4>22.截取字符串abcdefg的efg</h4>
 
+    {% highlight javascript %}
+    
+var str = "abcdefgfdsbvfd";
+if (/efg/.test(str)){  
+    var result = str.substr(str.indexOf("efg"), 3);  
+    alert(result);
+}
 
-
+    {% endhighlight %}
 
 
 
