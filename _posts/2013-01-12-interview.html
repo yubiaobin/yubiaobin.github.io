@@ -1036,6 +1036,29 @@ if (/efg/.test(str)){
     {% endhighlight %}
 
 
+<h4>22.编写一个方法 求一个字符串的字节长度（假设：一个英文字符占用一个字节，一个中文字符占用两个字节）</h4>
+
+    {% highlight javascript %}
+
+function getBytes(str){
+    var bytes = str.length;
+    for (var i = 0; i < bytes; i++){
+        if(str.charCodeAt(i) > 255){   //charCodeAt 返回的Unicode编码值 如果是 中文字符 会大于255 
+            bytes++;
+        }
+    }
+    return bytes;
+}
+
+    {% endhighlight %}
+
+
+
+
+
+
+
+
 
 
 
