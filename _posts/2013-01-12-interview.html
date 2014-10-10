@@ -841,23 +841,46 @@ for (var i = 0, j = nav.length-1; i <= j; i++ ){
 
 
 
-<h4>14.写一个点击input能够弹出当前input索引的函数</h4>
-<p>原生js</p>
+<h4>14.下面这个li,如何实现点击每一个li的时候alert其index的值？</h4>
+
+    {% highlight html %}
+<ul id="target">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+    {% endhighlight %}
+
+<p>如果用原生JS来些：</p>
 
     {% highlight javascript %}
-    var list=document.getElementsByTagName("input");
-for(var i = 0; i < list.length; i++){
 
+var list = document.getElementById("target").getElementsByTagName("li");
+var length = list.length;
+for(var i = 0; i < length; i++){
+    list[i].onclick = function(i){
+        return function(){
+            alert("当前index值为"+ (i+1));
+        }
+    }(i);
 }
+
     {% endhighlight %}
 
-<p>jquery</p>
+
+<p>如果用jQuery来写：</p>
 
     {% highlight javascript %}
-    $("input").click(function(){ 
-    alert($("input").index(this)); 
-}); 
+
+ $("#target").find("li").each(function(){
+    $(this).click(function(i){
+        alert("当前index值为"+ ($(this).index()+1));
+    })
+ })
     {% endhighlight %}
+
+
 
 
 
@@ -968,6 +991,14 @@ alert(d.b);
                 <li>IE--有window.event对象 </li>
                 <li>Firefox--没有window.event对象</li>
             </ul>
+            <ul>获取事件源
+                <li>IE用srcElement获取事件源</li>
+                <li>而Firefox用target获取事件源</li>
+            </ul>
+            <ul>添加，去除事件
+                <li>IE：element.attachEvent(“onclick”, function); element.detachEvent(“onclick”, function)</li>
+                <li>FF：element.addEventListener(“click”, function, true); element.removeEventListener(“click”, function, true)</li>
+            </ul>
         </li>
     </ul>
 </p>
@@ -991,50 +1022,11 @@ function mouseCoordinate(e){
     {% endhighlight %}
 
 
-<h4>21.下面这个li,如何实现点击每一个li的时候alert其index的值？</h4>
-    {% highlight html %}
-<ul id="target">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-</ul>
-    {% endhighlight %}
 
-<p>如果用原生JS来些：</p>
+<h4>21.截取字符串abcdefg的efg</h4>
 
     {% highlight javascript %}
 
-var list = document.getElementById("target").getElementsByTagName("li");
-var length = list.length;
-for(var i = 0; i < length; i++){
-    list[i].onclick = function(i){
-        return function(){
-            alert("当前index值为"+ (i+1));
-        }
-    }(i);
-}
-
-    {% endhighlight %}
-
-
-<p>如果用jQuery来写：</p>
-
-    {% highlight javascript %}
-
- $("#target").find("li").each(function(){
-    $(this).click(function(i){
-        alert("当前index值为"+ ($(this).index()+1));
-    })
- })
-    {% endhighlight %}
-
-
-
-<h4>22.截取字符串abcdefg的efg</h4>
-
-    {% highlight javascript %}
-    
 var str = "abcdefgfdsbvfd";
 if (/efg/.test(str)){  
     var result = str.substr(str.indexOf("efg"), 3);  
@@ -1042,8 +1034,6 @@ if (/efg/.test(str)){
 }
 
     {% endhighlight %}
-
-
 
 
 
@@ -1133,12 +1123,24 @@ if (/efg/.test(str)){
 
 
 
-<h4>8. http中的404状态码是什么意思？</h4>
+<h4>8.规避javascript多人开发函数重名问题</h4>
+<p>
+    <ul>
+        <li>加前缀 —— 可以开发前规定命名规范，根据不同开发人员开发的功能在函数前加前缀</li>
+        <li>封装类 —— 将每个开发人员的函数封装到类中，调用的时候就调用类的函数，即使函数重名只要类名不重复就可以</li>
+    </ul>
+</p>
+
+
+
+
+
+<h4>9. http中的404状态码是什么意思？</h4>
 <p>找不到文件</p>
 
 
 
-<h4>9. 常用的测试工具、开发工具有哪些？</h4>
+<h4>10. 常用的测试工具、开发工具有哪些？</h4>
 <p>测试工具：</p>
 <ul>
     <li>IE8，9，10浏览器</li>
@@ -1158,7 +1160,7 @@ if (/efg/.test(str)){
 
 
 
-<h4>10.jpeg、gif、png格式的优缺点，应用场景？</h4>
+<h4>11.jpeg、gif、png格式的优缺点，应用场景？</h4>
 
 <ul>
     <li>GIF：1987 年诞生，常用于网页动画，使用无损压缩，支持 256 种颜色（一般叫 8 bit 彩色），支持单一透明色； </li>
@@ -1175,16 +1177,16 @@ if (/efg/.test(str)){
 
 
 
-<h4>11.谈谈对前端的理解？（开放式）</h4>
+<h4>12.谈谈对前端的理解？（开放式）</h4>
 
-<h4>12.你认为做前端最需要的品质？（开放式）</h4>
+<h4>13.你认为做前端最需要的品质？（开放式）</h4>
 
-<h4>13.你最近看过的文章是什么？（开放式）</h4>
-
-
+<h4>14.你最近看过的文章是什么？（开放式）</h4>
 
 
-<h4>14.有没有逛技术网站的习惯？请列举这些网站</h4>
+
+
+<h4>15.有没有逛技术网站的习惯？请列举这些网站</h4>
 <p>
     <ul>
         <li><a href="https://github.com/" target="_blank">Github</a></li>
