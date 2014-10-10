@@ -1054,7 +1054,15 @@ function getBytes(str){
 
 
 
+<h4>23.JavaScript中如何检测一个变量是一个String类型？请写出函数实现</h4>
 
+    {% highlight javascript %}
+
+function isString(str){
+    return (typeof(str) === "string" || str.constructor === String);
+}
+
+    {% endhighlight %}
 
 
 
