@@ -346,7 +346,21 @@ title : Web前端面试考察的一些知识点
 
 
 
-<h4>8.CSS中rem、em和px的关系和区别？</h4>
+
+<h4>8.border:0和border:none的区别？</h4>
+
+<ul>
+    <li>border:0 —— 所有浏览器兼容，border不予显示，但依旧会按默认的border-style和border-width进行渲染，消耗内存。</li>
+    <li>border:none —— 得到除IE6、IE7外，所有其他浏览器的支持，不予对border进行任何渲染，节省内存。</li>
+</ul>
+
+
+
+
+
+
+
+<h4>9.CSS中rem、em和px的关系和区别？</h4>
 <p>定义em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸;px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
 <p><strong>px的特点</strong>
     <ul>
@@ -371,7 +385,7 @@ title : Web前端面试考察的一些知识点
 
 
 
-<h4>9. 谈谈CSS3 Media Queries</h4>
+<h4>10. 谈谈CSS3 Media Queries</h4>
 <p>CSS2.1定义了 Media 的部分，包括类型、组别和规则等。CSS并非为了显示器而创造，而是应用于各种各样的媒体，比如常见的显示器，越来愈多的手持设备，可能略显过时的电视机等等。</p>
 <p>而 Media Queries 的引入，其作用就是允许添加表达式用以确定媒体的情况，以此来应用不同的样式表。换句话说，其允许我们在不改变内容的情况下，改变页面的布局以精确适应不同的设备，以此加强体验。所以Media Queries和CSS优化没有关系，甚至是矛盾的。</p>
 <p>当浏览器宽度改变时，应用的CSS发生变化。而这些，原本需要 JavaScript 的控制才能做到。</p>
@@ -392,7 +406,7 @@ title : Web前端面试考察的一些知识点
 
 
 
-<h4>10. Display:none与visibility：hidden的区别（高频率）</h4>
+<h4>11. Display:none与visibility：hidden的区别（高频率）</h4>
 <p>
     <ul>
         <li>display: none--不为被隐藏的对象保留其物理空间。</li>
@@ -404,7 +418,7 @@ title : Web前端面试考察的一些知识点
 
 
 
-<h4>11.谈谈CSS hack</h4>
+<h4>12.谈谈CSS hack</h4>
 <p>CSS Hack大致有3种表现形式，<strong>CSS属性前缀法</strong>、<strong>选择器前缀法</strong>以及<strong>IE条件注释法（即HTML头部引用if IE）Hack</strong>，实际项目中CSS Hack大部分是针对IE浏览器不同版本之间的表现差异而引入的。</p>
 <p><strong>CSS属性前缀法</strong>
     <ul>
