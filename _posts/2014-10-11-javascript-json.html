@@ -1,9 +1,9 @@
 ---
 layout: default_post
-title : Json的学习和理解
+title : JSON的学习和理解
 ---
 
-<h3>Json的定义和特点</h3>
+<h3>JSON的定义和特点</h3>
 
 <p>JSON（JavaScript Object Notation）是Javascript专家大牛<a href="https://github.com/douglascrockford" target="_blank">Douglas Crockford（克劳福德）</a>发明的一种轻量的数据格式。虽然他的语法部分参考了javascript的一些特性，可以称作Javascript的一个子集，但是他是可以独立于任何语言之外的一种<strong>通用的数据格式（文本格式）</strong>，相比XML来说具有更轻量的特点。</p>
 
@@ -18,7 +18,7 @@ title : Json的学习和理解
 </ul>
 
 
-<p>json可以表示三种类型的值：</p>
+<p>JSON可以表示三种类型的值：</p>
 
 <p>第一种：简单值,包括字符串、数值、布尔值和null。<strong>但是不支持undefined</strong>。</p>
 
@@ -55,7 +55,7 @@ null
 
 
 
-<p>json中数组和对象页可以相互嵌套，比如：</p>
+<p>JSON中数组和对象页可以相互嵌套，比如：</p>
     {% highlight javascript %}
 [
 	{
@@ -98,10 +98,10 @@ null
 
 
 
-<h3>json的解析和序列化</h3>
+<h3>JSON的解析和序列化</h3>
 
 
-<p>Json在WEB开发中非常流行，以至于成为了事实标准，甩开XML十条街不止的原因，除了跟Javascript有相似的语法之外，还有一个很重要的原因就是能够非常方便的通过很简单地两个函数在javascript对象和json数据之间互相置换：</p>
+<p>JSON在WEB开发中非常流行，以至于成为了事实标准，甩开XML十条街不止的原因，除了跟Javascript有相似的语法之外，还有一个很重要的原因就是能够非常方便的通过很简单地两个函数在javascript对象和json数据之间互相置换：</p>
 
 <ul>
 	<li>stringify()—— 该方法将javascript对象序列化成JSON字符串；</li>
@@ -109,6 +109,13 @@ null
 </ul>
 
 <p>ECMAScript5标准定义了一个专门处理json的解析和序列化的对象—— <strong>JSON</strong>对象</p>
+
+
+
+
+<h4>JSON的序列化</h4>
+
+
 
     {% highlight javascript %}
 var text = {
@@ -122,10 +129,92 @@ console.log(json_text);    //  {"name":"hello,world","age":25,"year":2014}
     {% endhighlight %}
 
 
+<p>stringify()方法可以接受两个参数，两个参数都是可选的。第一个参数是过滤器，过滤后可以只包含数组或者函数中需要的值；</p>
+
+    {% highlight javascript %}
+
+var text = {
+	name : "hello,world",
+	age  :  25,
+	year :  2014
+};
+
+var json_text = JSON.stringify(text ,["age","year"]);
+console.log(json_text);    // {"age":25,"year":2014} 
+
+    {% endhighlight %}
+
+<p>第二个参数是定义是否缩进，如果是数字，代表缩进的空格数（最大是10），并且包含换行；如果是字符串，会被当做缩进符；</p>
 
 
 
+    {% highlight javascript %}
 
+var text = {
+	name : "hello,world",
+	age  :  25,
+	year :  2014
+};
+
+var json_text = JSON.stringify(text ,["age","year"],4);
+console.log(json_text);    
+/*
+{
+    "age": 25,
+    "year": 2014
+} 
+*/
+
+    {% endhighlight %}
+
+
+<p>如果定义第二个参数时，需要缺省第一个参数，可以用null代替；</p>
+
+    {% highlight javascript %}
+
+var text = {
+	name : "hello,world",
+	age  :  25,
+	year :  2014
+};
+
+var json_text = JSON.stringify(text ,null,4);
+console.log(json_text);    
+/*
+{
+    "name": "hello,world",
+    "age": 25,
+    "year": 2014
+} 
+*/
+
+    {% endhighlight %}
+
+
+
+<h4>JSON的解析</h4>
+
+
+
+    {% highlight javascript %}
+
+
+var text = {
+	name : "hello,world",
+	age  :  25,
+	year :  2014
+};
+var json_text = JSON.stringify(text);
+
+var json_text_data = JSON.parse(json_text);
+
+console.log(typeof text);             //  object
+console.log(typeof json_text_data);   //  object
+console.log(text===json_text_data);   //  false
+
+    {% endhighlight %}
+
+<p>虽然text和json_text_data都是对象，并且具有相同的属性，但是他们是两个独立的、没有任何关系的对象。</p>
 
 
 
