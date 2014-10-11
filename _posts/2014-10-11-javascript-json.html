@@ -1,25 +1,96 @@
 ---
 layout: default_post
-title : Json的理解
+title : Json的学习和理解
 ---
 
-<h3>Json的理解</h3>
+<h3>Json的定义和特点</h3>
 
-<p>JSON（JavaScript Object Notation）是Javascript专家大牛<a href="https://github.com/douglascrockford" target="_blank">Douglas Crockford（克劳福德）</a>发明的一种轻量的数据格式；虽然他的语法部分参考了javascript的一些特性，可以称作Javascript的一个子集，但是他是可以独立于任何语言之外的一种<strong>通用的数据格式（文本格式）</strong>，相比XML来说具有更轻量的特点。</p>
-
-
+<p>JSON（JavaScript Object Notation）是Javascript专家大牛<a href="https://github.com/douglascrockford" target="_blank">Douglas Crockford（克劳福德）</a>发明的一种轻量的数据格式。虽然他的语法部分参考了javascript的一些特性，可以称作Javascript的一个子集，但是他是可以独立于任何语言之外的一种<strong>通用的数据格式（文本格式）</strong>，相比XML来说具有更轻量的特点。</p>
 
 
 
+<p>简单来说，他是：</p>
+<ul>
+	<li>JavaScript 对象表示法（JavaScript Object Notation）。</li>
+	<li>它是一种存储和交换文本信息的语法。类似 XML。</li>
+	<li>它独立于语言层面（javascript）之外,可以被很多语言调用。类似XML。</li>
+	<li>它比 XML 更小、更快，更易解析。</li>
+</ul>
+
+
+<p>json可以表示三种类型的值：</p>
+
+<p>第一种：简单值,包括字符串、数值、布尔值和null。<strong>但是不支持undefined</strong>。</p>
+
+    {% highlight javascript %}
+ "hello, world!"
+    {% endhighlight %}
+    {% highlight javascript %}
+23
+    {% endhighlight %}
+    {% highlight javascript %}
+true
+    {% endhighlight %}
+    {% highlight javascript %}
+null
+    {% endhighlight %}
+
+
+<p>第二种：数组值</p>
+
+    {% highlight javascript %}
+["name",23]
+    {% endhighlight %}
+
+
+<p>第三种：对象值</p>
+
+    {% highlight javascript %}
+{
+	"name"   :  "hello",
+	"age"    :  23
+}
+    {% endhighlight %}
 
 
 
 
+<p>json中数组和对象页可以相互嵌套，比如：</p>
+    {% highlight javascript %}
+[
+	{
+		"name"   :  "hello",
+		"age"    :  23,
+		"year"   : [2001, 2002, 2003, 2004]
+	},
+	{
+		"name"   :  "hello",
+		"age"    :  23,
+		"year"   : [
+					{
+						"name"   :  "hello",
+						"age"    :  23
+					}, 2002, 2003, 2004]
+	},
+	{
+		"name"   :  "hello",
+		"age"    :  23
+	},
+	{
+		"name"   :  "hello",
+		"age"    :  23,
+		"year"   : [[1,2,3], 2002, 2003, [10,11,12]]
+	}
+]
+    {% endhighlight %}
 
 
 
-
-
-
+<p>但是对比javascript语法，我们能够看出他的语法特点：</p>
+<ul>
+	<li>只能使用双引号（单引号是不被允许的，会报语法错误）；</li>
+	<li>对象的属性必须加上双引号；</li>
+	<li>没有变量，没有操作符，没有赋值语句，也没有分号；</li>
+</ul>
 
 
