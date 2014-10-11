@@ -94,3 +94,41 @@ null
 </ul>
 
 
+
+
+
+
+<h3>json的解析和序列化</h3>
+
+
+<p>Json在WEB开发中非常流行，以至于成为了事实标准，甩开XML十条街不止的原因，除了跟Javascript有相似的语法之外，还有一个很重要的原因就是能够非常方便的通过很简单地两个函数在javascript对象和json数据之间互相置换：</p>
+
+<ul>
+	<li>stringify()—— 该方法将javascript对象序列化成JSON字符串；</li>
+	<li>parse()—— 该方法将JSON字符串解析成javascript对象；</li>
+</ul>
+
+<p>ECMAScript5标准定义了一个专门处理json的解析和序列化的对象—— <strong>JSON</strong>对象</p>
+
+    {% highlight javascript %}
+var text = {
+	name : "hello,world",
+	age  :  25,
+	year :  2014
+};
+
+var json_text = JSON.stringify(text);
+console.log(json_text);    //  {"name":"hello,world","age":25,"year":2014}
+    {% endhighlight %}
+
+
+
+
+
+
+
+
+
+
+
+
