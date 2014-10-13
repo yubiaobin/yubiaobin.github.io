@@ -1,0 +1,127 @@
+---
+layout: default_post
+title : Javascript跨域总结
+---
+
+
+<h3>什么是跨域</h3>
+<p>JavaScript出于安全方面的考虑，不允许跨域调用其他页面的对象。但在安全限制的同时也给注入iframe或是ajax应用上带来了不少麻烦。这里把涉及到跨域的一些问题简单地整理一下：</p>
+<p>首先什么是跨域，简单地理解就是因为JavaScript同源策略（安全策略，要求同协议，同域名，同端口）的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：</p>
+
+<table class="border">
+	<tbody>
+		<tr style="background-color:#eaeaea; line-height:48px">
+			<th width="35%">URL</th>
+			<th width="40%">说明</th>
+			<th width="25%">是否允许通信</th>    
+		</tr>
+		<tr>
+			<td>http://www.a.com/a.js<br>
+			http://www.a.com/b.js</td>
+			<td>同一域名下</td>
+			<td>允许</td>
+		</tr>
+		<tr>
+			<td>http://www.a.com/lab/a.js<br>
+			http://www.a.com/script/b.js</td>
+			<td>同一域名下不同文件夹</td>
+			<td>允许</td>
+		</tr>
+		<tr>
+			<td>http://www.a.com:8000/a.js<br>
+			http://www.a.com/b.js</td>
+			<td>同一域名，不同端口</td>
+			<td>不允许</td>
+		</tr>
+		<tr>
+			<td>http://www.a.com/a.js<br>
+			https://www.a.com/b.js</td>
+			<td>同一域名，不同协议</td>
+			<td>不允许</td>
+		</tr>
+		<tr>
+			<td>http://www.a.com/a.js<br>
+			http://70.32.92.74/b.js</td>
+			<td>域名和域名对应ip</td>
+			<td>不允许</td>
+		</tr>
+		<tr>
+			<td>http://www.a.com/a.js<br>
+			http://script.a.com/b.js</td>
+			<td>主域相同，子域不同</td>
+			<td>不允许</td>
+		</tr>
+		<tr>
+			<td>http://www.a.com/a.js<br>
+			http://a.com/b.js
+			</td>
+			<td>同一域名，不同二级域名（同上）</td>
+			<td>不允许（cookie这种情况下也不允许访问）</td>
+		</tr>
+		<tr>
+			<td>http://www.cnblogs.com/a.js<br>
+			http://www.a.com/b.js</td>
+			<td>不同域名</td>
+			<td>不允许</td>
+		</tr> 
+	</tbody>
+</table>
+
+<p><strong>注：</strong>其中主域相同，子域不同的情况下（http://www.a.com/a.js）和（ http://script.a.com/b.js）的情况下，可以设置document.domain = www.a.com；这样就可以绕过同源策略互相访问了。</p>
+
+
+
+<h4>真假跨域的不同处理</h4>
+
+<h5>真跨域</h5>
+<p>真跨域或者说严格跨域是指：不同协议（跨协议）或者不同端口（跨端口）这种情况下，前端是处理不了的。</p>
+<h5>假跨域</h5>
+<p>假跨域或者说松散跨域是指：仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上；前端可以通过一些方式跨域通信传输数据和信息。</p>
+
+<p><strong>URL的首部</strong>是指：window.location.protocol + window.location.host;<br/>也可以理解为“Domains, protocols and ports must match”。</p>
+
+
+
+
+
+
+
+<h3>解决方案</h3>
+
+
+<h5>1、document.domain+iframe的设置</h5>
+
+
+
+<h5>2、动态创建script</h5>
+
+
+
+<h5>3、利用iframe和location.hash</h5>
+
+
+
+
+<h5>4、window.name实现的跨域数据传输</h5>
+
+
+
+
+<h5>5、使用HTML5 postMessage</h5>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="pege_tail">参考<a href="http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html" target="_blank">Javascript跨域总结和解决办法</a></p>
+
