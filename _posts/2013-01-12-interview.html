@@ -230,16 +230,13 @@ title : Web前端面试考察的一些知识点
 <p>方法有三种：</p>
 <p>
     <ul>
-        <li>
-            把一些 div 的显示方式设置为表格，因此我们可以使用表格的 vertical-align属性。
+        <li>父元素设置display:table-cell; vertical-align:middle; 子元素设置: margin:0 auto; 借用表格的垂直居中属性。
             <span class="p_info">--优点：不用受内容高度的限制，简单实现垂直居中；缺点：不兼容ie6,7。</span>
         </li>
-        <li>
-            使用line-height等于父div的高度。
-            <span class="p_info">--优点：不用受内容高度的限制，简单实现垂直居中；缺点：只适用于单行文本垂直居中。</span>
+        <li>使用line-height属性; 值等于父div的高度。
+            <span class="p_info">--优点：不受内容高度的限制，简单实现垂直居中；缺点：只适用于单行文本垂直居中。</span>
         </li>
-        <li>
-            这个方法使用绝对定位的 div，把它的 top 设置为 50％，margin-top 设置为负的 content 高度。这意味着对象必须在 CSS 中指定固定的高度。
+        <li>这个方法使用绝对定位的div，把它的top设置为 50％，margin-top设置为负的content 高度的一半。这意味着对象必须在 CSS 中指定固定的高度。
             <span class="p_info">--优点：兼容性好；缺点：必须知道内容盒子的高度才可以。</span>
         </li>
     </ul>
