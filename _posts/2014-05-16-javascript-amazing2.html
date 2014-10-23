@@ -43,7 +43,7 @@ function fn1(){
 fn1();       // jack
     {% endhighlight %}
 
-<p>此处打印出jack不错，再来：</p>
+<p>此处打印出"jack"不错，再来：</p>
 
     {% highlight javascript %}
     var name = "jack";
@@ -81,7 +81,7 @@ function fn1(){
 fn1();       // undefined peter
     {% endhighlight %}
 
-<p>这个时候，执行函数fn1，运行到执行第一条console语句的时候当前作用域（函数体内）只有变量name的定义，并没有赋值，所以打印出undefined了，接着给变量name赋值，所以执行第二条console语句的时候。变量name的值为peter，所以接着会打印出peter来。</p>
+<p>这个时候，执行函数fn1，运行到执行第一条console语句的时候当前作用域（函数体内）只有变量name的定义，并没有赋值，所以打印出undefined了，接着给变量name赋值，所以执行第二条console语句的时候。变量name的值为peter，所以接着会打印出"peter"来。</p>
 
 <p>似乎你觉得好像都理解了，那我们来进阶一下，看看另外的情况，我猜，你会...</p>
 
@@ -148,7 +148,7 @@ fn1();
 console.log(name)   // peter
     {% endhighlight %}
 
-<p>可以看到打印出来的居然是peter，这个时候是不是“百撕不得骑姐”啊？为神马？肿么会介个样子啊？</p>
+<p>可以看到打印出来的居然是"peter"，这个时候是不是“百思不得其解”啊？为神马？</p>
 <p>这里其实是另外的知识点
     <ul>
         <li>函数内显示var声明变量 ， 作用域为当前函数体内，叫做局部变量；</li>
@@ -173,7 +173,7 @@ fn1();
 console.log(name)   // jack
     {% endhighlight %}
     
-<p><strong>睁大眼睛看：</strong>这个函数体内看似name = "peter"是改变了全部变量name的值，其实是没有的。因为后面function name(){}的变量提升（hoisting）的存在，这个时候name = "peter"已经变成了局部变量的赋值语句，因为在它之前存在提升（hoisting）的定义语句，所以全局变量name的值是没有被改变的，打印出来的当然就是jack啦。</p>
+<p><strong>仔细看看：</strong>这个函数体内看似name = "peter"是改变了全部变量name的值，其实是没有的。因为后面function name(){}的变量提升（hoisting）的存在，这个时候name = "peter"已经变成了局部变量的赋值语句，因为在它之前存在提升（hoisting）的定义语句，所以全局变量name的值是没有被改变的，打印出来的当然就是jack啦。</p>
 <p>哦，<strong>原来如此...</strong></p>
 
 
