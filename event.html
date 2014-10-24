@@ -13,18 +13,28 @@
     <script src="/js/html5.js"></script>
     <![endif]-->
     <style>
-    article{width:200px; margin:0 auto;}
-    img{width:200px;};
+    div{
+        float:left; 
+        width:300px; 
+        height:40px; 
+        background:brown;
+        border-radius:10px;
+        box-shadow:5px 5px 10px #ccc;
+        color:#fff;
+        line-height:40px;
+        cursor:pointer; 
+        margin:50px; 
+        padding:10px;
+        text-align:center;
+    }
     </style>
 </head>
 <body>
 
 
 
-<div id="div1">hahaha</div>
-
-
-
+<div id="div1">按钮一，绑定三元操作符，点我</div>
+<div id="div2">按钮二，绑定短路操作赋值，点我</div>
 
 
 <script>
@@ -46,11 +56,14 @@
 
     }
 
-    var btn = document.getElementById("div1");
-    btn.onclick = function(){
+    var btn1 = document.getElementById("div1");
+    var btn2 = document.getElementById("div2");
+    btn1.onclick = function(){
         var event1 = EventObject.getEventVersion1(event);
-        var event2 = EventObject.getEventVersion2(event);
         alert(event1);
+    }
+    btn2.onclick = function(){
+        var event2 = EventObject.getEventVersion2(event);
         alert(event2);
     }
 
