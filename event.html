@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords"    content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Max—— Blog前端攻城狮</title>
+    <link href="img/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="img/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    <style>
+    article{width:200px; margin:0 auto;}
+    img{width:200px;};
+    </style>
+</head>
+<body>
+
+
+
+<div id="div1">hahaha</div>
+
+
+
+
+
+<script>
+    
+
+    var EventObject = {
+
+        getEventVersion1 : function(event){
+            return event ? event : window.event;
+        },
+
+        getEventVersion2 : function(event){
+            return event || window.event;
+        },
+
+        getTarget : function(event){
+            return event.target || event.srcElement;
+        }
+
+    }
+
+    var btn = document.getElementById("div1");
+    btn.onclick = function(){
+        var event1 = EventObject.getEventVersion1(event);
+        var event2 = EventObject.getEventVersion2(event);
+        alert(event1);
+        alert(event2);
+    }
+
+
+
+</script>
+
+</body>
+</html>
