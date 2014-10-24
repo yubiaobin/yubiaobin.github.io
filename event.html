@@ -50,7 +50,11 @@
             return event || window.event;
         },
 
-        getTarget : function(event){
+        getTargetVersion1 : function(event){
+            return event.target ? event.target : event.srcElement;
+        },
+
+        getTargetVersion2 : function(event){
             return event.target || event.srcElement;
         }
 
@@ -59,12 +63,16 @@
     var btn1 = document.getElementById("div1");
     var btn2 = document.getElementById("div2");
     btn1.onclick = function(){
-        var event1 = EventObject.getEventVersion1(event);
-        alert(event1);
+        var event1  = EventObject.getEventVersion1(event);
+        var target1 = EventObject.getTargetVersion1(event);
+        alert("本次点击的事件对象是" + event1);
+        alert("本地点击的目标元素是" + target1);
     }
     btn2.onclick = function(){
-        var event2 = EventObject.getEventVersion2(event);
-        alert(event2);
+        var event2  = EventObject.getEventVersion2(event);
+        var target2 = EventObject.getTargetVersion2(event);
+        alert("本次点击的事件对象是" + event2);
+        alert("本地点击的目标元素是" + target2);
     }
 
 
