@@ -113,10 +113,15 @@
 
     function clickFn1(event){
         event = EventObject.getEventVersion1(event);
+
         var clientX = event.clientX;
         var clientY = event.clientY;
+
         var pageX = event.pageX;
         var pageY = event.pageY;
+
+        var screenX = event.screenX;
+        var screenY = event.screenY;
 
         if(pageX === undefined){   /*判断是否IE8不支持*/
             pageX = event.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft);
@@ -127,7 +132,7 @@
         }
         /*document.body为混杂模式， document.documentElement为标准模式*/
 
-        alert("按钮在可视区坐标位置是" + "(" + clientX + "," + clientY + ")" + "\n" + "按钮在页面的坐标位置是" + "(" + pageX + "," + pageY + ")");
+        alert("按钮在可视区坐标位置是" + "(" + clientX + "," + clientY + ")" + "\n" + "按钮在页面的坐标位置是" + "(" + pageX + "," + pageY + ")" + "\n" + "按钮在屏幕的坐标位置是" + "(" + screenX + "," + screenY + ")");
     }
 
 
