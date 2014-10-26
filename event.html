@@ -120,11 +120,11 @@
         var pageX = event.pageX;
         var pageY = event.pageY;
 
-        if(pageX === "undefined"){   /*判断是否IE8不支持*/
+        if(pageX === undefined){   /*判断是否IE8不支持*/
             pageX = event.clientX + (document.body.scrollLeft || document.documentElement.scrollLeft);
         }
 
-        if(pageY === "undefined"){  /*判断是否IE8不支持*/
+        if(pageY === undefined){  /*判断是否IE8不支持*/
             pageY = event.clientY + (document.body.scrollTop || document.documentElement.scrollTop);
         }
         /*document.body为混杂模式， document.documentElement为标准模式*/
