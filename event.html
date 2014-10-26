@@ -27,6 +27,7 @@
         padding:10px;
         text-align:center;
     }
+    #div3{margin-top:800px;}
     </style>
 </head>
 <body>
@@ -37,26 +38,55 @@
 <div id="div2">按钮二，绑定短路操作赋值，点我</div>
 
 
+<div id="div3">按钮三，点我查看我的视口和页面坐标</div>
+
+
 <script>
     
 
     var EventObject = {
 
+        /*取得页面event事件对象*/
         getEventVersion1 : function(event){
             return event ? event : window.event;
         },
-
+        /*取得页面event事件对象*/
         getEventVersion2 : function(event){
             return event || window.event;
         },
-
+        /*取得页面event事件对象的目标元素*/
         getTargetVersion1 : function(event){
             return event.target ? event.target : event.srcElement;
         },
-
+        /*取得页面event事件对象的目标元素*/
         getTargetVersion2 : function(event){
             return event.target || event.srcElement;
+        },
+
+        /*跨浏览器添加事件方法*/
+        addHandler  :  function(element, type , handler){
+            if(element.addEventListener){
+                element.addEventListener(type, handler ,false);
+            } else if(element.attachEvent){
+                element.attachEvent("on" + type , handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        /*跨浏览器移除事件方法*/
+        removeHandler  :  function(element, type , handler){
+            if(element.removeEventListener){
+                element.removeEventListener(type, handler , false);
+            } else if (element.detachEvent){
+                element.detachEvent("on" + type , handler);
+            } else {
+                element["on" + type] = null;
+            }
         }
+
+
+
+
 
     }
 
@@ -75,6 +105,21 @@
         alert("本地点击的目标元素是" + target2);
     }
 
+
+
+    var btn3 = document.getElementById("div3");
+    EventObject.addHandler(btn3, "click", clickFn1);
+
+    function clickFn1(event){
+        event = EventObject.getEventVersion1(event);
+        var clientX = event.clientX;
+        var clientY = event.clientY;
+        var pageX = event.pageX;
+        var pageY = event.pageY;
+
+        alert("按钮在可视区的坐标位置是" + "(" + clientX + "," + clientY + ")");
+        alert("按钮在页面的坐标位置是" + "(" + pageX + "," + pageY + ")");
+    }
 
 
 </script>
