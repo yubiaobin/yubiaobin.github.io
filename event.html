@@ -95,14 +95,12 @@
     btn1.onclick = function(){
         var event1  = EventObject.getEventVersion1(event);
         var target1 = EventObject.getTargetVersion1(event);
-        alert("本次点击的事件对象是" + event1);
-        alert("本地点击的目标元素是" + target1);
+        alert("本次点击的事件对象是" + event1 + "\n" + "本地点击的目标元素是" + target1);
     }
     btn2.onclick = function(){
         var event2  = EventObject.getEventVersion2(event);
         var target2 = EventObject.getTargetVersion2(event);
-        alert("本次点击的事件对象是" + event2);
-        alert("本地点击的目标元素是" + target2);
+        alert("本次点击的事件对象是" + event2 + "\n" + "本地点击的目标元素是" + target2);
     }
 
 
@@ -129,8 +127,7 @@
         }
         /*document.body为混杂模式， document.documentElement为标准模式*/
 
-        alert("按钮在可视区的坐标位置是" + "(" + clientX + "," + clientY + ")");
-        alert("按钮在页面的坐标位置是" + "(" + pageX + "," + pageY + ")");
+        alert("按钮在可视区坐标位置是" + "(" + clientX + "," + clientY + ")" + "\n" + "按钮在页面的坐标位置是" + "(" + pageX + "," + pageY + ")");
     }
 
 
