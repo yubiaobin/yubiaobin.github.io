@@ -39,26 +39,6 @@
 
 <script type="text/javascript" src="js/phaser.min.js" ></script>
 <script type="text/javascript" >
-    
-/*
-var game = new Phaser.Game(800, 600, Phaser.AUTO, "phaser-example", {
-    preload   :   preload,
-    create    :   create
-});
-
-
-function preload(){
-    // game.load.image("bot" , "images/excavator_bg.jpg")
-}   game.load.atlasJSONHash('bot', 'img/running_bot.png', 'js/running_bot.json')
-
-function create(){
-    var bot = game.add.sprite(10,10,"bot");
-    bot.animations.add('run')
-    bot.animations.play('run', 15 ,true)
-}
-console.log(game);
-*/
-
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { 
     preload: preload, 
@@ -70,18 +50,39 @@ function preload() {
 }
 
 function create() {
+    var text       = "通过多帧图片来模拟人物动作\n 图一：运动一次，不循环 \n 图二：循环运动，频率：慢（10）\n 图三：循环运动，频率：中（20）\n 图四：循环运动，频率：快（30）";
+    var text_style = {
+        font   :   "24px Arail",
+        padding :  "10px",
+        lineHeight : "80px",
+        fill   :   "#eaeaea",
+        align  :   "center"
+    }
+    game.add.text(game.world.centerX-120, +10, text, text_style)
 
     //  This sprite is using a texture atlas for all of its animation data
-    var bot = game.add.sprite(200, 200, 'bot');
+    var bot1 = game.add.sprite(150, 300, 'bot');
+    var bot2 = game.add.sprite(300, 300, 'bot');
+    var bot3 = game.add.sprite(450, 300, 'bot');
+    var bot4 = game.add.sprite(600, 300, 'bot');
 
     //  Here we add a new animation called 'run'
     //  We haven't specified any frames because it's using every frame in the texture atlas
-    bot.animations.add('run');
+    bot1.animations.add('run');
 
     //  And this starts the animation playing by using its key ("run")
     //  15 is the frame rate (15fps)         ——(表示频率)
     //  true means it will loop when it finishes  ——(表示循环)
-    bot.animations.play('run', 15, true);
+    bot1.animations.play('run', 10, false);
+
+    bot2.animations.add('run');
+    bot2.animations.play('run', 10, true);
+
+    bot3.animations.add('run');
+    bot3.animations.play('run', 20, true);
+
+    bot4.animations.add('run');
+    bot4.animations.play('run', 30, true);
 
 }
 
