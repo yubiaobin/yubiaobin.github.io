@@ -463,6 +463,7 @@ p{text-indent:2em;}
     margin: 10px 0;
     padding-left:0;
     text-indent: 0;
+    position:relative;
 }
 .index_list li a{
     display:block; 
@@ -489,10 +490,10 @@ p{text-indent:2em;}
 
 
 
-
 .index_list .index_list_date{
-    float:right;
-    padding-right:10px;
+    position:absolute;
+    /*top:0;*/
+    right:10px;
 }
 .index_list li .index_list_date{color: #6d6d6d; text-shadow:none} 
 .index_list li .index_list_date:hover{color: #6d6d6d; text-shadow:none}
