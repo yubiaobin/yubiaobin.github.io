@@ -11,7 +11,7 @@ title : Js之静态方法与实例方法的区别
 <p>静态方法是指不需要声明类的实例就可以使用的方法。由于Javascript中没有类的概念，所以这里看成函数对象的方法调用就行。</p>
 
 	{% highlight javascript %}
-function staticClass() { }      //声明一个类
+function staticClass() { }      // 声明一个类
 staticClass.staticMethod = function() { alert("我是静态方法！") };    // 创建一个静态方法
 	{% endhighlight %}
 
@@ -27,33 +27,37 @@ staticClass.staticMethod();    // 我是静态方法！
 
 <h4>实例方法</h4>
 
-<p>实例方法是指必须要先使用"new"关键字声明一个类的实例, 然后才可以通过此实例访问的方法。</p>
+<p>实例方法是指必须要先使用"new"关键字声明一个类的实例, 然后才可以通过此实例访问的方法。实例方法一般定义在原型对象上面。</p>
 
 	{% highlight javascript %}
-function staticClass() { };       //声明一个类
-staticClass.prototype.instanceMethod = function() { 
-	alert("instance method") 
+function instanceClass() { };       // 声明一个类
+instanceClass.prototype.instanceMethod = function() { 
+	alert("我是实例方法！") 
 };       // 创建一个实例方法
 	{% endhighlight %}
 
-<p>上面首先声明了一个类staticClass, 接着为其添加了一个静态方法staticMethod 和一个动态方法instanceMethod。区别就在于添加动态方法要使用prototype原型属性。</p>
+<p>上面首先声明了一个类instanceClass, 接着为其添加了一个实例方法instanceMethod到他的原型对象上面。</p>
+<p>如果直接调用会报错。<img src="/img/typeError1.jpg" alt="类型错误1"></p>
+
+	{% highlight javascript %}
+instanceClass.instanceMethod();     //  Uncaught TypeError: undefined is not a function 
+	{% endhighlight %}
+
+<p>需要首先实例化后才能调用</p>
+
+	{% highlight javascript %}
+var result = new instanceClass();
+result.instanceMethod();     // 我是实例方法！
+	{% endhighlight %}
 
 
+
+<h4>两者的区别</h4>
 
 <ul>
    <li><strong>对于静态方法可以直接调用 </strong>  staticClass.staticMethod();</li>
-   <li><strong>但是动态方法不能直接调用</strong>   staticClass.instanceMethod(); //语句错误, 无法运行。</li>
+   <li><strong>但是动态方法不能直接调用</strong>   instanceClass.instanceMethod(); //语句错误, 无法运行。必须通过new 操作符实例化之后才能在实例化的对象上调用。</li>
 </ul>
-
-
-
-<p>需要首先实例化后才能调用   var instance = new staticClass(); //首先实例化</p>
-
-<p>instance.instanceMethod(); //在实例上可以调用实例方法</p>
-
-
-
-
 
 
 
