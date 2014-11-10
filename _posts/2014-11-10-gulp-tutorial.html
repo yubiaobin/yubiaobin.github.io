@@ -12,10 +12,42 @@ title : 前端gulp使用教程
 
 <h3>gulp安装</h3>
 
+<p>第一步：安装node</p>
+	{% highlight javascript %}
+sudo brew install node  
+	{% endhighlight %}
+
+<p>第二步：安装npm</p>
+	{% highlight javascript %}
+sudo brew install npm  
+	{% endhighlight %}
+
+<p>安装完成输入命令: <br/><code>node -v</code>查看node版本号<br/><code>npm -v</code>	查看npm版本号</p>
+
+<p>第三步：全局安装gulp</p>
+	{% highlight javascript %}
+sudo npm install -g gulp
+	{% endhighlight %}
+
+<p>安装完成输入命令：<br/><code>gulp -v</code>查看全局gulp版本号</p>
+
+
+<p>第四步：进入具体项目文件夹安装gulp</p>
+	{% highlight javascript %}
+sudo npm install --save-dev gulp
+	{% endhighlight %}
+
+<p>第五步：新建gulpfile.js配置文件，处理任务流</p>
+
+<p>第六步：安装依赖</p>
+	{% highlight javascript %}
+npm install gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev 
+	{% endhighlight %}
 
 
 
-<h3>gulp配置</h3>
+
+<h3>gulp配置文件</h3>
 
 
 
@@ -24,13 +56,19 @@ title : 前端gulp使用教程
 // 引入 gulp
 var gulp = require('gulp'); 
 
+
+
 // 引入组件
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var less = require('gulp-less');
+var minifyCSS = require('gulp-minify-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+
+
+
 
 // 检查脚本
 gulp.task('lint', function() {
@@ -39,6 +77,8 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter('default'));
 });
 
+
+
 // 编译Sass
 gulp.task('sass', function() {
     gulp.src('./scss/*.scss')
@@ -46,10 +86,29 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./css'));
 });
 
+
+
+//编译less  
+gulp.task('less',function(){
+    gulp.src('./css/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('./css'));
+});  
+
+
+// 压缩css
+gulp.task('minify-css', function() {
+    gulp.src('./css/*.css')
+        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(gulp.dest('./dist'));
+});
+
+
+
 // 合并，压缩文件
 gulp.task('scripts', function() {
     gulp.src('./js/*.js')
-        .pipe(concat('all.js'))
+        .pipe(concat('all.js'))add -
         .pipe(gulp.dest('./dist'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
@@ -58,11 +117,11 @@ gulp.task('scripts', function() {
 
 // 默认任务
 gulp.task('default', function(){
-    gulp.run('lint', 'sass', 'scripts');
+    gulp.run('lint', 'sass',  'less', 'minify-css', 'scripts');
 
     // 监听文件变化
     gulp.watch('./js/*.js', function(){
-        gulp.run('lint', 'sass', 'scripts');
+        gulp.run('lint',  'scripts');
     });
 });
 
