@@ -143,7 +143,6 @@ gulp.task('minify-css', function() {
 });
 
 
-
 // 合并，压缩文件
 gulp.task('scripts', function() {
     gulp.src('./js/*.js')
@@ -154,6 +153,10 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('./dist'));
 });
 
+
+
+
+
 // 默认任务
 gulp.task('default', function(){
     gulp.run('lint', 'sass',  'less', 'minify-css', 'scripts');
@@ -162,6 +165,12 @@ gulp.task('default', function(){
     gulp.watch('./js/*.js', function(){
         gulp.run('lint',  'scripts');
     });
+
+    //监视less文件的变化   
+    gulp.watch('./less/*.less',function(){
+        gulp.run('less');
+    });
+    
 });
 
 
