@@ -97,7 +97,7 @@ var gulp = require('gulp');
 
 
 
-// 引入组件
+// 引入组件（插件）
 var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var less = require('gulp-less');
@@ -109,7 +109,7 @@ var rename = require('gulp-rename');
 
 
 
-// 检查脚本
+// 脚本语法检查
 gulp.task('lint', function() {
     gulp.src('./js/*.js')
         .pipe(jshint())
@@ -127,7 +127,7 @@ gulp.task('sass', function() {
 
 
 
-//编译less  
+// 编译less  
 gulp.task('less',function(){
     gulp.src('./css/*.less')
         .pipe(less())
@@ -143,10 +143,10 @@ gulp.task('minify-css', function() {
 });
 
 
-// 合并，压缩文件
+// 合并，重命名，压缩文件
 gulp.task('scripts', function() {
     gulp.src('./js/*.js')
-        .pipe(concat('all.js'))add -
+        .pipe(concat('all.js'))
         .pipe(gulp.dest('./dist'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
@@ -166,12 +166,24 @@ gulp.task('default', function(){
         gulp.run('lint',  'scripts');
     });
 
-    //监视less文件的变化   
+    // 监视scss文件的变化   
+    gulp.watch('./scss/*.scss',function(){
+        gulp.run('sass');
+    });
+
+    // 监视less文件的变化   
     gulp.watch('./less/*.less',function(){
         gulp.run('less');
     });
-    
+
 });
 
 
 	{% endhighlight %}
+
+
+<p>当我们在当前目录运行gulp命令的时候，就会启动并运行默认的task，我本地测试截图如下：</p>
+
+<img src="/img/gulp_result.jpg" alt="">
+
+<p>可以看到执行完default任务耗时28毫秒，JS语法检查报了两个错误。由于对项目中less(或者css)文件夹和JS文件夹分别添加了处理任务，所以每当对这两个文件夹内文件进行改动的时候，就会触发相对应的任务流跑任务，并给出相应的提示。</p>
