@@ -43,7 +43,7 @@ sudo brew install node
 sudo brew install npm  
 	{% endhighlight %}
 
-<p>安装完成输入命令: <br/><code>node -v</code>查看node版本号<br/><code>npm -v</code>	查看npm版本号</p>
+<p>安装完成输入命令: <br/><code>node -v</code> 查看node版本号<br/><code>npm -v</code> 查看npm版本号</p>
 
 
 <h4>开始：使用npm安装gulp</h4>
@@ -53,7 +53,7 @@ sudo brew install npm
 sudo npm install -g gulp
 	{% endhighlight %}
 
-<p>安装完成输入命令：<br/><code>gulp -v</code>查看全局gulp版本号</p>
+<p>安装完成输入命令：<br/><code>gulp -v</code> 查看全局gulp版本号</p>
 
 
 <p>第四步：进入具体项目文件夹安装gulp</p>
@@ -63,22 +63,22 @@ sudo npm install --save-dev gulp
 
 <p>第五步：新建gulpfile.js配置文件，处理任务流</p>
 
-<p>第六步：安装依赖</p>
+<p>第六步：安装依赖，一条条命令安装需要的gulp插件到当前目录</p>
 	{% highlight javascript %}
 npm install gulp-jshint --save-dev 
-npm install gulp-jshint --save-dev 
-npm install gulp-jshint --save-dev 
-npm install gulp-jshint --save-dev 
-npm install gulp-jshint --save-dev 
-npm install gulp-jshint --save-dev 
-npm install gulp-jshint --save-dev 
-npm install gulp-jshint --save-dev 
-
- gulp-sass gulp-less gule-minify-css gulp-concat gulp-uglify gulp-rename --save-dev 
+npm install gulp-sass --save-dev 
+npm install gulp-less --save-dev 
+npm install gulp-minify-css --save-dev 
+npm install gulp-concat --save-dev 
+npm install gulp-uglify --save-dev 
+npm install gulp-rename --save-dev 
 	{% endhighlight %}
 
+<p>也可以简化成一条命令：</p>
 
-
+    {% highlight javascript %}
+npm install gulp-jshint gulp-sass gulp-less gule-minify-css gulp-concat gulp-uglify gulp-rename --save-dev 
+    {% endhighlight %}
 
 <h3>gulp配置文件</h3>
 
