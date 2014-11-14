@@ -37,7 +37,7 @@
 
 
 
-<script type="text/javascript" src="js/phaser.min.js" ></script>
+<script type="text/javascript" src="/js/phaser.min.js" ></script>
 <script type="text/javascript" >
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { 
@@ -46,7 +46,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', {
 });
 
 function preload() {
-    game.load.atlasJSONHash('bot', 'img/running_bot.png', 'js/running_bot.json');
+    game.load.atlasJSONHash('bot', '/img/running_bot.png', '/js/running_bot.json');
 }
 
 function create() {
