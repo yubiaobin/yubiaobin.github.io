@@ -67,6 +67,7 @@ title : Html的pre标签和code标签的区别
      document.getELementById("id1");
      document.getELementById("id2");
      document.getELementById("id3");
+  <a href=""></a>
 </code>
 <br>
 document.getELementById("id4");
@@ -95,18 +96,18 @@ document.getELementById("id4");
 
 	{% highlight html %}
 <pre>
-     &lt;html&gt;
-     &lt;head&gt;
-     &lt;script type=&quot;text/javascript&quot; src=&quot;loadxmldoc.js&quot;&gt;
-     &lt;/script&gt;
-     &lt;/head&gt;
-     &lt;body&gt;
-     &lt;script type=&quot;text/javascript&quot;&gt;
-     xmlDoc=&lt;<font color="blue">a&nbsp;href="dom_loadxmldoc.asp"&gt;loadXMLDoc&lt;/a&gt;</font>(&quot;books.xml&quot;);
-     document.write(&quot;xmlDoc is loaded, ready for use&quot;);
-     &lt;/script&gt;
-     &lt;/body&gt;
-     &lt;/html&gt;
+     <html>
+     <head>
+     <script type="text/javascript" src="loadxmldoc.js">
+     </script>
+     </head>
+     <body>
+     <script type="text/javascript">
+     xmlDoc=<a href="dom_loadxmldoc.asp">loadXMLDoc</a>("books.xml");
+     document.write("xmlDoc is loaded, ready for use");
+     </script>
+     </body>
+     </html>
 </pre>
 	{% endhighlight %}
 
