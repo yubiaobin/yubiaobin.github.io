@@ -45,6 +45,26 @@ alert(result);
 	{% endhighlight %} 
 
 
+<p>如果你不是很容易看懂的话，其实有方法可以用，比如可以插入一些代码看看函数具体是怎么运行的，如下：</p>
 
 
+	{% highlight javascript %}
+
+function add(seed){
+	console.log("步骤一" + seed);
+	function retVal(later){
+		console.log("步骤二" + seed);
+		console.log("步骤三" + later);
+		return add(seed + later);
+	}
+	retVal.toString = function(){
+		return seed;
+	}
+	return retVal;
+}
+
+var result = add(5)(8)(9)(2)(1);
+alert(result);
+
+	{% endhighlight %} 
 
