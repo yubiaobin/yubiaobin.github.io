@@ -30,10 +30,7 @@ alert(result2)  // 3*3+4*4 = 25
 	{% highlight javascript %}
 
 function add(seed){
-	console.log("a"+seed);
 	function retVal(later){
-		console.log("b"+seed);
-		console.log("c"+later);
 		return add(seed + later);
 	}
 	retVal.toString = function(){
