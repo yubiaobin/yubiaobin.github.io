@@ -89,7 +89,6 @@ The domain is  [http://yubiaobin.github.io](http://yubiaobin.github.io)  or  sho
 
 
 
-人丑就要多读书！  fuck!
 
 
 后记
