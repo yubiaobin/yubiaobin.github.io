@@ -9,35 +9,36 @@ title : Nginx一些常用命令备查
 
 
 
-<p>开启Nginx服务</p>
+<p>1.开启Nginx服务</p>
 
 	{% highlight javascript %}
 	sudo nginx
 	{% endhighlight %}
 
 
-<p>查看Nginx版本信息</p>
+<p>2.查看Nginx版本信息</p>
 
 	{% highlight javascript %}
 	nginx -v
 	{% endhighlight %}
-	
 
-<p>查看Nginx一些信息</p>
+
+<p>3.查看Nginx一些信息</p>
 
 	{% highlight javascript %}
 	nginx -V
 	{% endhighlight %}
 
 
-<p>查询nginx主进程号</p>
+<p>4.查询nginx主进程号</p>
 
 	{% highlight javascript %}
 	ps -ef | grep nginx
 	{% endhighlight %}
 
+<p>注：grep是很强大的匹配命令，它能使用正则表达式搜索文本，并把匹配的行打印出来。其全称是 Global Regular Expression Print ，表示全局正则表达式版本</p>
 
-<p>强制停止Nginx</p>
+<p>5.强制停止Nginx</p>
 
 	{% highlight javascript %}
 	sudo pkill -9 nginx
