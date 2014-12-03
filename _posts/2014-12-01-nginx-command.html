@@ -42,6 +42,7 @@ title : Nginx一些常用命令备查
 </ul>
 <p>grep是很强大的匹配命令，它能使用正则表达式搜索文本，并把匹配的行打印出来。其全称是 Global Regular Expression Print ，表示全局正则表达式版本。</p>
 
+
 <p>5.强制停止Nginx</p>
 
 	{% highlight javascript %}
@@ -49,12 +50,15 @@ title : Nginx一些常用命令备查
 	{% endhighlight %}
 
 
+<p>6.平滑重启Nginx</p>
 
 
+	{% highlight javascript %}
+	nginx -s reload
+	{% endhighlight %}
 
 
-
-
+<p>平滑启动的意思是在不停止nginx的情况下，重启nginx，重新加载配置文件，启动新的工作线程，完美停止旧的工作线程。</p>
 
 
 
