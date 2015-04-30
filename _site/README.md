@@ -78,13 +78,13 @@ The domain is  [http://yubiaobin.github.io](http://yubiaobin.github.io)  or  sho
 
 ### 简历
 
-- 在线简历地址 ：[我的简历](http://www.oc35.com/resume.html)
+- 在线简历地址 ：[我的简历](http://www.oc35.com/docs/resume.html)
 
 
 
 ### 好玩的
 
-- 魔方小游戏 ：[小魔方](http://www.oc35.com/rubik.html)
+- 魔方小游戏 ：[小魔方](http://www.oc35.com/docs/rubik.html)
 
 
 
