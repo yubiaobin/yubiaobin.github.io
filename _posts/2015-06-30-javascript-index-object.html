@@ -18,7 +18,7 @@ var MyIndexObj = {
 };
 
 	{% endhighlight %}
-}
+
 
 
 <p>2.给私有对象设置属性和方法</p>
@@ -31,13 +31,21 @@ var MyIndexObj = {
 	}
 }
 	{% endhighlight %}
-}
 
 
 
+<p>页面加载完，执行初始化方法</p>
 
 
 
+	{% highlight javascript %}
+	<script type="text/javascript">
+
+	MyIndexObj.init();
+
+
+	</script>
+	{% endhighlight %}
 
 
 
