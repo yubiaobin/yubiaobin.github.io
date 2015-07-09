@@ -66,6 +66,14 @@ title : WebApp页面布局
 
 
 
+<p>5.如何去除Android平台中对邮箱地址的识别</p>
+
+<p>在Android平台，它会自动检测邮件地址，当用户touch到这个邮件地址时，Android会弹出一个框提示用户发送邮件，如果你不想Android自动识别页面中的邮件地址，你不妨加上这样一句meta标签在head中。</p>
+
+	{% highlight html %}
+<meta content="email=no" name="format-detection" />
+
+	{% endhighlight %}
 
 
 
