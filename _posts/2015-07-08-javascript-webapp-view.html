@@ -71,7 +71,24 @@ title : WebApp页面布局
 <p>在Android平台，它会自动检测邮件地址，当用户touch到这个邮件地址时，Android会弹出一个框提示用户发送邮件，如果你不想Android自动识别页面中的邮件地址，你不妨加上这样一句meta标签在head中。</p>
 
 	{% highlight html %}
+
 <meta content="email=no" name="format-detection" />
+
+	{% endhighlight %}
+
+
+
+
+
+<p>6.如何关闭iOS中键盘自动大写</p>
+
+<p>在iOS中，当虚拟键盘弹出时，默认情况下键盘是开启首字母大写的功能的，根据某些业务场景，可能我们需要关闭这个功能，移动版本webkit为input元素提供了autocapitalize属性，通过指定autocapitalize=”off”来关闭键盘默认首字母大写。</p>
+
+
+	{% highlight css %}
+
+
+input{autocapitalize : off;}
 
 	{% endhighlight %}
 
@@ -83,8 +100,17 @@ title : WebApp页面布局
 
 
 
+<p>7.如何解决盒子边框溢出</p>
+
+<p>当你指定了一个块级元素时，并且为其定义了边框，设置了其宽度为100％。在移动设备开发过程中我们通常会对文本框定义为宽度100％，将其定义为块级元素以实现全屏自适应的样式，但此时你会发现，该元素的边框(左右)各1个像素会溢了文档，导致出现横向滚动条。</p>
 
 
+	{% highlight css %}
+
+
+.div{-webkit-box-sizing : border-box;}
+
+	{% endhighlight %}
 
 
 
