@@ -95,12 +95,55 @@ input{autocapitalize : off;}
 
 
 
+<p>7.iOS中如何彻底禁止用户在新窗口打开页面</p>
+
+<p>有时我们可能需要禁止用户在新窗口打开页面，我们可以使用a标签的target=”_self“来指定用户在新窗口打开，或者target属性保持空，但是你会发现iOS的用户在这个链接的上方长按3秒钟后，iOS会弹出一个列表按钮，用户通过这些按钮仍然可以在新窗口打开页面，这样的话，开发者指定的target属性就失效了。</p>
+<p>但是可以通过指定当前元素的-webkit-touch-callout样式属性为none来禁止iOS弹出这些按钮。这个技巧仅适用iOS对于Android平台则无效。</p>
+
+	{% highlight css %}
+
+
+.div{-webkit-touch-callout : none;}
+
+	{% endhighlight %}
+
+
+<p>8.iOS中如何禁止用户保存图片＼复制图片</p>
+
+<p>同样为一个img标签指定-webkit-touch-callout为none也会禁止设备弹出列表按钮，这样用户就无法保存＼复制你的图片了。</p>
+
+	{% highlight css %}
+
+
+.div{-webkit-touch-callout : none;}
+
+	{% endhighlight %}
 
 
 
 
+<p>9.iOS中如何禁止用户选中文字 </p>
 
-<p>7.如何解决盒子边框溢出</p>
+<p>通过指定文字标签的-webkit-user-select属性为none便可以禁止iOS用户选中文字。</p>
+
+
+	{% highlight css %}
+
+
+.div{-webkit-touch-select : none;}
+
+	{% endhighlight %}
+
+
+
+<p>10.iOS中如何获取滚动条的值</p>
+
+
+<p>桌面浏览器中想要获取滚动条的值是通过document.scrollTop和document.scrollLeft得到的，但在iOS中你会发现这两个属性是未定义的，为什么呢？因为在iOS中没有滚动条的概念，在Android中通过这两个属性可以正常获取到滚动条的值，那么在iOS中我们该如何获取滚动条的值呢？ 通过window.scrollY和window.scrollX我们可以得到当前窗口的y轴和x轴滚动条的值。</p>
+
+
+
+<p>11.如何解决盒子边框溢出</p>
 
 <p>当你指定了一个块级元素时，并且为其定义了边框，设置了其宽度为100％。在移动设备开发过程中我们通常会对文本框定义为宽度100％，将其定义为块级元素以实现全屏自适应的样式，但此时你会发现，该元素的边框(左右)各1个像素会溢了文档，导致出现横向滚动条。</p>
 
