@@ -17,8 +17,8 @@ title : HTML5预解析标签和预加载标签
 
 <link rel="dns-prefetch" href="http://huodong.kugou.com">
 <link rel="dns-prefetch" href="http://www.gbin1.com">
-<link rel="dns-prefetch" href="//m.gbin1.com">
-<link rel="dns-prefetch" href="//s.gbin1.com">
+<link rel="dns-prefetch" href="http://m.gbin1.com">
+<link rel="dns-prefetch" href="http://s.gbin1.com">
 
 	{% endhighlight %}
 
@@ -53,11 +53,12 @@ title : HTML5预解析标签和预加载标签
 
 
 <p>3.预渲染</p>
-
+<p><code>&lt;link></code>标签中rel=’prerender’ 表示浏览器会帮我们渲染但隐藏指定的页面，一旦我们访问这个页面，则秒开了！</p>
 
 	{% highlight html %}
 
 <link rel="prerender" href="http://www.gbtags.com/gb/search.htm" />
+<link rel="prerender" href="http://huodong.kugou.com/2014" />
 
 	{% endhighlight %}
 
