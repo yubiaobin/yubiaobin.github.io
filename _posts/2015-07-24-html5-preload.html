@@ -11,10 +11,12 @@ title : HTML5预解析标签和预加载标签
 
 <p>1.预解析</p>
 
+<p>DNS的的解析成本很高，往往导致了网站加载速度慢。现在浏览器针对这个问题开发了更智能的处理方式，它将域名缓存后，当用户点击其它页面地址后自动的获取。如果你希望预先获取NDS，你可以控制你的浏览器来解析域名，例如：</p>
+
 	{% highlight html %}
 
-<link rel="dns-prefetch" href="//www.gbtags.com">
-<link rel="dns-prefetch" href="//www.gbin1.com">
+<link rel="dns-prefetch" href="http://huodong.kugou.com">
+<link rel="dns-prefetch" href="http://www.gbin1.com">
 <link rel="dns-prefetch" href="//m.gbin1.com">
 <link rel="dns-prefetch" href="//s.gbin1.com">
 
@@ -24,29 +26,55 @@ title : HTML5预解析标签和预加载标签
 
 
 
-
 <p>2.预加载</p>
 
-
+<p>预加载是一种浏览器机制，使用浏览器空闲时间来预先下载/加载用户接下来很可能会浏览的页面/资源，当用户访问这个预加载的链接时，如果它已经被预加载在缓存中,页面就可以毫秒级快速呈现。</p>
 
 	{% highlight html %}
-
 
 <link rel="prefetch" href="http://www.gbtags.com/gb/users.htm" />
 <link rel="prefetch" href="http://www.gbtags.com/gb/networks/themes/img/logo_small.jpg" />
 
 	{% endhighlight %}
 
+<p>在Chrome中，预加载使用 <code>&lt;link></code>标签，并指定 rel="prefetch" 属性，而href属性就是需要预加载的文件路径。</p>
+
+
+
+<p>关于预加载，有如下注意事项：</p>
+<p>
+	<ul>
+		<li>预加载可以跨域进行，当然，请求时cookie等信息也会被发送。</li>
+		<li>预加载可能破坏网站统计数据，而用户并没有实际访问。</li>
+	</ul>
+</p>
 
 
 
 
+<p>3.预渲染</p>
 
 
+	{% highlight html %}
+
+<link rel="prerender" href="http://www.gbtags.com/gb/search.htm" />
+
+	{% endhighlight %}
 
 
-
-
+<p>当资源为以下列表中的资源时，将阻止预渲染操作：</p>
+<p>
+	<ul>
+		<li>URL 中包含下载资源</li>
+		<li>页面中包含音频、视频</li>
+		<li>POST、PUT 和 DELETE 操作的 ajax 请求</li>
+		<li>HTTP 认证(Authentication)</li>
+		<li>HTTPS 页面</li>
+		<li>含恶意软件的页面</li>
+		<li>弹窗页面</li>
+		<li>打开了 chrome developer tools 开发工具</li>
+	</ul>
+</p>
 
 
 
@@ -54,5 +82,6 @@ title : HTML5预解析标签和预加载标签
 
 
 <p class="pege_tail">参考<a href="http://www.cnblogs.com/gbin1/archive/2013/07/03/3169060.html" target="_blank">五个HTML5新特性</a></p>
+<p>参考<a href="http://www.zuifengyun.com/html5-prefetch.html" target="_blank">探讨HTML5的预加载功能prefetch</a></p>
 
 
