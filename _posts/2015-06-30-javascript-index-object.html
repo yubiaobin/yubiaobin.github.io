@@ -9,28 +9,65 @@ title : 私有对象脚本写法
 
 
 
+
+
+<h4>1.原始写法</h4>
+<p>不同的函数（以及记录状态的变量）简单地放在一起，堆叠</p>
+
+	{% highlight javascript %}
+function fn1(){
+	//do something
+}
+function fn2(){
+	//do something
+}
+	{% endhighlight %}
+
+<p>上面的函数fn1()和fn2()，组成一个模块。使用的时候，直接调用就行了。
+这种做法的缺点很明显："污染"了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。</p>
+
+
+
+
+
+<h4>2.对象写法</h4>
+<p>为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面，根据需要一一调用。</p>
 <p>1.首先页面初始化一个私有对象</p>
 
 	{% highlight javascript %}
 
-var MyIndexObj = {
+var MyDefineObj = {
 	
 };
 
 	{% endhighlight %}
 
 
-
 <p>2.给私有对象设置属性和方法</p>
 
 	{% highlight javascript %}
-var MyIndexObj = {
+var MyDefineObj = {
 	name  :  'max',
-	init  : function(){
+	go    :  function(){
+		console.log('gogogo');
+	},
+	init  :  function(){
 		console.log('my name is max');
 	}
 }
 	{% endhighlight %}
+
+<p>上面的函数go()和函数init()都是封装在module1对象里。使用的时候，就是调用这个对象的属性。</p>
+
+	{% highlight javascript %}
+
+	MyDefineObj.go();
+
+MyDefineObj.init();
+
+
+	{% endhighlight %}
+
 
 
 
@@ -52,5 +89,8 @@ MyIndexObj.init();
 
 
 
+
+
+<p class="pege_tail">参考<a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank">Javascript模块化编程（一）：模块的写法</a></p>
 
 
