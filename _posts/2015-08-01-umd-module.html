@@ -16,7 +16,7 @@ title : UMD通用模块写法
 不得不承认，这个模式略难看，但是它兼容了AMD和CommonJS，同时还支持老式的“全局”变量规范：</p>
 
 	{% highlight javascript %}
-
+;
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
@@ -28,13 +28,13 @@ title : UMD通用模块写法
         // 浏览器全局变量(root 即 window)
         root.returnExports = factory(root.jQuery);
     }
-}(this, function ($) {
+})(this, function ($) {
     //    方法
     function myFunc(){};
  
     //    暴露公共方法
     return myFunc;
-}));
+});
 
 	{% endhighlight %}
 
@@ -45,7 +45,7 @@ title : UMD通用模块写法
 <p>保持跟上面例子一样的模式，下面是更复杂的例子，它依赖了多个组件并且暴露多个方法:</p>
 
 	{% highlight javascript %}
-
+;
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
@@ -57,7 +57,7 @@ title : UMD通用模块写法
         // 浏览器全局变量(root 即 window)
         root.returnExports = factory(root.jQuery, root._);
     }
-}(this, function ($, _) {
+})(this, function ($, _) {
     //    方法
     function a(){};    //    私有方法，因为它没被返回 (见下面)
     function b(){};    //    公共方法，因为被返回了
@@ -68,7 +68,7 @@ title : UMD通用模块写法
         b: b,
         c: c
     }
-}));
+});
 
 	{% endhighlight %}
 
