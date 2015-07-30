@@ -15,6 +15,16 @@ title : Js特性之一 —— 链式作用域
 
 <p>对于JavaScript新手来说作用域（scope）是最令人困惑的部分，没有之一。</p>
 
+
+<p>先来看一段英文定义：</p>
+
+<p>Scope is the set of variables, objects, and functions you have access to.</p>
+<p>
+JavaScript has two scopes: global and local. A variable that is declared outside a function definition is a global variable, and its value is accessible and modifiable throughout your program. A variable that is declared inside a function definition is local. It is created and destroyed every time the function is executed, and it cannot be accessed by any code outside the function.
+</p>
+<p>Functions defined inside other functions, known as nested functions, have access to their parent function's scope. </p>
+
+
 <p>JavaScript的（scope）如此复杂的原因是它看上去非常像C系语言的成员。在C/C++中，花括号内中的每一段代码都具有各自的作用域，而且变量在声明它们的代码段之外是不可见的。</p>
 <p>而Javascript压根没有块级作用域，而是函数作用域。</p>
 <p>所谓函数作用域就是说：变量在声明它们的函数体以及这个函数体嵌套的任意函数体内都是有定义的。</p>
