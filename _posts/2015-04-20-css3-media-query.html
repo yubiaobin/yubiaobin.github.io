@@ -175,6 +175,7 @@ title : CSS3媒体查询
 	<li>3- 设备屏幕的输出宽度Device Width;</li>
 	<li>4- not关键字;</li>
 	<li>5- only关键字;</li>
+	<li>6- 多个Media Queries使用</li>
 </ul>
 
 <p>举例如下：</p>
@@ -189,13 +190,15 @@ title : CSS3媒体查询
 <link rel="stylesheet" media="screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />
 <link rel="stylesheet" media="not print and (max-width: 1200px)" href="print.css" type="text/css" />
 <link rel="stylesheet" media="only screen and (max-device-width:240px)" href="android240.css" type="text/css" />
+<link rel="stylesheet" media="screen and (min-width:600px) and (max-width:900px)" href="style.css" type="text/css" />
 
 	{% endhighlight %}
 
 
 
-
-
+  
+ <h3>总结：</h3>
+<p>Media Queries能在不同的条件下使用不同的样式，使用页面达到不同的渲染效果。</p>
 
 
 
