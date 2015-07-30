@@ -1,0 +1,43 @@
+---
+layout: default_post
+title : 立即执行的函数表达式
+---
+
+
+<h3>立即执行的函数表达式（IIFE）</h3>
+
+
+
+
+<p>IIFE, Immediately Invoked Function Expression, is a common pattern for creating local scopes</p>
+
+<p>立即执行的函数表达式（IIFE）是一种常见的创建自己作用域范围的代码方式。</p>
+
+
+	{% highlight javascript %}
+(function(){ // the function expression is surrounded by parenthesis
+    // variables defined here
+    // can't be accessed outside
+})(); // the function is immediately invoked
+
+	{% endhighlight %}
+
+
+<p>一般我们写，习惯在之前添加一个分号；已便于（保证）JS语法解释器合理的解析我们写的代码，而不会抛出异常。</p>
+
+    {% highlight javascript %}
+;
+(function(){ // the function expression is surrounded by parenthesis
+    // variables defined here
+    // can't be accessed outside
+})(); // the function is immediately invoked
+
+    {% endhighlight %}
+
+
+
+
+
+<!-- <p class="pege_tail">参考<a href="http://web.jobbole.com/82238/" target="_blank">AMD、CMD、UMD 模块的写法</a></p> -->
+
+
