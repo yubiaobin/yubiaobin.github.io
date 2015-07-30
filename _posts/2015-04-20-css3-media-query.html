@@ -199,6 +199,47 @@ title : CSS3媒体查询
   
  <h3>总结：</h3>
 <p>Media Queries能在不同的条件下使用不同的样式，使用页面达到不同的渲染效果。</p>
+<p>常用的版本代码：</p>
+
+
+
+
+	{% highlight css %}
+
+
+
+
+/*屏幕小于480px的手机浏览器, iPhone和mobiles时的样式*/
+@media screen and (max-width: 480px) {
+	body {width: 90%;}
+}
+/*屏幕大于480px并且小于720px的手机浏览器, iPhone和mobiles时的样式*/
+@media screen and (min-width: 480px) and (max-width: 720px) {
+	body {width: 80%; }
+}
+/*屏幕大于10240px的PC浏览器时的样式*/
+@media screen and (min-width: 1024px) {
+	body {width: 60%; }
+}
+
+
+
+
+
+	{% endhighlight %}
+
+
+
+
+
+			
+
+
+
+
+
+
+
 
 
 
@@ -208,5 +249,6 @@ title : CSS3媒体查询
 
 
 <p class="pege_tail">参考<a href="http://www.cnblogs.com/asqq/archive/2012/04/13/2445912.html" target="_blank">Media Queries详解</a></p> 
+<p>参考<a href="http://www.moke8.com/article-5657-1.html" target="_blank">CSS3 Media Query实现响应布局</a></p>
 
 
