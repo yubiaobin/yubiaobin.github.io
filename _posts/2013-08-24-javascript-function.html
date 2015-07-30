@@ -207,6 +207,8 @@ alert(result);     // undefined
 
 <p>在Javascript中，函数的参数与其他大多数语言中函数的参数有很大的不同。因为在ECMAScript规范中确定<strong>函数的参数不是必须的</strong>。函数不介意传递进来多少参数，也不在乎传进来参数是什么数据类型（弱类型语言的特点，类型检查不严格）。换句话说，即使你定义的函数只接受两个参数，在调用的时候这个函数也未必一定要传递两个参数，可以传递一个、三个参数，也可以完全不传递参数。而解析器用永远都会解析（不会报错）。</p>
 
+<p>FUNCTION ARGUMENTS DEFINE:  A function can be declared to receive any number of arguments. Arguments can be from any type. An argument could be a string, a number, an array, an object and even another function.</p>
+
     {% highlight javascript %}
 function howManyArgs(){
     alert(arguments.length);    
