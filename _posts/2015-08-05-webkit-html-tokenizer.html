@@ -25,13 +25,14 @@ if (tokenizer) {
 
 
 
-<p></p>
+<p>构造dom节点时序图描述:在HTMLTreeBuilder的processTag中，是根据不同的标签类型进行处理,上面的时序图仅仅体现出类型，下面将源码贴上:</p>
+
 
 
 
     {% highlight javascript %}
 
-void HTMLTreeBuilder::processToken(AtomicHTMLToken& token)  
+void HTMLTreeBuilder::processToken(AtomicHTMLToken & token)  
 {  
     switch (token.type()) {  
     case HTMLToken::Uninitialized:  
