@@ -12,31 +12,22 @@ title : WEBKIT内核之——HTML部分（一）
 <p>HTML词法解析器</p>
 
 <p>HTML Tokenizer意为HTML词法解析器，它的任务，就是将输入的字节流解析成一个个的标记（HTMLToken），然后由语法解析器进行下一步的分析。</p>
+<p>HTMLTokenizer是在HTMLDocument里被创建的。</p>
+
+
+
+    {% highlight javascript %}
+if (tokenizer) {
+	ASSERT(!tokenizer->wantsRawData());
+	tokenizer->write(decoded, true);
+    {% endhighlight %}
+
 
 
 
 <p></p>
 
-    {% highlight javascript %}
- while (!src.isEmpty() && (!frame || !frame->loader()->isScheduledLocationChangePending())) {
-        UChar cc = *src;                    //从html数据Buffer中取出一个字符
-        bool wasSkipLF = state.skipLF();            //是否要跳过回车
-        if (wasSkipLF)
-            state.setSkipLF(false);
-        if (wasSkipLF && (cc == '\n'))
-            src.advance();
-        else if (state.needsSpecialWriteHandling()) {
-            if (state.hasEntityState())
-                state = parseEntity(src, dest, state, m_cBufferPos, false, state.hasTagState());
-            else if (state.inComment())     //注释文本，如：<!--这里是注释 -->
-                state = parseComment(src, state);
-            else if (state.inDoctype())         //HTML的DocType
-                state = parseDoctype(src, state);
-            else if (state.inServer())      //asp或jsp的服务端代码，如：<%***%>
-                state = parseServer(src, state);
-            else if (state.startTag()) {        //重点注意：这里是检测到 '<'字符，
 
-    {% endhighlight %}
 
 
 
