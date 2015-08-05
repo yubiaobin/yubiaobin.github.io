@@ -1,6 +1,6 @@
 ---
 layout: default_post
-title : WEBKIT内核之——HTML
+title : WEBKIT内核之——HTML部分（一）
 ---
 
 
@@ -11,25 +11,30 @@ title : WEBKIT内核之——HTML
 
 <p>HTML词法解析器</p>
 
-<p>立即执行的函数表达式（IIFE）是一种常见的创建自己作用域范围的代码方式。</p>
+<p></p>
 
 
-	{% highlight javascript %}
-(function(){ // the function expression is surrounded by parenthesis
-    // variables defined here
-    // can't be accessed outside
-})(); // the function is immediately invoked
 
-	{% endhighlight %}
-
-
-<p>一般我们写，习惯在之前添加一个分号；已便于（保证）JS语法解释器合理的解析我们写的代码，而不会抛出异常。</p>
+<p></p>
 
     {% highlight javascript %}
-;(function(){ // the function expression is surrounded by parenthesis
-    // variables defined here
-    // can't be accessed outside
-})(); // the function is immediately invoked
+ while (!src.isEmpty() && (!frame || !frame->loader()->isScheduledLocationChangePending())) {
+        UChar cc = *src;                    //从html数据Buffer中取出一个字符
+        bool wasSkipLF = state.skipLF();            //是否要跳过回车
+        if (wasSkipLF)
+            state.setSkipLF(false);
+        if (wasSkipLF && (cc == '\n'))
+            src.advance();
+        else if (state.needsSpecialWriteHandling()) {
+            if (state.hasEntityState())
+                state = parseEntity(src, dest, state, m_cBufferPos, false, state.hasTagState());
+            else if (state.inComment())     //注释文本，如：<!--这里是注释 -->
+                state = parseComment(src, state);
+            else if (state.inDoctype())         //HTML的DocType
+                state = parseDoctype(src, state);
+            else if (state.inServer())      //asp或jsp的服务端代码，如：<%***%>
+                state = parseServer(src, state);
+            else if (state.startTag()) {        //重点注意：这里是检测到 '<'字符，
 
     {% endhighlight %}
 
@@ -37,6 +42,6 @@ title : WEBKIT内核之——HTML
 
 
 
-<!-- <p class="pege_tail">参考<a href="http://web.jobbole.com/82238/" target="_blank">AMD、CMD、UMD 模块的写法</a></p> -->
+<!-- <p class="pege_tail">参考<a href="http://blog.csdn.net/hgl868/article/details/7617191" target="_blank">webkit Parser模块</a></p> -->
 
 
