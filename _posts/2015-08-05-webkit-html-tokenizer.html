@@ -29,6 +29,40 @@ if (tokenizer) {
 
 
 
+    {% highlight javascript %}
+
+void HTMLTreeBuilder::processToken(AtomicHTMLToken& token)  
+{  
+    switch (token.type()) {  
+    case HTMLToken::Uninitialized:  
+        ASSERT_NOT_REACHED();  
+        break;  
+    case HTMLToken::DOCTYPE:  
+        processDoctypeToken(token);  
+        break;  
+    case HTMLToken::StartTag:  
+        processStartTag(token);  
+        break;  
+    case HTMLToken::EndTag:  
+        processEndTag(token);  
+        break;  
+    case HTMLToken::Comment:  
+        processComment(token);  
+        return;  
+    case HTMLToken::Character:  
+        processCharacter(token);  
+        break;  
+    case HTMLToken::EndOfFile:  
+        processEndOfFile(token);  
+        break;  
+    }  
+}  
+
+
+    {% endhighlight %}
+
+
+
 
 
 
