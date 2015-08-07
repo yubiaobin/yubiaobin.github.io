@@ -1,0 +1,40 @@
+---
+layout: default_post
+title : DOM性能瓶颈与Javascript性能优化
+---
+
+
+<h3>DOM性能瓶颈与Javascript性能优化</h3>
+
+
+
+
+<p>DOM性能瓶颈与Javascript性能优化</p>
+
+<p>当解析的html文件很大时，生成DOM树占用内存较大，同时遍历（不更新）元素耗时也更长。但这都不是重点，DOM的核心问题是：DOM修改导致的页面重绘、重新排版！重新排版是用户阻塞的操作，同时，如果频繁重排，CPU使用率也会猛涨！</p>
+
+
+
+<p><strong>DOM操作会导致一系列的重绘（repaint）、重新排版（reflow）操作。为了确保执行结果的准确性，所有的修改操作是按顺序同步执行的。大部分浏览器都不会在JavaScript的执行过程中更新DOM。相应的，这些浏览器将对对 DOM的操作放进一个队列，并在JavaScript脚本执行完毕以后按顺序一次执行完毕。也就是说，在JavaScript执行的过程，直到发生重新排版，用户一直被阻塞。</strong></p>
+
+
+<p></p>
+	{% highlight javascript %}
+var fragment = document.createDocumentFragment();
+for (var i=0; i < items.length; i++){
+    var item = document.createElement("li");
+    item.appendChild(document.createTextNode("Option " + i);
+    fragment.appendChild(item);
+}
+list.appendChild(fragment);
+	{% endhighlight %}
+
+
+
+
+
+
+
+<!-- <p class="pege_tail">参考<a href="http://www.cnblogs.com/hyddd/archive/2013/02/07/2908960.html" target="_blank">DOM性能瓶颈与Javascript性能优化</a></p> -->
+
+
