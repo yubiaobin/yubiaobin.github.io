@@ -14,7 +14,7 @@ title : WEBKIT内核之——HTML部分（一）
 <p>HTML Tokenizer意为HTML词法解析器，它的任务，就是将输入的字节流解析成一个个的标记（HTMLToken），然后由语法解析器进行下一步的分析。</p>
 <p>HTMLTokenizer是在HTMLDocument里被创建的。</p>
 
-<p>webkit中每个html页面对应于一颗dom树 和render树，dom用于描述html页面的的信息，而render树则用于布局，具体负责dom树如何显示在屏幕上，从MVC的角度来说，可以将render树看成是V，dom树看成是M，C则是具体的调度者，比HTMLDocumentParser等。webkit将这两部分分开，可以看出其设计意图，同一个dom，可以对应不同的render，或者不同的xml文档，对应于相同的render,显示出其极大的灵活性。</p>
+<p>webkit中每个HTML页面对应于一颗DOM树 和RENDER树，DOM树用于描述HTML页面的的信息，而RENDER树则用于布局，具体负责DOM树如何显示在屏幕上，从MVC的角度来说，可以将RENDER树看成是V，DOM树看成是M，C则是具体的调度者，比HTMLDocumentParser等。webkit将这两部分分开，可以看出其设计意图，同一个DOM，可以对应不同的RENDER，或者不同的xml文档，对应于相同的RENDER,显示出其极大的灵活性。</p>
 
 
 
