@@ -722,17 +722,14 @@ P+E78Yf9DXrn/gxm/wDiqKKAD/hO/GH/AENeuf8Agxm/+Ko/4Tvxh/0Neuf+DGb/AOKoooAP+E78
 Yf8AQ165/wCDGb/4qj/hO/GH/Q165/4MZv8A4qiigA/4Tvxh/wBDXrn/AIMZv/iqP+E78Yf9DXrn
 /gxm/wDiqKKAKepeJde1m3W31TW9SvoFcOsd1dPKobBGQGJGcEjPuaKKKAP/2Q=='/>
 
-<p>类图描述:
 
-a. 从上面的类图可以看出，WEBKIT所表现出的极大的灵活性，对于HTML文档，是生成HTMLDocumentParser，对于其他的XML文档，则可以自行设计对应的Parser,对于上层是需要拿到一个DocumentParser即可
-
-b. HTMLParserScheduler中的职责是实现异步解析,具体可以参照前面的文章webkit中timer的应用
-
-c. HTMLScriptRunner主要是用来运行脚本</p>
-
-
-
-
+<ul>从上图可以看出
+	<li>a. WEBKIT所表现出的极大的灵活性，对于HTML文档，是生成HTMLDocumentParser，对于其他的XML文档，则可以自行设计对应的Parser,对于上层是需要拿到一个DocumentParser即可。</li>
+	<li>b. HTMLTokenizer就是词法分析器，执行第一步词法分析。</li>
+	<li>c. HTMLTreeBuilder中的职责就是类“树”结构的生成（包括DOM树和RENDER树）。</li>
+	<li>d. HTMLScriptRunner主要是用来运行脚本。</li>
+	<li>e. HTMLParserScheduler中的职责是实现异步解析。</li>
+</ul>
 
 
 
