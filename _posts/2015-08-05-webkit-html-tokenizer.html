@@ -28,7 +28,7 @@ if (tokenizer) {
 
 
 
-<p>通过上面 的叙述，大家应该明白了dom树的生成时机，那么render树是何时生成的呢？通过源码发现，其实在每生成一个dom节点，就会去创建对应的render节点，也就是说，dom树和render树是同时生成的，小弟确实不是很明白这一点，为什么一定要在这个时候生成render树，如果将dom生成完毕后，再生成render树，是否能够体现出更大的灵活性？</p>
+<p>通过上面 的叙述，大家应该明白了DOM树的生成时机，那么RENDER树是何时生成的呢？通过源码发现，其实在每生成一个DOM节点，就会去创建对应的RENDER节点，也就是说，DOM树和RENDER树是同时生成的，小弟确实不是很明白这一点，为什么一定要在这个时候生成RENDER树，如果将DOM生成完毕后，再生成RENDER树，是否能够体现出更大的灵活性？</p>
 
 
 
@@ -726,7 +726,7 @@ Yf8AQ165/wCDGb/4qj/hO/GH/Q165/4MZv8A4qiigA/4Tvxh/wBDXrn/AIMZv/iqP+E78Yf9DXrn
 
 <p>类图描述:
 
-a. 从上面的类图可以看出，webkit所表现出的极大的灵活性，对于HTML文档，是生成HTMLDocumentParser，对于其他的XML文档，则可以自行设计对应的Parser,对于上层是需要拿到一个DocumentParser即可
+a. 从上面的类图可以看出，WEBKIT所表现出的极大的灵活性，对于HTML文档，是生成HTMLDocumentParser，对于其他的XML文档，则可以自行设计对应的Parser,对于上层是需要拿到一个DocumentParser即可
 
 b. HTMLParserScheduler中的职责是实现异步解析,具体可以参照前面的文章webkit中timer的应用
 
@@ -741,7 +741,7 @@ c. HTMLScriptRunner主要是用来运行脚本</p>
 
 
 
-<p>构造dom节点时序图描述:在HTMLTreeBuilder的processTag中，是根据不同的标签类型进行处理,上面的时序图仅仅体现出类型，下面将源码贴上:</p>
+<p>构造DOM节点时序图描述:在HTMLTreeBuilder的processTag中，是根据不同的标签类型进行处理,上面的时序图仅仅体现出类型，下面将源码贴上:</p>
 
 
 
