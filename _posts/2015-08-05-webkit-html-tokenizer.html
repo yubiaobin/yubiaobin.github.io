@@ -19,13 +19,13 @@ title : WEBKIT内核之——HTML部分（一）
 
 <p> WEBKIT的整个解析过程，大致是这样，从网络返回数据后，将数据交给HTMLDocumentParser，然后HTMLDocumentParser将文本字符的解析交给HTMLDocumentTokenizer来负责，HTMLDocumentTokenizer解析出一个一个的标签（HTML文档时是以标签为单位）,HTMLDocumentParser将标签交给，HTMLTreeBuilder来构建DOM树，这里的HTMLDocumentParser从MVC的角度来看，其作用和地位应该是C，这样，MVC各兼其责，最终生成一颗RENDER树，将其显示在屏幕上。</p>
 
-
+<!-- 
     {% highlight javascript %}
 if (tokenizer) {
 	ASSERT(!tokenizer->wantsRawData());
 	tokenizer->write(decoded, true);
     {% endhighlight %}
-
+ -->
 
 
 <p>通过上面 的叙述，大家应该明白了DOM树的生成时机，那么RENDER树是何时生成的呢？通过源码发现，其实在每生成一个DOM节点，就会去创建对应的RENDER节点，也就是说，DOM树和RENDER树是同时生成的，小弟确实不是很明白这一点，为什么一定要在这个时候生成RENDER树，如果将DOM生成完毕后，再生成RENDER树，是否能够体现出更大的灵活性？</p>
