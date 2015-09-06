@@ -7,26 +7,13 @@ title : WEBKIT内核之——HTML部分（一）
 <h3>HTML Tokenizer</h3>
 
 
+<h4>WEBKIT 内核页面机制</h4>
 
-
-<p>HTML词法解析器</p>
-
-<p>HTML Tokenizer意为HTML词法解析器，它的任务，就是将输入的字节流解析成一个个的标记（HTMLToken），然后由语法解析器进行下一步的分析。</p>
-<p>HTMLTokenizer是在HTMLDocument里被创建的。</p>
 
 <p>WEBKIT内核中每个HTML页面对应于一颗DOM树和RENDER树（DOM树和RENDER树是同时生成的），DOM树用于描述HTML页面的的结构化信息（结构层），而RENDER树则用于布局（表现层），具体负责DOM树如何显示在屏幕上，从MVC的角度来说，可以将RENDER树看成是V，DOM树看成是M，C则是具体的调度者，比HTMLDocumentParser等。WEBKIT将这两部分分开，可以看出其设计意图，同一个DOM，可以对应不同的RENDER，或者不同的XML文档，对应于相同的RENDER,显示出其极大的灵活性。</p>
 
 
 <p> WEBKIT的整个解析过程，大致是这样，从网络返回数据后，将数据交给HTMLDocumentParser，然后HTMLDocumentParser将文本字符的解析交给HTMLDocumentTokenizer来负责，HTMLDocumentTokenizer解析出一个一个的标签（HTML文档时是以标签为单位）,HTMLDocumentParser将标签交给，HTMLTreeBuilder来构建DOM树，这里的HTMLDocumentParser从MVC的角度来看，其作用和地位应该是C，这样，MVC各兼其责，最终生成一颗RENDER树，将其显示在屏幕上。</p>
-
-
-<!-- 
-    {% highlight javascript %}
-if (tokenizer) {
-	ASSERT(!tokenizer->wantsRawData());
-	tokenizer->write(decoded, true);
-    {% endhighlight %}
- -->
 
 
 
@@ -735,9 +722,22 @@ Yf8AQ165/wCDGb/4qj/hO/GH/Q165/4MZv8A4qiigA/4Tvxh/wBDXrn/AIMZv/iqP+E78Yf9DXrn
 
 
 
+<h4>HTML词法解析器</h4>
+
+<p>HTML Tokenizer意为HTML词法解析器，它的任务，就是将输入的字节流解析成一个个的标记（HTMLToken），然后由语法解析器进行下一步的分析。</p>
+<p>HTMLTokenizer是在HTMLDocument里被创建的。</p>
 
 <p>构造DOM节点时序图描述:在HTMLTreeBuilder的processTag中，是根据不同的标签类型进行处理,上面的时序图仅仅体现出类型，下面将源码贴上:</p>
 
+
+
+
+    {% highlight javascript %}
+if (tokenizer) {
+	ASSERT(!tokenizer->wantsRawData());
+	tokenizer->write(decoded, true);
+    {% endhighlight %}
+ 
 
 
 
