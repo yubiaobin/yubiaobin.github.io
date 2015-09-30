@@ -1,6 +1,6 @@
 ---
 layout: default_post
-title : WEBKIT内核学习杂记
+title : WEBKIT内核学习笔记
 ---
 
 
@@ -803,7 +803,7 @@ void HTMLTreeBuilder::processToken(AtomicHTMLToken & token)
 
     {% highlight javascript %}
  while (!src.isEmpty() && (!frame || !frame->loader()->isScheduledLocationChangePending())) {
-        UChar cc = *src;                    //从html数据Buffer中取出一个字符
+        UChar cc = *src;                            //从html数据Buffer中取出一个字符
         bool wasSkipLF = state.skipLF();            //是否要跳过回车
         if (wasSkipLF)
             state.setSkipLF(false);
@@ -812,13 +812,13 @@ void HTMLTreeBuilder::processToken(AtomicHTMLToken & token)
         else if (state.needsSpecialWriteHandling()) {
             if (state.hasEntityState())
                 state = parseEntity(src, dest, state, m_cBufferPos, false, state.hasTagState());
-            else if (state.inComment())     //注释文本，如：<!--这里是注释 -->
+            else if (state.inComment())             //注释文本，如：<!--这里是注释 -->
                 state = parseComment(src, state);
-            else if (state.inDoctype())         //HTML的DocType
+            else if (state.inDoctype())             //HTML的DocType
                 state = parseDoctype(src, state);
-            else if (state.inServer())      //asp或jsp的服务端代码，如：<%***%>
+            else if (state.inServer())              //asp或jsp的服务端代码，如：<%***%>
                 state = parseServer(src, state);
-            else if (state.startTag()) {        //重点注意：这里是检测到 '<'字符，
+            else if (state.startTag()) {            //重点注意：这里是检测到 '<'字符，
 
     {% endhighlight %}
 
@@ -865,7 +865,7 @@ void HTMLTreeBuilder::processToken(AtomicHTMLToken & token)
    该函数定义：PassRefPtr<Node> HTMLParser::parseToken(Token* t)。 返回的就是一个Node的节点， Node类是所有DOM节点的父类。</p>
 
 <p>HTMLParser::parseToken函数重点代码介绍：
-    RefPtr<Node> n = getNode(t);    //这里返回Node节点，  往里面跟，会发现它用了很多设计模式的东东
+    RefPtr<Node> n = getNode(t);    //这里返回Node节点，  往里面跟，会发现它用了很多设计模式的东西
     if (!insertNode(n.get(), t->flat)) {        //会调用Node* newNode = current->addChild(n); 把当前的新节点加入到DOM Tree中。</p>
 
 
