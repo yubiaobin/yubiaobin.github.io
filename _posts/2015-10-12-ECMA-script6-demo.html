@@ -14,7 +14,7 @@ title : ES6一些新语法
 
 
 
-<p>let可以看做是块级作用域内定义变量的关键词。</p>
+<p>1，let可以看做是块级作用域内定义变量的关键词。</p>
 <p>以前我们这样写js；</p>
 
     {% highlight javascript %}
@@ -39,26 +39,24 @@ if(true){
 }
 console.log(a);   //5
 
-
-
     {% endhighlight %}
 
+<p>let作用在块级作用域中，所以不管是switch还是if还是for，只要是let定义的变量，他就只能在那个花括号内部起作用。</p>
 
 
 
 
-<p></p>
-
+<p>2，const用来定义常量。</p>
+<p>一旦定义一个变量为const类型，后面就不能对他进行修改。</p>
 
 
 
     {% highlight javascript %}
 
-var array1 = [1,2,3,4,5];
-var index3 = array1.find(function(key){return key > 3});
-console.log(index3)
-
-
+const aa = 100;
+alert(aa)   //100
+aa = 200;
+alert(aa)   //100
 
     {% endhighlight %}
 
