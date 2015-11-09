@@ -54,11 +54,37 @@ console.log(a);   //5
     {% highlight javascript %}
 
 const aa = 100;
-alert(aa)   //100
+console.log(aa);   //100
 aa = 200;
-alert(aa)   //100
+console.log(aa);   //100
 
     {% endhighlight %}
+
+
+
+<h4>内置Array.prototype.find()和内置Array.prototype.filter();</h4>
+
+<p>1，Array.prototype.find()查找到第一个符合条件的值。</p>
+
+    {% highlight javascript %}
+
+var arr1 = [1,2,3,4,5];
+var arr2 = arr1.find(function(key){return key > 2});
+console.log(arr2);  // [3]
+
+    {% endhighlight %}
+
+
+<p>2，Array.prototype.filter()查找到所有符合条件的值。</p>
+
+    {% highlight javascript %}
+
+var arr1 = [1,2,3,4,5];
+var arr2 = arr1.find(function(key){return key > 2});
+console.log(arr2);    // [3,4,5]
+
+    {% endhighlight %}
+
 
 
 
