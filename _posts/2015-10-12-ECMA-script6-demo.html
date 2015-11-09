@@ -1,0 +1,71 @@
+---
+layout: default_post
+title : ES6一些新语法
+---
+
+
+
+<h3>ES6一些新语法</h3>
+
+
+<h4>let与const 关键字</h4>
+
+<p>可以把let看成var，只是它定义的变量被限定在了特定范围内才能使用，而离开这个范围则无效。const则很直观，用来定义常量，即无法被更改值的变量。</p>
+
+
+
+<p>let可以看做是块级作用域内定义变量的关键词。</p>
+<p>以前我们这样写js；</p>
+
+    {% highlight javascript %}
+
+var a = 5;
+if(true){
+    var a = 10;
+}
+console.log(a);  //10
+
+    {% endhighlight %}
+
+<p>现在我们用ES6语法来写js；</p>
+
+
+
+    {% highlight javascript %}
+
+let a = 5;
+if(true){
+    let a = 10;
+}
+console.log(a);   //5
+
+
+
+    {% endhighlight %}
+
+
+
+
+
+<p></p>
+
+
+
+
+    {% highlight javascript %}
+
+var array1 = [1,2,3,4,5];
+var index3 = array1.find(function(key){return key > 3});
+console.log(index3)
+
+
+
+    {% endhighlight %}
+
+
+
+
+
+
+
+
