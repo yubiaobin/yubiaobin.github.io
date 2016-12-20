@@ -8,7 +8,7 @@ title : performance属性详解
 <h3>performance属性详解</h3>
 
 
-<h4>window.performance对象</h4>
+<h4>memory和navigation</h4>
 
 <p>该对象能够帮助我们监测网页页面加载时间。</p>
 
@@ -40,11 +40,42 @@ var performance = {
 
 
 
+<h4>timing</h4>
 
 
 
+    {% highlight javascript %}
+
+var performance = {
+
+timing: {
+		navigationStart: 1441112691935,
+		unloadEventStart: 0,
+		unloadEventEnd: 0,
+		redirectStart: 0,
+		redirectEnd: 0,
+		fetchStart: 1441112692155,
+		domainLookupStart: 1441112692155,
+		domainLookupEnd: 1441112692155,
+		connectStart: 1441112692155, 
+		connectEnd: 1441112692155,
+		secureConnectionStart: 0,
+		requestStart: 1441112692158,
+		responseStart: 1441112692686,
+		responseEnd: 1441112692687,
+		domLoading: 1441112692690,
+		domInteractive: 1441112693093,
+		domContentLoadedEventStart: 1441112693093,
+		domContentLoadedEventEnd: 1441112693101,
+		domComplete: 1441112693214,
+		loadEventStart: 1441112693214,
+		loadEventEnd: 1441112693215    
+	}
 
 
+}
+
+    {% endhighlight %}
 
 
 
