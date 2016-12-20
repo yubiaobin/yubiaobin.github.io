@@ -12,3 +12,41 @@ title : performance属性详解
 
 <p>该对象能够帮助我们监测网页页面加载时间。</p>
 
+
+
+    {% highlight javascript %}
+
+var performance = {
+    memory  :  {
+      usedJSHeapSize   :  16100000,
+      totalJSHeapSize  :  35100000,
+      jsHeapSizeLimit  :  793000000 
+  },
+  
+  navigation : {
+      redirectCount    :   0,
+      type             :   0
+  }
+}
+
+    {% endhighlight %}
+
+
+<p>memory属性中usedJSHeapSize表示所有被使用的js堆内存；totalJSHeapSize表示当前js堆内存总大小，这表示usedJSHeapSize不能大于totalJSHeapSize，如果大于，有可能出现了内存泄漏。jsHeapSizeLimit表示可使用的堆内存（堆内存大小限制）。</p>
+
+
+<p>navigation属性中redirectCount表示页面通过几次重定向跳转而，type表示进入的页面的类型，它有几个属性值，0表示正常进入；1表示通过 window.location.reload() 刷新的页面；2表示通过浏览器前进后退等操作进入本页面；255表示非以上方式进入的页面。</p></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
