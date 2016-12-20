@@ -172,3 +172,69 @@ timing: {
 </table>
 
 
+<p>通过上面的performance.timing各个属性的差值组成的可以计算出来对我们比较有用的页面性能数据大概包括如下几个：</p>
+
+
+
+<table class="dataintable">
+    <tbody>
+        <tr>
+            <th style="width:25%">属性</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td class="table_feature">DNS查询耗时</td>
+            <td>domainLookupEnd - domainLookupStart</td>
+        </tr>
+        <tr>
+            <td class="table_feature">TCP链接耗时</td>
+            <td>connectEnd - connectStart</td>
+        </tr>
+        <tr>
+            <td class="table_feature">request请求耗时</td>
+            <td>responseEnd - responseStart</td>
+        </tr>
+	<tr>
+            <td class="table_feature">request请求耗时</td>
+            <td>domComplete- domInteractive</td>
+        </tr>
+	<tr>
+            <td class="table_feature">白屏时间</td>
+            <td>responseStart - navigationStart</td>
+        </tr>
+        <tr>
+            <td class="table_feature">domready时间</td>
+            <td>domContentLoadedEventEnd - navigationStart</td>
+        </tr>
+	<tr>
+            <td class="table_feature">onload时间</td>
+            <td>loadEventEnd - navigationStart</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h4>getEntries</h4>
+
+
+<p>getEntries显示了所有静态资源的数组列表；点开后显示了，某一个请求的相关参数有name,type，时间等等。</p>
+
+<p>这个接口是获取所有的资源；同时，该API还提供了另外另个接口:performance.getEntriesByName()和
+performance.getEntriesByType() 顾名思义，分别是按资源的名称和类型获取相应的请求数据。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
