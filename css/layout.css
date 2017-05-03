@@ -534,10 +534,12 @@ table.dataintable td {
     padding: 6px 15px 6px 6px;
     background-color: #efefef;
     border: 1px solid #aaa;
+    text-align: left; 
 }
 table.dataintable .table_feature{
     color:#0d9ba9;
     font-size:bold;
+    text-align: center; 
 }
 
 

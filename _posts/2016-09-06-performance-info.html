@@ -1,0 +1,240 @@
+---
+layout: default_post
+title : performance属性详解
+---
+
+
+
+<h3>performance属性详解</h3>
+
+
+<h4>memory和navigation</h4>
+
+<p>该对象能够帮助我们监测网页页面加载时间。</p>
+
+
+
+    {% highlight javascript %}
+
+var performance = {
+    memory  :  {
+      usedJSHeapSize   :  16100000,
+      totalJSHeapSize  :  35100000,
+      jsHeapSizeLimit  :  793000000 
+  },
+  
+  navigation : {
+      redirectCount    :   0,
+      type             :   0
+  }
+}
+
+    {% endhighlight %}
+
+
+<p>memory属性中usedJSHeapSize表示所有被使用的js堆内存；totalJSHeapSize表示当前js堆内存总大小，这表示usedJSHeapSize不能大于totalJSHeapSize，如果大于，有可能出现了内存泄漏。jsHeapSizeLimit表示可使用的堆内存（堆内存大小限制）。</p>
+
+
+<p>navigation属性中redirectCount表示页面通过几次重定向跳转而，type表示进入的页面的类型，它有几个属性值，0表示正常进入；1表示通过 window.location.reload() 刷新的页面；2表示通过浏览器前进后退等操作进入本页面；255表示非以上方式进入的页面。</p></p>
+
+
+
+
+<h4>timing</h4>
+
+
+
+    {% highlight javascript %}
+
+var performance = {
+
+timing: {
+		navigationStart: 1441112691935,
+		unloadEventStart: 0,
+		unloadEventEnd: 0,
+		redirectStart: 0,
+		redirectEnd: 0,
+		fetchStart: 1441112692155,
+		domainLookupStart: 1441112692155,
+		domainLookupEnd: 1441112692155,
+		connectStart: 1441112692155, 
+		connectEnd: 1441112692155,
+		secureConnectionStart: 0,
+		requestStart: 1441112692158,
+		responseStart: 1441112692686,
+		responseEnd: 1441112692687,
+		domLoading: 1441112692690,
+		domInteractive: 1441112693093,
+		domContentLoadedEventStart: 1441112693093,
+		domContentLoadedEventEnd: 1441112693101,
+		domComplete: 1441112693214,
+		loadEventStart: 1441112693214,
+		loadEventEnd: 1441112693215    
+	}
+
+
+}
+
+    {% endhighlight %}
+
+
+<table class="dataintable">
+    <tbody>
+        <tr>
+            <th style="width:25%">属性</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td class="table_feature">navigationStart</td>
+            <td>在同一个浏览器上下文中，前一个网页（与当前页面不一定同域）unload 的时间戳，如果无前一个网页 unload ，则与 fetchStart 值相等。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">unloadEventStart</td>
+            <td>前一个网页（与当前页面同域）unload 的时间戳，如果无前一个网页 unload 或者前一个网页与当前页面不同域，则值为 0。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">unloadEventEnd</td>
+            <td>和 unloadEventStart 相对应，返回前一个网页 unload 事件绑定的回调函数执行完毕的时间戳。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">redirectStart</td>
+            <td>第一个 HTTP 重定向发生时的时间。有跳转且是同域名内的重定向才算，否则值为 0。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">redirectEnd</td>
+            <td>最后一个 HTTP 重定向完成时的时间。有跳转且是同域名内部的重定向才算，否则值为 0。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">fetchStart</td>
+            <td>浏览器准备好使用 HTTP 请求抓取文档的时间，这发生在检查本地缓存之前。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">domainLookupStart</td>
+            <td>DNS 域名查询开始的时间，如果使用了本地缓存（即无 DNS 查询）或持久连接，则与 fetchStart 值相等。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">domainLookupEnd</td>
+            <td>DNS 域名查询完成的时间，如果使用了本地缓存（即无 DNS 查询）或持久连接，则与 fetchStart 值相等。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">connectStart</td>
+            <td>HTTP（TCP） 开始建立连接的时间，如果是持久连接，则与 fetchStart 值相等。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">connectEnd</td>
+            <td>HTTP（TCP） 完成建立连接的时间（完成握手），如果是持久连接，则与 fetchStart 值相等。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">secureConnectionStart</td>
+            <td>HTTPS 连接开始的时间，如果不是安全连接，则值为 0。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">requestStart</td>
+            <td>HTTP 请求读取真实文档开始的时间（完成建立连接），包括从本地读取缓存。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">responseStart</td>
+            <td>HTTP 开始接收响应的时间（获取到第一个字节），包括从本地读取缓存。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">responseEnd</td>
+            <td>HTTP 响应全部接收完成的时间（获取到最后一个字节），包括从本地读取缓存。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">domLoading</td>
+            <td>开始解析渲染 DOM 树的时间，此时 Document.readyState 变为 loading，并将抛出 readystatechange 相关事件。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">domInteractive</td>
+            <td>完成解析 DOM 树的时间，Document.readyState 变为 interactive，并将抛出 readystatechange 相关事件。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">domContentLoadedEventStart</td>
+            <td>DOM 解析完成后，网页内资源加载开始的时间        // 在 DOMContentLoaded 事件抛出前发生。</td>
+        </tr>
+        <tr>
+            <td class="table_feature">domContentLoadedEventEnd</td>
+            <td>DOM 解析完成后，网页内资源加载完成的时间（如 JS 脚本加载执行完毕）。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">domComplete</td>
+            <td>DOM 树解析完成，且资源也准备就绪的时间，Document.readyState 变为 complete，并将抛出 readystatechange 相关事件。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">loadEventStart</td>
+            <td>load 事件发送给文档，也即 load 回调函数开始执行的时间。</td>
+        </tr>
+	<tr>
+            <td class="table_feature">loadEventEnd</td>
+            <td>load 事件的回调函数执行完毕的时间。</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p>通过上面的performance.timing各个属性的差值组成的可以计算出来对我们比较有用的页面性能数据大概包括如下几个：</p>
+
+
+
+<table class="dataintable">
+    <tbody>
+        <tr>
+            <th style="width:25%">属性</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td class="table_feature">DNS查询耗时</td>
+            <td>domainLookupEnd - domainLookupStart</td>
+        </tr>
+        <tr>
+            <td class="table_feature">TCP链接耗时</td>
+            <td>connectEnd - connectStart</td>
+        </tr>
+        <tr>
+            <td class="table_feature">request请求耗时</td>
+            <td>responseEnd - responseStart</td>
+        </tr>
+	<tr>
+            <td class="table_feature">request请求耗时</td>
+            <td>domComplete- domInteractive</td>
+        </tr>
+	<tr>
+            <td class="table_feature">白屏时间</td>
+            <td>responseStart - navigationStart</td>
+        </tr>
+        <tr>
+            <td class="table_feature">domready时间</td>
+            <td>domContentLoadedEventEnd - navigationStart</td>
+        </tr>
+	<tr>
+            <td class="table_feature">onload时间</td>
+            <td>loadEventEnd - navigationStart</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h4>getEntries</h4>
+
+
+<p>getEntries显示了所有静态资源的数组列表；点开后显示了，某一个请求的相关参数有name,type，时间等等。</p>
+
+<p>这个接口是获取所有的资源；同时，该API还提供了另外另个接口:performance.getEntriesByName()和
+performance.getEntriesByType() 顾名思义，分别是按资源的名称和类型获取相应的请求数据。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
