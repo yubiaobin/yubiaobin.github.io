@@ -115,6 +115,7 @@ header h2 {
 
 #container .inner img {
     max-width: 100%;
+    display:none;
 }
 
 #downloads {
